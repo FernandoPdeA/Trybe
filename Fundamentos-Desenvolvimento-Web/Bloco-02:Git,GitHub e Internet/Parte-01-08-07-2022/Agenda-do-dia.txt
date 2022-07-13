@@ -1,0 +1,36 @@
+ 
+[Trybe]Giovanni De Seta(Setinha)
+Bom dia, Tribo B
+SEXTANDO com a energia do Mufasa  :mufasa:
+:calendário: Agenda do dia 08/07/2022
+Dia 2.1 - Git & GitHub - O que é e para que serve?
+[*] 13h00 às 13h50 - Mentorias Técnicas :mãos_para_cima::tom-de-pele-3: | ZOOM - SLIDO
+      :anotações: Exercícios do dia 1.4
+14h00 às 15h00 Esquenta| ZOOM
+      O que são os 1:1s? Como funcionam?
+      Dinâmica :mario:
+      Explicação do Bloco 2
+15h00 às 16h20 Conteúdo do dia :livros:
+Nesse momento iremos estudar de forma assíncrona na nossa plataforma
+16h20 às 18h00 - Aula ao vivo :bandeira_quadriculada: com o 
+@[Trybe] Renan Fernandes
+ | ZOOM - SLIDO
+Bora voltar para o Zoom para nossa aula ao vivo!
+18h00 às 19h30 Exercícios do dia  :computador:
+De volta ao course para os exercícios do dia!
+[*] 18h40 às 19h30 Mentorias Técnicas :mãos_para_cima::tom-de-pele-3: | ZOOM - SLIDO
+       :anotações: Sala 01: Exercícios do dia 2.1
+       :github:Sala 02:  Dúvidas gerais  sobre Git e GitHub
+19h30 às 19h40 [Assíncrono] Preenchimento do Forms Diário :estrela_brilhante:
+Nos contem o que foi bom no dia e como podemos melhorar através desse link
+:carinha_nerd:
+19h40 às 20h00 Fechamento :cadeado_com_chave: | ZOOM
+Mural de Afinidades :quadro:
+AVISOS E ALINHAMENTOS
+:livros: Aproveite a Sala de Estudos nos momentos extra Trybe > Link
+:zoom: Para acessar a sala é só clicar na palavra "Zoom" na agenda. Lembre-se de fazer login no Zoom com o mesmo e-mail de acesso ao course;
+:despertador: Seja pontual e sempre considere o horário de Brasília;
+:virtual-meeting: Mantenha a sua câmera ligada sempre que possível;
+:pino:  A agenda fica pinada no canal. Para acessá-la de forma fácil é só clicar em "itens fixados", no canto superior esquerdo do Slack, logo abaixo do nome do canal;
+:mulher_virando_a_mão::tom-de-pele-4: Os momentos opcionais estão sinalizados com [*];
+:anotações: O preenchimento do forms é feito de forma assíncrona, antes do fechamento.

@@ -1,0 +1,39 @@
+Parte 3 - Adicionando uma chave SSH na sua conta do GitHub
+Neste passo, vamos aprender como adicionar uma chave SSH à sua conta do GitHub, o que vai te permitir fazer pushes e pulls sem ter que ficar digitando usuário e senha, como já explicamos. É de extrema importância que você siga TODOS os passos apresentados no artigo, apenas dessa forma você obterá o resultado esperado.
+
+Gerando uma chave SSH
+Abra seu terminal e digite o comando abaixo. Ele cria uma nova chave SSH, usando o seu email como rótulo.
+É preciso que o e-mail informado seja o mesmo que você utilizou para criar a sua conta no GitHub
+Copiar
+ssh-keygen -t ed25519 -C "seuemail@gmail.com"
+Durante o processo vai aparecer escrito no terminal Enter a file in which to save the key, quando isso acontecer pressione Enter para aceitar a localização padrão /home/you/.ssh/id_ed25519.
+Copiar
+Enter a file in which to save the key (/home/you/.ssh/id_ed25519): [Press enter]
+Agora você deve digitar uma senha segura.
+Copiar
+Enter passphrase (empty for no passphrase): [Type a passphrase]
+Enter same passphrase again: [Type passphrase again]
+Adicionando sua chave SSH ao ssh-agent
+Primeiro você deve iniciar o ssh-agent em background:
+Copiar
+eval "$(ssh-agent -s)"
+Agora você deve adicionar sua chave privada SSH ao ssh-agent. Para isso execute o comando abaixo no terminal:
+Copiar
+ssh-add ~/.ssh/id_ed25519
+Adicionando a chave SSH na sua conta do GitHub
+Para conseguir adicionar a chave SSH no Github, execute o comando abaixo:
+Copiar
+cat ~/.ssh/id_ed25519.pub
+Ele vai imprimir no terminal o nome do algoritmo (ssh-ed25519), seu e-mail e uma sequência de caracteres aleatórios (sua chave). Exemplo:
+Copiar
+ssh-ed25519 <chave-ssh> seu.email@email.com
+Copie a chave manualmente.
+Entre no seu GitHub e siga os passos abaixo:
+No canto superior direito do GitHub, clique na sua foto de perfil e clique em Settings;
+Na barra lateral esquerda, clique em SSH and GPG keys;
+Clique em New SSH key ou Add SSH key;
+No campo Título, adicione um descrição para a nova chave;
+Cole sua chave dentro do campo Key;
+Clique em Add SSH key;
+Caso seja solicitado, confirme sua senha do Github.
+Se tiver problemas ao seguir o tutorial acima, consulte a documentação oficial do GitHub.

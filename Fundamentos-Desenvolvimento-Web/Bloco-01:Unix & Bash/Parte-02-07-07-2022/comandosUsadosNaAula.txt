@@ -1,0 +1,493 @@
+EXEMPLOS DOS CÓDIGOS UTILIZADOS NAS AULAS
+
+Primeiro, você vai aprender a tratar inputs e outputs (entradas e saídas) no terminal.
+
+Para fixar o conhecimento da diferença entre os operadores > (maior), >> (maior maior) e | (pipe) veja o exemplo abaixo:
+Copiar
+# Considere o arquivo nomes.txt para os exemplos a seguir
+# Seu conteúdo inicial é:
+Ana
+Maria
+João
+
+# O > redireciona a saída padrão para um arquivo, sendo assim
+# caso haja algum conteúdo no arquivo, ele será substituído
+
+cat > nomes.txt
+# Digite o nome "Amanda" e encerre o cat (Ctrl + D)
+
+cat nomes.txt
+# Resultado
+Amanda
+
+# O >> anexa a saída padrão a um arquivo. Sendo assim, ele adiciona
+# o que for digitado ao final do arquivo em questão
+
+cat >> nomes.txt
+# Digite o nome "Fernanda", depois `enter` e o nome "Fabiano", e encerre o cat (Ctrl + D)
+
+cat nomes.txt
+# Resultado
+Amanda
+Fernanda
+Fabiano
+
+# O | canaliza a saída do primeiro comando para a entrada do segundo,
+# dessa forma conseguimos realizar comandos de forma sucessiva
+
+# Considere que queremos uma lista com todos os nomes que contenham
+# a letra "F" e que nosso resultado esteja em ordem alfabética
+# Para isso podemos realizar o comando abaixo
+
+grep F nomes.txt | sort
+# Resultado
+Fabiano
+Fernanda
+Agora que você já sabe os comandos básicos do Bash, você vai aprender como funciona o controle de acesso aos arquivos no Unix.
+
+Vamos entender um pouco mais a fundo as permissões? Abra seu terminal e digite o comando ls -l ou ll e veja detalhadamente o que significa abaixo:
+Copiar
+  Permissões | Links  | Proprietário | Grupo | Tamanho | Data e Hora   | Nome
+  -----------|--------|--------------|-------|---------|---------------|---------
+  drwxr-xr-x | 2 	  | root 	     | root  | 4096    | Out 19 09:10  | composer/
+Permissões => É possível verificar o tipo do item e nível de permissão para Leitura, Escrita e Execução de item ou diretório;
+Links => Número de ligações que o item possui, no caso do diretório, número de subdiretórios que possui;
+Proprietário => Quem é a pessoa dona, quem criou. É o diretório padrão da pessoa usuária, o home;
+Grupo => Grupo ao qual pertence o item ou diretório. Utilizado para dar permissões à outras pessoas;
+Tamanho => Em Bytes;
+Data e Hora => Momento em que foi criado ou última modificação;
+Nome => Nome do item ou diretório;
+Você aprendeu no vídeo como alterar as permissões no modo literal (caracteres), mas também é possível usar o modo octal. Para compreendermos esta outra forma, precisamos entender que eles são administrados por meio de valores como descrito abaixo:
+Leitura r - 4
+Escrita w - 2
+Execução x - 1
+Esses valores são permissões com base em bits de ligados = 1 e desligados = 0,
+Copiar
+rwx = 111 ( 7 | Acesso Total )
+r-- = 100 ( 4 | Somente Leitura )
+-w- = 010 ( 2 | Somente Escrita )
+--x = 001 ( 1 | Somente Execução )
+rw- = 110 ( 6 | Somente Leitura e Escrita )
+r-x = 101 ( 5 | Somente Leitura e Execução )
+-wx = 011 ( 3 | Somente Escrita e Execução )
+--- = 000 ( 0 | Todos Acessos Negados )
+Portanto, cada vez que você liga a chave de leitura, atribui-se o valor para esta chave somando-se com as demais chaves de administração de escrita e execução caso você também deseje ligá-las. A sintaxe para realizar esta alteração continua a mesma que no modo literal, sendo chmod 766 [arquivo ou diretório]. Cada número corresponde aos grupos de pessoas usuárias, de grupo e de outras pessoas usuárias.
+Agora você verá o que são, como listar e manipular os processos e jobs (trabalhos).
+
+Agora vamos aprender sobre os comandos find, history e echo.
+O find é um comando para pesquisar em diretórios por arquivos ou outras pastas, de acordo com os parâmetros passados a ele. Esses parâmetros podem ser name, date, size e type. Caso nenhum atributo seja passado, ele pesquisará tudo que estiver dentro do diretório atual. Veja abaixo alguns exemplos de como usá-lo:
+Copiar
+# Para listar todos os arquivos que terminam em .txt
+find . -name "*.txt"
+
+# Para localizar todos os diretórios
+find . -type d
+
+# Para localizar todos os arquivos
+find . -type f
+
+# Localizar tanto arquivos quanto diretórios que comecem
+# por algum trecho
+find ./teste -name "exemplo*"
+# Resultado
+./teste/exemplo.txt
+./teste/exemplo
+
+# Localizar somente arquivos que comecem por algum trecho
+find ./teste -type f -name "exemplo*"
+# Resultado
+./teste/exemplo.txt
+
+# Localizar somente diretórios que comecem por algum trecho
+find ./teste -type d -name "exemplo*"
+# Resultado
+./teste/exemplo
+Copiar
+O `history` é um comando que mostra o histórico de comandos que você executou no terminal. A quantidade ou o tamanho desse _"histórico"_ podem ser configurados para um número arbitrário de comandos ou para ver todo o histórico.
+Copiar
+# Mostra o histórico de comandos
+history
+# Pegar os últimos 10 comandos
+history | tail
+Copiar
+O `echo` é um comando utilizado em scripts ou no terminal para exibir mensagens na tela ou em um arquivo.
+Copiar
+
+echo "Este é um teste"
+# Resultado
+Este é um teste
+
+# Pode ser usado para colocar textos dentro de arquivos.
+echo "Este é mais um teste" > teste.txt
+cat teste.txt
+Este é mais um teste
+
+
+
+
+
+
+
+
+
+
+VISÃO DOS CÓDIGOS NO TERMINAL
+
+USANDO O COMANDO CAT-SORT-WHO
+
+CRIA ARQUIVO E INSERI DADOS DENTRO
+λ fernando-Aspire ~ → cat > cores.txt               
+azul 
+verde 
+amarelo 
+
+λ fernando-Aspire ~ → ls
+'Área de Trabalho'   Controle_Estoque   Documentos   Imagens   Meu_Site_Oficial   Música      Público   SSHDentroOneDrive
+ aula                cores.txt          Downloads    Insync    Modelos            ObsStúdio   snap      Vídeos
+
+λ fernando-Aspire ~ → nano cores.txt    
+
+λ fernando-Aspire ~ → cat cores.txt    
+azul 
+verde 
+amarelo
+
+INSERI NOVOS VALORES NO ARQUIVO CRIADO 
+λ fernando-Aspire ~ → cat >> cores.txt 
+preto
+marrom
+laranja 
+
+λ fernando-Aspire ~ → ls
+'Área de Trabalho'   Controle_Estoque   Documentos   Imagens   Meu_Site_Oficial   Música      Público   SSHDentroOneDrive
+ aula                cores.txt          Downloads    Insync    Modelos            ObsStúdio   snap      Vídeos
+
+EXIBE AGORA COM OS NOVOS VALORES 
+λ fernando-Aspire ~ → cat cores.txt   
+azul 
+verde 
+amarelo
+preto
+marrom
+laranja
+
+CRIA O ARQUIVO FRUTAS E INSERI VALORES
+λ fernando-Aspire ~ → cat > frutas.txt 
+maça
+morango
+banana
+maçã
+
+λ fernando-Aspire ~ → ls
+'Área de Trabalho'   Controle_Estoque   Documentos   frutas.txt   Insync             Modelos   ObsStúdio   snap                Vídeos
+ aula                cores.txt          Downloads    Imagens      Meu_Site_Oficial   Música    Público     SSHDentroOneDrive
+
+EXIBINDO OS VALORES NO ARQUIVO 
+λ fernando-Aspire ~ → cat frutas.txt   
+maça
+morango
+banana
+maçã
+
+CRIANDO UM ARQUIVO CHAMADO 'TUDO.TXT' E INSERINDO TODOS OS VALORES DOS DOIS ARQUIVOS CRIADOS ANTERIORMANTE
+λ fernando-Aspire ~ → cat cores.txt frutas.txt > tudo.txt 
+
+λ fernando-Aspire ~ → ls
+'Área de Trabalho'   Controle_Estoque   Documentos   frutas.txt   Insync             Modelos   ObsStúdio   snap                tudo.txt
+ aula                cores.txt          Downloads    Imagens      Meu_Site_Oficial   Música    Público     SSHDentroOneDrive   Vídeos
+
+EXIBINDO AGORA O TERCEIRO ARQUIVO CRIADO COM TODOS OS VALORES DOS ANTERIORES
+λ fernando-Aspire ~ → cat tudo.txt                        
+azul 
+verde 
+amarelo
+preto
+marrom
+laranja
+maça
+morango
+banana
+maçã
+
+EXIBINDO OS VALORES DO ARQUIVO 'CORES.TXT' EM ORDEM ALFABÉTICA, OU SEJA ORDENADAMENTE
+λ fernando-Aspire ~ → sort < cores.txt     
+amarelo
+azul 
+laranja
+marrom
+preto
+verde 
+
+EXIBINDO OS VALORES SEM ORDENAR
+λ fernando-Aspire ~ → cat cores.txt                       
+azul 
+verde 
+amarelo
+preto
+marrom
+laranja
+
+INSERINDO OS VALORES DO ARQUIVO 'CORES.TXT' ORDENADAMENTE PARA DENTRO DO ARQUIVO CRIADO AGORA 'CORESORDENADAS.TXT'
+λ fernando-Aspire ~ → sort < cores.txt > coresOrdenadas.txt 
+
+λ fernando-Aspire ~ → ls
+'Área de Trabalho'   Controle_Estoque     cores.txt    Downloads    Imagens   Meu_Site_Oficial   Música      Público   SSHDentroOneDrive   Vídeos
+ aula                coresOrdenadas.txt   Documentos   frutas.txt   Insync    Modelos            ObsStúdio   snap      tudo.txt
+
+EXIBINDO O ARQUIVO 'CORESORDENADAS.TXT'
+λ fernando-Aspire ~ → cat coresOrdenadas.txt 
+amarelo
+azul 
+laranja
+marrom
+preto
+verde 
+
+O COMANDO 'WHO' ME MOSTRA OS USUÁRIOS DA MÁQUINA
+λ fernando-Aspire ~ → who               
+fernando tty2         2022-07-07 09:10 (tty2)
+
+MOSTRANDO OS USUÁRIOS DA MÁQUINA EM ORDEM ALFABÉTICA
+λ fernando-Aspire ~ → who | sort 
+fernando tty2         2022-07-07 09:10 (tty2)
+
+MOSTRANDO A QUANTIDADE DE USUÁRIOS USANDO O '-L' DEPOIS DO COMANDO 'WHO'
+λ fernando-Aspire ~ → who | wc -l 
+1
+
+
+
+
+
+
+
+
+USANDOO O 'CHMOD' PARA DAR OU RETIRA PERMISSÕES AOS ARQUIVOS 
+
+
+CRIANDO UM ARQUIVO E INSERINDO UM VALOR DENTRO
+λ fernando-Aspire ~ → cat > arquivo.txt 
+Trybe <3%                                                                                                                                                     
+
+λ fernando-Aspire ~ → ls
+'Área de Trabalho'   aula               Documentos   Imagens   Meu_Site_Oficial   Música      Público   SSHDentroOneDrive
+ arquivo.txt         Controle_Estoque   Downloads    Insync    Modelos            ObsStúdio   snap      Vídeos
+
+'LS -L' ME MOSTRA QUAIS AS PERMISSÕES DOS ARQUIVOS E DIRETÓRIOS 
+λ fernando-Aspire ~ → ls -l  
+total 64
+drwxr-xr-x  2 fernando fernando 4096 jul  4 20:29 'Área de Trabalho'
+-rw-rw-r--  1 fernando fernando    8 jul  7 10:16  arquivo.txt
+drwxrwxr-x  3 fernando fernando 4096 jul  6 16:11  aula
+drwxrwxr-x  4 fernando fernando 4096 jul  3 16:24  Controle_Estoque
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Documentos
+drwxr-xr-x  2 fernando fernando 4096 jul  5 18:04  Downloads
+drwxr-xr-x  7 fernando fernando 4096 jul  1 11:25  Imagens
+drwxrwxr-x  3 fernando fernando 4096 jun  1 14:09  Insync
+drwxrwxr-x  5 fernando fernando 4096 jul  3 16:23  Meu_Site_Oficial
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Modelos
+drwxr-xr-x  7 fernando fernando 4096 jun 22 10:42  Música
+drwxrwxr-x  2 fernando fernando 4096 jul  5 10:41  ObsStúdio
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Público
+drwx------ 10 fernando fernando 4096 jul  5 09:59  snap
+drwxrwxr-x  2 fernando fernando 4096 jul  3 15:03  SSHDentroOneDrive
+drwxr-xr-x  3 fernando fernando 4096 jun 21 16:05  Vídeos
+
+USANDO O 'CHMOD' PARA ALTERAR AS PERMISSÕES, NESSSE CASO USAMOS O SINAL DE '-' PARA SUBTRAIR UMA PERMISSÃO
+U = USUÁRIO
+G = GRUPO
+A = TODOS 
+- = SUBTRAIR UMA PERMISSÃO
++ = ACRESCENTAR UMA PERMISSÃO
+λ fernando-Aspire ~ → chmod u-rw arquivo.txt 
+
+JÁ PODEMOS VER QUE AS PERMISSÕES DE LEITURA E ESCRITA NO ARQUIVO FORAM NEGADAS E  MODIFICADAS
+λ fernando-Aspire ~ → ls -l
+total 64
+drwxr-xr-x  2 fernando fernando 4096 jul  4 20:29 'Área de Trabalho'
+----rw-r--  1 fernando fernando    8 jul  7 10:16  arquivo.txt
+drwxrwxr-x  3 fernando fernando 4096 jul  6 16:11  aula
+drwxrwxr-x  4 fernando fernando 4096 jul  3 16:24  Controle_Estoque
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Documentos
+drwxr-xr-x  2 fernando fernando 4096 jul  5 18:04  Downloads
+drwxr-xr-x  7 fernando fernando 4096 jul  1 11:25  Imagens
+drwxrwxr-x  3 fernando fernando 4096 jun  1 14:09  Insync
+drwxrwxr-x  5 fernando fernando 4096 jul  3 16:23  Meu_Site_Oficial
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Modelos
+drwxr-xr-x  7 fernando fernando 4096 jun 22 10:42  Música
+drwxrwxr-x  2 fernando fernando 4096 jul  5 10:41  ObsStúdio
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Público
+drwx------ 10 fernando fernando 4096 jul  5 09:59  snap
+drwxrwxr-x  2 fernando fernando 4096 jul  3 15:03  SSHDentroOneDrive
+drwxr-xr-x  3 fernando fernando 4096 jun 21 16:05  Vídeos
+
+COMO AS PERMISSÕES FORAM NEGADAS, NÃO POSSO ACESSAR MAIS O ARQUIVO
+λ fernando-Aspire ~ → cat arquivo.txt       
+cat: arquivo.txt: Permissão negada
+
+COMO AS PERMISSÕES FORAM NEGADAS, NÃO POSSO ACESSAR MAIS ESCREVER NO ARQUIVO
+λ fernando-Aspire ~ → cat > arquivo.txt             
+zsh: permissão negada: arquivo.txt
+
+AGORA VAMOS ACRESCENTAR AS PERMISSÕES AO ARQUIVO NOVAMENTE USANDO O SINAL DE '+'
+λ fernando-Aspire ~ → chmod u+rw arquivo.txt 
+
+AGORA PODEMOS VER QUE AS PERMISSÕES DE LIDA E ESCRITA VOLTARAM NOVAMENTE
+λ fernando-Aspire ~ → ls -l 
+total 64
+drwxr-xr-x  2 fernando fernando 4096 jul  4 20:29 'Área de Trabalho'
+-rw-rw-r--  1 fernando fernando    8 jul  7 10:16  arquivo.txt
+drwxrwxr-x  3 fernando fernando 4096 jul  6 16:11  aula
+drwxrwxr-x  4 fernando fernando 4096 jul  3 16:24  Controle_Estoque
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Documentos
+drwxr-xr-x  2 fernando fernando 4096 jul  5 18:04  Downloads
+drwxr-xr-x  7 fernando fernando 4096 jul  1 11:25  Imagens
+drwxrwxr-x  3 fernando fernando 4096 jun  1 14:09  Insync
+drwxrwxr-x  5 fernando fernando 4096 jul  3 16:23  Meu_Site_Oficial
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Modelos
+drwxr-xr-x  7 fernando fernando 4096 jun 22 10:42  Música
+drwxrwxr-x  2 fernando fernando 4096 jul  5 10:41  ObsStúdio
+drwxr-xr-x  2 fernando fernando 4096 mai 31 20:17  Público
+drwx------ 10 fernando fernando 4096 jul  5 09:59  snap
+drwxrwxr-x  2 fernando fernando 4096 jul  3 15:03  SSHDentroOneDrive
+drwxr-xr-x  3 fernando fernando 4096 jun 21 16:05  Vídeos
+
+JÁ PODEMOS ACESSAR NOVAMENTE O ARQUIVO
+λ fernando-Aspire ~ → cat arquivo.txt       
+Trybe<3                                                                                                                                                    
+
+jÁ PODEMOS ESCREVER NO ARQUIVO NOVAMENTE 
+λ fernando-Aspire ~ → cat > arquivo.txt         
+Trybe;)
+
+λ fernando-Aspire ~ → cat arquivo.txt  
+Trybe;)
+
+VAMOS ACRESCENTAR MAIS UM VALOR AO ARQUIVO
+λ fernando-Aspire ~ → cat >> arquivo.txt 
+Trbe<3
+
+AGORA VIZUALIZAMOS TODOS OS VALORES
+λ fernando-Aspire ~ → cat arquivo.txt   
+Trybe;)
+Trbe<3
+
+
+
+
+CRIANDO, GERENCIANDO, MATANDO PROCESSOS 
+
+PARA VIZUALIZAR OS PROCESSOS QUE ESTÃO SENDO EXECUTADOS 
+λ fernando-Aspire ~ → ps  
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:11 zsh
+  11715 pts/0    00:00:00 ps
+  
+CRIANDO UM PROCESSO DE 5 SEGUNDOS
+λ fernando-Aspire ~ → sleep 5   
+
+CRIANDO UM PROCESSO DE 10 SEGUNDOS E DEIXANDO EM BACKGROUND                            
+λ fernando-Aspire ~ → sleep 10 & 
+[1] 11779
+λ fernando-Aspire ~ → 
+[1]  + 11779 done       sleep 10
+
+CHECANDO O PROCESSO CRIADO EM EXECUÇÃO
+λ fernando-Aspire ~ → ps 
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:11 zsh
+  11867 pts/0    00:00:00 sleep
+  11877 pts/0    00:00:00 ps
+  
+λ fernando-Aspire ~ → 
+[1]  + 11867 done       sleep 10
+λ fernando-Aspire ~ → ps
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:11 zsh
+  11888 pts/0    00:00:00 ps
+  
+  CRIANDO UM PROCESSO DE 100 SEGUNDOS, DEPOIS DANDO UM 'CONTROL+Z' PARA MATÁLO
+λ fernando-Aspire ~ → sleep 100   
+^Z
+[1]  + 11906 suspended  sleep 100
+
+USANDO O 'BG' PARA REINICIAR O PROCESSO QUE FOI INSERRADO
+λ fernando-Aspire ~ → bg  
+[1]  + 11906 continued  sleep 100
+
+CHECANDO SE O PROCESSO VOLTOU A RODAR
+λ fernando-Aspire ~ → ps
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:11 zsh
+  11906 pts/0    00:00:00 sleep
+  11926 pts/0    00:00:00 ps
+  
+USANDO O 'JOBS' PARA CHECAR SE O PROCESSO ESTA EXECUTANDO
+λ fernando-Aspire ~ → jobs 
+[1]  + running    sleep 100
+
+
+λ fernando-Aspire ~ → ps 
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:11 zsh
+  11906 pts/0    00:00:00 sleep
+  11962 pts/0    00:00:00 ps
+λ fernando-Aspire ~ → 
+[1]  + 11906 done       sleep 100
+
+λ fernando-Aspire ~ → jobs 
+
+λ fernando-Aspire ~ → ps 
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:12 zsh
+  11991 pts/0    00:00:00 ps
+
+λ fernando-Aspire ~ → ps
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:12 zsh
+  12026 pts/0    00:00:00 ps
+
+CRIANDO UM PROCESSO DE 100 SEGUNDOS E DEIXANDO EM BACKGROUND
+λ fernando-Aspire ~ → sleep 1000 & 
+[1] 12079
+
+CHECANDO
+λ fernando-Aspire ~ → ps 
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:12 zsh
+  12079 pts/0    00:00:00 sleep
+  12088 pts/0    00:00:00 ps
+
+USANDO O 'KILL' E O NÚMERO DO PROCESSO PARA MATÁ-LO
+λ fernando-Aspire ~ → kill 12079
+[1]  + 12079 terminated  sleep 1000                                                                                                                           
+
+CHECANDO SE MATOU REALMENTE
+λ fernando-Aspire ~ → ps 
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:12 zsh
+  12115 pts/0    00:00:00 ps
+  
+  
+λ fernando-Aspire ~ → sleep 1000 & 
+[1] 12125
+
+λ fernando-Aspire ~ → ps 
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:12 zsh
+  12125 pts/0    00:00:00 sleep
+  12134 pts/0    00:00:00 ps
+
+OUTRA FORMA DE MATAR UM PROCESSO USNDO O 'KILL' -9 E O NÚMERO DO PROCESSO QUE SERIA O 'PID'
+λ fernando-Aspire ~ → kill -9 12125 
+[1]  + 12125 killed     sleep 1000                                                                                      
+
+CHECANDO SO PROCESSOS                                      
+λ fernando-Aspire ~ → ps 
+    PID TTY          TIME CMD
+   4570 pts/0    00:00:12 zsh
+  12162 pts/0    00:00:00 ps
+λ fernando-Aspire ~ → 
+
+
+

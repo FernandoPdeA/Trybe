@@ -1,0 +1,11 @@
+Mas o que é mesmo esse Controle de Versão?
+Até aqui, você já sentiu na pele a dificuldade de gerenciar o trabalho realizado por diferentes pessoas ao mesmo tempo a fim de realizarem uma entrega conjunta.
+Esse mesmo desafio assombrava o dia a dia de quase toda pessoa que trabalhava com desenvolvimento e precisava guardar diversas versões de seus sistemas, depois juntar os pedaços daquilo que era produzido ou alterado por cada colega, de modo a ter um código final estável.
+O surgimento das comunidades de desenvolvimento de "software livre" tornou esse desafio ainda mais evidente, já que havia milhares de pessoas trabalhando juntas, em horários e localidades diversas, no código de um mesmo produto.
+Assista o vídeo a seguir que mostra o que é esse Controle de Versão. Na sequência leia esse artigo que também abrange esse assunto. Leia-o atentamente. 👩🏽‍🏫
+Agora que você já entende qual a finalidade do controle de versão, vamos a três conceitos importantíssimos para o seu trabalho:
+Ramificação (Branching);
+Mesclagem (Merge);
+Resolução de conflitos.
+Em primeiro lugar, mais importante do que saber a sintaxe dos comandos, agora é hora de entender os conceitos.
+Tendo isso em vista, veja este video sobre branch e merge:

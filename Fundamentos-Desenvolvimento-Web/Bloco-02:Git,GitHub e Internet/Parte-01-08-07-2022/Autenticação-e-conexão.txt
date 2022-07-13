@@ -1,0 +1,10 @@
+Autenticação - Como funciona a conexão entre local e remoto?
+Como tudo o que você vai fazer ao longo do curso (e muito provavelmente da sua vida profissional) irá ter como workspace principal o GitHub, é necessário estabelecer uma ponte entre o Git (local) e o GitHub (remoto), e sobretudo que essa ponte seja segura.
+É aí que entra o processo de autenticação do GitHub, que lhe permitirá, ao mesmo tempo, proteger suas informações pessoais e mandar comandos para o GitHub diretamente pelo seu terminal!
+Quando esse processo é feito, você informa ao sistema remoto que é para utilizar as credenciais da sua conta ao executar algum comando do git e, ao mesmo tempo, comprova para o GitHub que você é exatamente quem diz que é.
+Autenticar via SSH ou HTTPS?
+Existem duas formas pelas quais você pode acessar o GitHub pelo terminal: HTTPS (Hypertext Transfer Protocol Secure) e SSH (Secure Shell). Ambas as formas são válidas, mas possuem algumas diferenças entre si:
+SSH ou Secure Shell: é um protocolo de criptografia de rede que serve para transferir dados de forma segura mesmo em redes inseguras. Usando o protocolo SSH, você pode se conectar ao GitHub sem precisar digitar seu nome e chave de acesso pessoal a cada comando executado.
+HTTPS ou Hypertext Transfer Protocol Secure: é uma extensão do protocolo de internet HTTP (você verá mais sobre esse protocolo no dia de conteúdo que trata sobre internet!) que utiliza certificados digitais para autenticar os dados e permitir que eles sejam criptografados de forma segura.
+No caso do HTTPS, você precisará criar um token de acesso pessoal para usar no lugar da sua senha quando ela for pedida. Para entender melhor, veja o passo a passo na documentação do GitHub. No entanto, recomendamos o uso do SSH.
+Como o SSH nos permite pular a etapa de digitar login e senha do GitHub a cada comando (e ao longo do curso serão muuuuuuuuitos comandos), iremos utilizar o SSH como modelo padrão de autenticação. Para isso você deverá seguir alguns passos, mas não se assuste: é mais simples do que parece! Quer ver só? Então vamos praticar um pouco!

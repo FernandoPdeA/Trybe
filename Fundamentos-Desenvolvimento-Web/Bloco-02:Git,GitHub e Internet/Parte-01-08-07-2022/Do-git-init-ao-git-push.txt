@@ -1,0 +1,95 @@
+Do git init ao git push
+⚠️ O conteúdo a seguir é apenas para leitura, boa parte dos comandos não funcionarão até que você faça as instalações devidas.
+A ideia aqui é que você tenha ciência do fluxo tomado no processo desde a criação de um repositório local até a habilitação remota deste mesmo repositório (no github), por isso não se preocupe em executar os comandos, mas sim em entender o que está acontecendo.
+As instalações de tudo o que você precisa para repetir o que é feito nessa seção estão presentes na parte de exercícios. PORÉM, recomendamos que você veja o conteúdo daqui antes, e somente após a realização dos exercícios, caso seja de seu interesse, volte aqui para refazer os comandos por si só. Há também a opção de fazer os exercícios simultaneamente a essa parte do conteúdo. Para isso ao longo dessa sessão serão mencionados quais exercícios devem ser prioritariamente concluídos para que vocẽ consiga realizar os procedimentos em seu computador.⚠️
+Agora você vai aprender o processo para criar um repositório Git, fazer seu primeiro commit e subi-lo para um repositório no GitHub.
+Criando um repositório local
+Caso queira fazer as instalações simultaneamente à leitura desse conteúdo, o exercício Parte 1 - Instalação e configuração deve ser concluído.
+Antes de se criar um repositório é preciso criar uma pasta para ele. Para isso você deve utilizar o comando mkdir, como vimos anteriormente, e então navegar para a pasta criada com o comando cd.
+Para criar um repositório você deve digitar o comando git init. É muito importante que esteja dentro da pasta criada para o repositório.
+Após usar o git init a resposta do seu terminal será algo parecido com a imagem a seguir:
+
+Iniciando repositório local
+Como seu nome bem diz, esse comando é responsável por iniciar um repositório Git dentro da pasta em que foi executado.
+Para verificar se um repositório Git foi de fato iniciado, você pode executar o comando git status, que retorna o status do repositório, informando quais arquivos foram modificados, quais estão sendo monitorados, etc. No contexto de um repositório recém criado onde nenhuma modificação foi feita você receberia a seguinte resposta:
+Copiar
+No ramo master
+
+No commits yet
+
+nada para enviar (crie/copie arquivos e use "git add" para registrar)
+Atenção, contas e repositórios mais recentes no github não possuem mais o termo "master" pela pejoratividade da palavra, esse termo foi substituído por "main" então talvez seja necessária a alteração dessa palavra em alguns códigos.
+Adicionando e comitando arquivos
+Vamos adicionar um arquivo a esta pasta para então podermos versionar as alterações feitas no novo repositório.
+Primeiro crie um arquivo .txt com o nome meu_arquivo e inclua a ele o texto:
+Copiar
+Meu primeiro repositório Git.
+Feita a criação do arquivo, ao executar o comando git status, você irá receber uma resposta parecida com essa:
+
+Resposta do git status com alterações
+Para que possamos versionar alterações feitas no código é preciso sempre seguir a seguinte sequência:
+⚠️ Embora não seja necessário, é considerado uma boa prática usar o comando git status para checar quais arquivos foram modificados antes de usar o git add. Dessa forma, você consegue visualizar quais arquivos foram modificados, garantindo que executará o comando git add . sem enviar arquivos indesejados. ⚠️
+⚠️ Você também pode usar o git status após o git add. Isso mostrará quais arquivos estão no staging, que é a área de arquivos que estão preparados para serem enviados no próximo commit.
+Adicionar (add)
+Comitar (commit -m "mensagem")
+⚠️ Não é possível realizar um commit em um diretório vazio! É necessário ao menos um arquivo criado dentro dele, ainda que em branco. ⚠️
+Os comandos ficam da seguinte forma:
+Copiar
+# Execute o comando git status para verificar o status do repositório
+# Adicionar todos os arquivos modificados
+git add .
+
+# Ou você também pode adicionar arquivos específicos
+git add meu_arquivo.txt meu_outro_arquivo.txt
+
+# Então você comita a alteração
+# Ao comitar você deve adicionar também uma mensagem que descreve o que aquela alteração faz
+
+git commit -m "Mensagem sobre a alteração feita"
+⚠️ Embora o git add . seja mais prático, em alguns casos você não vai querer enviar todos os arquivos modificados. Lembre-se que você pode usar o git add para selecionar arquivos específicos sempre que precisar, basta nomear cada arquivo que quer adicionar e separá-los por espaços.
+Após adicionar e fazer um commit de suas alterações, você receberá no terminal algo parecido com a próxima imagem:
+
+Resposta do git commit após alterações
+👀 De olho na dica: É considerada uma boa prática o hábito de realizar commits com frequência. Isso facilita o acompanhamento das alterações e também na correção de possíveis erros em seu código. Procure evitar commits muito extensos e/ou com muitas alterações.
+Feito isso, agora queremos conectar nosso repositório local com um repositório remoto para enviar as novas alterações, mas antes, vamos ver como criar um repositório remoto no GitHub
+Criando um repositório no GitHub
+Caso queira fazer as instalações simultaneamente à leitura desse conteúdo, o exercício Parte 2 - Criar conta no GitHub e o exercício Parte 3 - Adicionando uma chave SSH na sua conta do GitHub devem ser concluídos.
+Para isso acesse o GitHub e procure o ícone com um sinal + na barra superior e ao clicar nele busca pela opção New repository. Você será redirecionado para uma página semelhante a essa:
+
+Página de criação de repositório
+Você deve então adicionar um nome ao seu repositório, como por exemplo meu-super-repo. Após fazer isso o botão Create repository será habilitado e ao clicar nele seu repositório será criado.
+Por enquanto ignore as outras opções, a medida que for avançando no curso você aprenderá mais sobre elas!
+Como seu repositório estará vazio, o GitHub lhe dará algumas dicas, você verá uma página parecida com essa:
+
+Repositório vazio criado
+Você deverá clicar no botão SSH e então copiar a URL gerada. Você irá precisar dela para realizar a conexão entre seu repositório local e seu repositório remoto.
+Conectando o repositório local com o remoto
+Para conectar os dois repositórios você deverá abrir o seu terminal, acessar o diretório do seu repositório e então executar o seguinte comando:
+Copiar
+git remote add origin git@github.com:user-github/repo-name.git
+Sendo origin um apelido para o seu repositório, poderia ser qualquer outro. E no lugar da URL git@github.com:user-github/repo-name.git deve ir a gerada pelo seu repositório (aquela que acabamos de copiar no passo acima).
+Para verificar que tudo funcionou corretamente, execute o comando git remote -v, você obterá um resultado semelhante a esse:
+Copiar
+origin	git@github.com:user-github/repo-name.git (fetch)
+origin	git@github.com:user-github/repo-name.git (push)
+Sincronizando os repositórios
+Os repositórios já estão criados e também já estão conectados, agora é a hora de enviar as alterações feitas no repositório local para o repositório remoto.
+Para isso, certifique-se que as alterações já foram adicionadas e comitadas utilizando o comando git status, caso esteja tudo certo, você receberá uma mensagem no terminal parecida com a imagem a seguir:
+
+Resposta do git status sem alterações pendentes de commit
+Caso tenha alguma alteração que não foi comitada, faça o commit para depois enviar as alterações.
+Com tudo comitado é hora de enviar essas alterações para o respositório remoto utilizando o seguinte comando:
+Copiar
+git push origin master
+Com isso, você está enviando as alterações feitas localmente para a branch principal, main ou master, do seu repositório remoto, origin.
+Se tudo ocorreu conforme o esperado, acesse novamente, ou atualize, a página do seu repositório no GitHub, você então verá que os arquivos e alterações que comitou agora se encontram lá!
+Resumo
+Em suma, todo esse processo acontece nessa ordem:
+Uma pasta é criada para armazenar um repositório local (mkdir <nome da pasta>);
+Nos movemos para a pasta criada (cd <nome da pasta criada>);
+Um repositório local é criado nessa pasta, e aqui já será possível ter controle de versionamento (git init);
+Modificamos os arquivos que queremos modificar;
+Verificamos quais arquivos foram alterados (git status);
+Arquivos selecionados pelo usuário são adicionados ao que será modificado na próxima versão (git add);
+Uma nova versão desse repositório local é criada com uma descrição do que essa versão muda em relação à antiga (git commit -m "<mensagem desejada>");
+Empurra as alterações do repositório local para o repositório remoto (git push).

@@ -1,0 +1,32 @@
+Parte 5 - Habilitando Two Factor Authentication no seu GitHub
+Você pode estar se perguntando, o que é Two Factor Authentication?
+Se for o caso ainda bem que você está aqui e podemos te ajudar com isso. Two Factor Authentication ou 2fa (autenticação de dois fatores) é um processo de autenticação que combina dois ou mais fatores. Legal, mas isso não explica muita coisa, né?
+Bom, pense que você está acessando sua conta em algum lugar, você precisa digitar sua senha, não é mesmo? Isso é um processo de autenticação, mas quando falamos de 2FA queremos uma outra camada de autenticação. Mas por que? Segurança, fica muito mais difícil acessarem sua conta se precisarem passar por mais processos, concorda?
+Hoje queremos que você habilite isso em seu github, afinal mais segurança sempre cai bem, não é mesmo?
+Existem vários processos possíveis para usarmos no 2FA, mas vamos falar sobre TOTP's apps (time-based one-time password) que geram um token de uso único com validade determinada.
+Caso se sinta confortável, há um guia do próprio github ensinando como fazer esse processo neste link, porém ele ainda não está traduzido, mas vamos explicar passo a passo como fazer esse processo por aqui.
+1 - Baixe um aplicativo TOTP
+Em seu celular, escolha um aplicativo dessa categoria, recomendamos os seguintes:
+Authy
+Microsoft Authenticator
+2 - Faça essas alterações na sua conta do Github
+Acesse qualquer página do github. Na parte superior direita clique em sua imagem de perfil, e então clique em "Settings";
+
+Clique na foto de perfil e então em settings
+Feito isso, você estará na página de configurações do seu perfil no Github. Agora, no menu lateral esquerdo clique em "Password and authentication";
+
+No menu lateral esquerdo, clique em Password and authentication
+Localize na página que foi aberta a parte que diz "Two-factor authentication" ou "Autenticação de dois fatores" e clique no botão verde escrito "Enable two-factor authentication" ou "Habilitar autenticação de dois fatores";
+
+Clique em Enable two-factor authentication
+Estamos quase lá, você deve cair numa página com um QR code. Abra o aplicativo que você baixou em seu celular e escaneie esse QR-code. Se não conseguir escanear, clique em "enter this text code" e adicione manualmente o código mostrado em seu app.
+
+Escaneie o QR code ou clique em enter this text code
+Um código de 6 dígitos será mostrado em seu app. Digite no espaço abaixo do QR code;
+
+Digite o código exibido pelo seu app
+Estamos quase acabando, agora você verá algo semelhante a imagem abaixo. São códigos de recuperação de sua conta caso você perca o acesso a mesma. Clique em download e salve esse arquivo em algum lugar seguro. Se tiver alguma maneira de backup pode ser legal salvar lá também.
+
+Salve seus códigos de recuperação de conta
+Clique em "I have saved my recovery codes". Isso habilitará a 2fa em sua conta, mas recomendamos que você saia e entre de volta em sua conta do github. Em caso de qualquer problema você terá seus códigos para recuperação da mesma.
+Agora sua conta está muito mais segura!!!

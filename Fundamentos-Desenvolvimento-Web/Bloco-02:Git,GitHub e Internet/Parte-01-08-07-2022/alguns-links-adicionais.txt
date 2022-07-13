@@ -1,0 +1,7 @@
+https://git-scm.com/book/pt-br/v2
+https://help.github.com/en/articles/connecting-to-github-with-ssh
+https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/
+https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git
+https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Configura%C3%A7%C3%A3o-Inicial-do-Git
+https://medium.com/@rgdev/como-adicionar-uma-chave-ssh-na-sua-conta-do-github-linux-e0f19bbc4265
+http://www.devfuria.com.br/git/tutorial-iniciando-git/

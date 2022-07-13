@@ -1,0 +1,42 @@
+
+[Trybe]Giovanni De Seta(Setinha)
+  12h
+Bom dia, Tribo!
+Vamos com tudo começar nossa segunda semana de curso! :pikachudancing:
+:calendário: Agenda do dia 11/07/2022
+Dia 2.2 - Git & GitHub - Entendendo os comandos
+[*] 13h00 às 13h50 - Mentoria Técnica :mãos_para_cima::tom-de-pele-3: |  Zoom | Slido   
+:anotações: Não existe dúvida boba - Git & Github
+14h00 às 14h10 Esquenta | Zoom
+14h10 às 14h40 Momento Soft Skills Assíncrono | Autoliderança PDI
+Nesse momento iremos estudar de forma assíncrona na nossa plataforma.
+:um: Leia todos os tópicos. O caminho no course para o conteúdo é: Soft skills > Liderança > criação de PDI;
+:dois: Faça a atividade indicada no course. Mais tarde, a 
+@Ana Duarte (AnaDú)
+ vai postar uma thread abordando possíveis dúvidas sobre o momento.
+14h40 às 16h20 Conteúdo do dia :livros:
+     Nesse momento iremos estudar de forma assíncrona na nossa plataforma
+16h20 às 18h00 - Aula ao vivo :bandeira_quadriculada: | Zoom | Slido
+     Bora voltar para o Zoom para nossa aula ao vivo!
+18h00 às 18h30 Exercícios do dia :computador:
+     De volta ao course para os exercícios do dia!
+[*] 18h30 às 19h20 Mentoria Técnica :mãos_para_cima::tom-de-pele-3: | Zoom | Slido
+       :anotações: Exercícios do dia
+       :github: Dúvida de instalação de GIT/GITHUB
+19h20 às 19h30 [Assíncrono] Preenchimento do Forms Diário :estrela_brilhante:
+     Nos contem o que foi bom no dia e como podemos melhorar através DESSE LINK! :carinha_nerd:
+19h30 às 20h00 Fechamento Intertribo :cadeado_com_chave:  | Zoom
+     De frente com Gabi 
+@Ana Duarte (AnaDú)
+ - Papo sobre Soft Skills :cérebro:
+     Vamos trazer pessoas convidadas das turmas 15 e 16 para contar como as soft skills fizeram a diferença na jornada delas. :foguete:
+     :linkedin:  Beatriz Ribeiro, Marina Marques, Paulo Flóra, Carlos Lima e Raphael Taglialegna
+AVISOS E ALINHAMENTOS
+:1up: Agenda de 1:1 aberta! Para agendar o 1:1 de experiência, clique aqui.
+:livros: Aproveite a Sala de Estudos nos momentos extra Trybe > Link do Zoom da Sala
+:zoom: Para acessar a sala é só clicar na palavra "Zoom" na agenda. Lembre-se de fazer login no Zoom com o mesmo e-mail de acesso ao course;
+:despertador: Seja pontual e sempre considere o horário de Brasília;
+:virtual-meeting: Mantenha a sua câmera ligada sempre que possível;
+:pino:  A agenda fica pinada no canal. Para acessá-la de forma fácil é só clicar em "itens fixados", no canto superior esquerdo do Slack, logo abaixo do nome do canal;
+:mulher_virando_a_mão::tom-de-pele-4: Os momentos opcionais estão sinalizados com [*];
+:anotações: O preenchimento do forms é feito de forma assíncrona, antes do fechamento.
