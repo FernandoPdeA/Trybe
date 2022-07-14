@@ -1,0 +1,207 @@
+O que vamos aprender?
+Na segunda parte da sua jornada através do HTML & CSS, você vai aprender na prática como utilizar CSS para deixar suas páginas no estilo 😎
+
+
+Você será capaz de:
+Criar regras de estilo para tags HTML utilizando o CSS;
+Utilizar os seletores de tag, id e class para aplicar regras de CSS;
+Alterar características da fonte e das cores de páginas web;
+Utilizar CSS inline e externo.
+
+
+Por que isso é importante?
+Praticamente todas as páginas da internet utilizam algum estilo criado com CSS, seja ele personalizado ou através de algum framework. Por isso, é muito importante entender como o CSS funciona. 😉
+
+
+Conteúdos
+Para que você aprenda na prática, teremos conteúdos interativos, por meio dos quais você irá seguir a teoria e fazer exercícios ao mesmo tempo. Vamos lá!
+Você irá desenvolver alguns desafios entre os vídeos. Para subi-los para o seu repositório de exercícios, siga as instruções abaixo.
+PS: Peça ajuda no Slack em caso de dúvidas!
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/3.2 (bloco 3, dia 2)
+Copiar
+$ git checkout -b exercicios/3.2
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-3-introducao-a-html-e-css
+$ cd bloco-3-introducao-a-html-e-css
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-2-html-css-primeiros-passos-em-css
+$ cd dia-2-html-css-primeiros-passos-em-css
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-3-introducao-a-html-e-css/dia-2-html-css-primeiros-passos-em-css. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/3.2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/3.2)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/3.2 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/3.2
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/3.2, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+Introdução ao CSS
+Vamos começar com este vídeo para você criar suas primeiras regras com CSS:
+
+Para fixar
+index.html
+Copiar
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>Exercícios 3.2</h1>
+    <p>Qual é a sua cor favorita?</p>
+    <ul>
+      <li>Amarelo</li>
+      <li>Vermelho</li>
+      <li>Marrom</li>
+    </ul>
+  </body>
+</html>
+1 - Modifique o tamanho do h1 para 65 pixels
+2 - Modifique a cor do texto do h1 para laranja
+3 - Modifique a cor de fundo da lista não ordenada
+4 - Crie uma classe para modificar a cor de fundo da tag p e da ul ao mesmo tempo
+Não se esqueça de dar um PUSH no seu repositório para sincronizá-lo com o GitHub
+
+
+CSS inline e externo
+Hora de aprender outras formas de adicionar o CSS nas páginas web:
+
+Para fixar
+index.html
+Copiar
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <title>HTML</title>
+    <style></style>
+  </head>
+  <body>
+    <h1>Exercícios 3.2</h1>
+    <p>Qual é a sua cor favorita?</p>
+    <ul>
+      <li>Amarelo</li>
+      <li>Vermelho</li>
+      <li>Marrom</li>
+    </ul>
+  </body>
+</html>
+1 - Coloque todo o CSS criado até agora nos exercícios anteriores em um arquivo externo.
+Não se esqueça de dar um PUSH no seu repositório para sincronizá-lo com o GitHub
+
+
+Vamos praticar!
+Agora que você já começou a praticar com o CSS, que tal fazermos um encontro ao vivo pelo Zoom para colocarmos a mão na massa?
+Aula ao vivo! Vamos pro Slack, onde o link estará disponível.
+
+
+Exercícios
+Vamos continuar com a criação do seu Portfólio Web! Hoje é o segundo dia utilizando o GitHub Pages, então lembre-se: o processo de versionamento é relativamente diferente do restante dos exercícios do curso.
+Agora é hora de estilizar tudo que você aprendeu! Com este exercício, você será capaz de:
+Estilizar seu Portfólio Web usando todo o conhecimento que você construiu hoje;
+Atualizar seu Portfólio Web no GitHub Pages.
+
+
+Estilizando seu Portfólio Web!
+Antes de começar, você deve seguir as instruções abaixo e fazer o setup para o exercício de hoje:
+Entre no diretório que você criou no dia anterior;
+Adicione a tag <style></style>, que é onde você vai colocar suas alterações;
+Procure uma paleta de cores com a qual você mais se identifique e que você pode gerar nesse site.
+Lembre-se que, para executar o seu código enquanto o desenvolve, você deve utilizar a extensão Live Server. Para saber mais sobre ela, acesse nosso conteúdo sobre isso.
+
+
+
+Dicas
+Lembre-se de utilizar o Git para versionar o seu código!
+Faça commits a cada requisito que você desenvolver.
+Coloque mensagens descritivas nos commits.
+
+
+Requisitos
+Seu Portfólio Web deve ser estilizado usando as informações a seguir:
+Defina fontes diferentes para o seu nome e para a descrição que você criou;
+Defina uma cor base de background do seu Portfólio Web;
+Altere o estilo das tags que você usou para destacar algumas informações, como sua nacionalidade e a cidade/estado onde mora;
+Coloque tamanhos diferentes para os elementos da lista de habilidades que você criou. Lembre-se de usar classes para cada um dos elementos;
+
+
+Recursos adicionais (opcional)
+E aí, gostou do que aprendeu até aqui? Nesta parte, vamos colocar outras referências para você se aprofundar no tema:
+Tutorial - https://www.khanacademy.org/computing/computer-programming/html-css/web-development-tools/a/using-the-browser-developer-tools
+Artigo - http://jmcglone.com/guides/github-pages/
+Playlist - https://www.youtube.com/playlist?list=PLHz_AreHm4dlAnJ_jJtV29RFxnPHDuk9o
+Curso Online Gratuito - Ihttps://scrimba.com/g/ghtml
+Curso Online Gratuito -https://www.coursera.org/learn/html-css-javascript-for-web-developers/home/welcome
+Tutorial - https://internetingishard.com/
+Tutorial -https://developer.mozilla.org/en-US/docs/Learn/CSS
+Site - https://css-tricks.com/
+CSS Básico -https://pt.khanacademy.org/computing/computer-programming/html-css/intro-to-css/pt/css-basics
+Propriedades de texto no CSS - https://pt.khanacademy.org/computing/computer-programming/html-css/css-text-properties/pt/css-font-family-property
+Usando CSS inline - https://www.khanacademy.org/computing/computer-programming/html-css/more-ways-to-embed-css/pt/using-inline-css-styles
