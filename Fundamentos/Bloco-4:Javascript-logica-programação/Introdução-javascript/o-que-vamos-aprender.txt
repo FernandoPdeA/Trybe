@@ -1,0 +1,562 @@
+[DO que vamos aprender?
+Aqui você vai aprender sobre a linguagem de programação JavaScript. 🚀🚀🚀
+Para isso, dividimos o conteúdo em cinco partes:
+Primeiro você aprenderá sobre variáveis, constantes, tipos primitivos, tipagem dinâmica, operadores aritméticos, operadores de atribuição, operadores lógicos, if/else e switch/case:
+JavaScript - Primeiros passos
+Essa parte apresenta arrays e for:
+JavaScript - Array e loop For
+Na terceira parte você aprenderá sobre lógica de programação e algoritmos:
+JavaScript - Lógica de Programação e Algoritmos
+A quarta parte aborda objetos, for/in e funções:
+JavaScript - Objetos e funções
+Agora vamos ao projeto Playground Functions:
+Playground functions
+
+Vamos começar!
+
+
+
+O que vamos aprender?
+Neste dia você vai oficialmente começar a aprender com tudo uma linguagem de programação - um passo importantíssimo na sua ma-ra-vi-lho-sa jornada pelo mundo da programação! 🎉
+Até agora, você vem aprendendo como navegar no seu ambiente de desenvolvimento, como organizar seu trabalho e como criar estrutura e estilos para páginas da Web com o HTML e o CSS. A partir de agora, você vai aprender a implementar lógica nas suas páginas, tornando-as verdadeiramente interativas e dinâmicas!
+Hoje, vamos aprender:
+O que é o JavaScript (JS)?
+De onde surgiu?
+Qual o seu uso?
+Variáveis.
+Constantes.
+Tipos primitivos.
+Tipagem dinâmica.
+Operadores aritméticos.
+Operadores de atribuição.
+Operadores lógicos.
+Estruturas condicionais como if/else e switch/case.
+
+
+
+Você será capaz de:
+Escrever códigos em JavaScript que usam variáveis, constantes e tipos primitivos;
+Utilizar conceitos da linguagem como a tipagem dinâmica e operadores lógicos/aritméticos/de atribuição no seu código;
+Criar códigos que usam estruturas condicionais, como o if/else.
+
+
+
+Por que isso é importante?
+Existem inúmeros motivos que atestam pela importância imensa desse passo, mas vamos falar sobre três:
+JavaScript é popular. O JavaScript vem sendo, nos últimos 8 anos, a linguagem de programação mais popular do mundo, segundo a última pesquisa do Stack Overflow.
+Ele é responsável pela grande maioria das interações em tempo real na web que é possível nos dias de hoje. Sabe quando você está em uma página com um chat, e as mensagens chegam "sozinhas"? Isso é JavaScript. Ou quando você acessa um perfil diferente no Facebook, mas seu navegador não carrega a página do zero, somente carregando o que de fato mudou? Também é JavaScript (com o React 🙂).
+JavaScript é versátil. O uso do JavaScript na Web é bem óbvio - é onde ele surgiu. No entanto, o JavaScript possui bibliotecas, frameworks e ambientes runtime que permitem que você use JavaScript também para muitas outras coisas, como:
+Código que roda no servidor (back-end), com o Node, por exemplo;
+Acesso e manipulação de bancos de dados através de diversos drivers;
+Aplicativos mobile nativos, com o React Native, por exemplo;
+Aplicativos desktop, com o Electron, por exemplo;
+Todos esses usos já foram e são feitos por empresas de todos os portes. Aprender JavaScript é a porta para um mundo infinito de possibilidades. 🚀
+JavaScript é a base para o curso da Trybe. Por último, mas não menos importante, o JavaScript é o fundamento principal para a maior parte do curso da Trybe, tanto agora, no módulo de Fundamentos, quanto no módulo de Front-End e no de Back-End. É de vital importância ter uma boa base de JavaScript para entender React, Redux, Jest, Node e todas essas outras ferramentas que você vai adicionar à sua caixa.
+Por fim, saiba que é muito importante aprender JavaScript e ter foco. Mas não se preocupe, esse é só o primeiro passo no mundo da programação.
+Tenha em mente que JavaScript é uma linguagem de programação e, como tal, é apenas uma ferramenta. O verdadeiro trabalho e o verdadeiro objetivo é resolver problemas. O mais importante é que você aprenda a programar e a aprender - JavaScript é só a ferramenta principal que vai te ajudar a alcançar esse objetivo.
+
+
+
+Conteúdos
+Agora é hora de você aprender os fundamentos de JavaScript com um apanhado de conteúdos que vão te dar a base necessária para criar seus primeiros programas. 😁
+Mas, antes de darmos início ao conteúdo, vamos instalar um pacote que será muito útil durante toda a nossa caminhada no JavaScript, o Node.js.
+Como o JS nasceu como uma linguagem de navegador, não podíamos executá-lo fora do navegador, mas o Node.js foi criado para resolver esse problema. É por causa dele que não dependeremos do navegador para executar códigos JS.
+Para instalá-lo, primeiramente precisaremos do nvm (node version manager), que é um gerenciador de versões do node. Identifique o sistema operacional que você está usando e siga o passo a passo disponível nas sessões a seguir.
+
+
+
+Instalação do Node para Linux
+Para a instalação do nvm no linux utilizaremos o comando curl. Caso ainda não tenha instalado esse comando em seu computador, será necessário instalá-lo. Para fazer isso execute os seguintes comandos:
+Atualize seu sistema:
+Copiar
+sudo apt update && sudo apt upgrade
+Instale o curl:
+Copiar
+sudo apt install curl
+Caso queira verificar a sua versão do curl execute esse comando:
+Copiar
+curl --version
+Pronto, agora com o curl preparado, é hora de instalar o nvm. Rode o seguinte comando em seu terminal:
+Copiar
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+Nota: Caso tenha alterado o terminal padrão que vem em seu linux de bash para o zsh (ou algum outro), troque bash por zsh na linha de código (ou a abreviação de seu shell script).
+Não podemos utilizar o nvm ainda, pois para isso é preciso reiniciar ou abrir outra janela em seu terminal. Mas podemos checar a versão instalada com o seguinte comando:
+Copiar
+nvm -v
+Agora vamos escolher uma versão para instalar em nosso computador. O comando a seguir instala a versão mais recente do nvm.
+Copiar
+nvm install --lts
+Uma coisa legal do nvm é que podemos ter diversas versões instaladas, e para instalar outra versão basta digitar o comando anterior e alterar o campo --lts para o número da versão desejada. Na maior parte dos projetos da Trybe utilizamos a versão LTS do node.
+Esse procedimento já instala também o npm. Para checar a versão instalada, basta executar o seguinte comando:
+Copiar
+npm -v
+Você pode entender mais sobre o npm acessando sua documentação
+Caso queira transitar entre as versões instaladas basta digitar em seu terminal nvm use <versão desejada>, por exemplo:
+Copiar
+nvm use 16
+ou
+Copiar
+nvm use --lts
+Para configurar a versão do node como padrão, execute o seguinte comando:
+Copiar
+nvm alias default 16
+Após a execução do comando, feche e abra o terminal novamente.
+Tudo pronto, agora vamos para nosso conteúdo de JavaScript?
+Para saber mais sobre o nvm, acesse sua documentação aqui.
+
+
+
+Instalação do Node para Mac
+Para a instalação do nvm no mac utilizaremos o comando curl. Caso ainda não tenha instalado esse comando em seu computador, será necessário instalá-lo. Para fazer isso execute os seguintes comandos:
+Copiar
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" < /dev/null 2> /dev/null
+E depois:
+Copiar
+brew install curl
+Com o curl já instalado, faremos a instalação do nvm, em seu terminal cole o seguinte código:
+Copiar
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+Espere que tudo seja concluído e vá para o diretório home. Caso não saiba como fazer isso, execute o seguinte comando:
+Copiar
+cd ~
+Precisaremos editar o arquivo bash_profile. Para isso, digite em seu terminal:
+Copiar
+nano .bash_profile
+Esse comando abrirá o arquivo dentro do terminal e o próximo passo é colar o conteúdo a seguir nele:
+Copiar
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+Ao reiniciar o terminal, o nvm deve estar pronto.
+Agora vamos escolher uma versão para instalar em nosso computador. O comando a seguir instala a versão mais recente do nvm.
+Copiar
+nvm install --lts
+Uma coisa legal do nvm é que podemos ter diversas versões instaladas, e para instalar outra versão basta digitar o comando anterior e alterar o campo --lts para o número da versão desejada. Na maior parte dos projetos da Trybe utilizamos a versão LTS do node.
+Esse procedimento já instala também o npm. Para checar a versão instalada, basta executar o seguinte comando:
+Copiar
+npm -v
+Você pode entender mais sobre o npm acessando sua documentação
+Caso queira transitar entre as versões instaladas basta digitar em seu terminal nvm use <versão desejada>, por exemplo:
+Copiar
+nvm use 16
+ou
+Copiar
+nvm use --lts
+Para configurar a versão do node como padrão, execute o seguinte comando:
+Copiar
+nvm alias default 16
+Após a execução do comando, feche e abra o terminal novamente.
+Tudo pronto, agora vamos para nosso conteúdo de JavaScript?
+Para saber mais sobre o nvm, acesse sua documentação aqui
+
+
+
+Variáveis
+Agora vamos aprender como funcionam e o que são variáveis e constantes.
+
+🚀 Se liga nesse foguete!
+Os exercícios destacados com 🚀 são os fundamentais pra você ir bem no projeto! Todos os exercícios vão contribuir com sua formação mas fique de olho nesses! 👀
+🚀 Vamos praticar o que aprendemos no vídeo? 💪
+Abra o seu VS Code e faça os exercícios a seguir.
+*Dica: Com o plugin Code Runner que vimos no vídeo você pode executar o seu código no VS Code com o atalho ctrl + alt + n. Aqui você encontra mais sobre o Code Runner e sobre outras extensões úteis para o VS Code!
+Crie uma constante chamada myName e atribua a ela o seu nome (Exemplo: Carolina).
+Crie uma constante chamada birthCity e atribua a ela a sua cidade natal.
+Crie uma variável chamada birthYear e atribua a ela o ano em que você nasceu.
+Utilize o console.log() para imprimir as constantes e variáveis que você criou.
+Altere o valor atribuído à variável birthYear para 2030. Faça um console.log(birthYear) novamente para ver o que acontece!
+Altere o valor atribuído à constante birthCity. Faça um console.log(birthCity) novamente! Você saberia explicar por que recebemos uma mensagem de erro? 🤔
+
+
+
+Tipos Primitivos, Tipagem Dinâmica e Operações Aritméticas
+Agora que você já sabe o que são variáveis e constantes, vamos entender quais são os tipos primitivos, como o JS escolhe o tipo de uma variável através da tipagem dinâmica e como realizar operações aritméticas.
+
+Agora é a hora da mão na massa no código! No exemplo abaixo, temos as informações de um paciente. Utilize o operador typeof para imprimir qual o tipo das variáveis patientId, isEnrolled, patientInfo e patientEmail. Esse operador retorna qual o tipo de uma variável, objeto, função ou expressão. Exemplo: console.log(typeof patientId) retornará number.
+Copiar
+let patientId = 50;
+let isEnrolled = true;
+const patientInfo = {
+  firstName: 'Ana',
+  lastName: 'Santos',
+};
+const patientEmail = 'ana@email.com';
+O que aconteceria se tentássemos checar qual o tipo da variável patientAge? Experimente executar o comando console.log(typeof patientAge) e veja o que acontece! Ué...mas não declaramos essa variável, não é mesmo? É exatamente por esse motivo que o seu tipo é undefined, como você pôde observar no retorno do console.log(typeof patientAge). Experimente também trocar o valor de patientId = 50 para patientId = '50'. Execute novamente um console.log() para imprimir o tipo dessa variável após a modificação. Você verá que o retorno agora é uma string pois colocamos o número 50 dentro das aspas. O JavaScript interpreta como string tudo o que estiver entre aspas.
+🚀 Agora que você já conhece os operadores aritméticos básicos do JavaScript, vamos praticá-los? Você pode consultar a lista de operadores na tabela JavaScript Arithmetic Operators disponível nesse link se tiver dúvidas. Vamos fazer algumas operações simples para encontrarmos a área e o perímetro de um retângulo de base 5 e altura 8.
+Crie uma constante chamada base e uma variável chamada height e atribua os seus respectivos valores: 5 e 8.
+Crie uma constante chamada area e atribua a ela o resultado da multiplicação da base pela altura. Dica: lembre-se de usar sempre o console.log() para imprimir as variáveis e checar os resultados das operações!
+Crie uma constante chamada perimeter e atribua a ela a soma de todos os lados do retângulo.
+
+
+
+
+Condições If e Else
+Hora de aprender sobre operadores de atribuição e operadores lógicos. Vamos lá?
+
+🚀 Criar estruturas condicionais com operadores if/else e operadores lógicos será algo muito comum na sua carreira de pessoa desenvolvedora. Então vamos praticar o que aprendemos no vídeo?
+Crie uma constante que receba a nota de uma pessoa candidata em um desafio técnico, e atribua a ela um valor entre 1 e 100;
+Implemente uma lógica que verifique se a pessoa candidata foi aprovada, reprovada ou se ela está na lista de espera. Para isso, considere as seguintes informações:
+Se a nota for maior ou igual a 80, imprima "Parabéns, você foi aprovada(o)!"
+Se a nota for menor que 80 e maior ou igual a 60, imprima "Você está na nossa lista de espera"
+Se a nota for menor que 60, imprima "Você foi reprovada(o)"
+Crie uma estrutura condicional utilizando o if, else if e else para criar o seu algoritmo, e os operadores lógicos que se aplicam a cada situação.
+Altere o valor da nota para verificar se as condições que você implementou funcionam;
+
+
+
+
+Operadores lógicos
+Neste ponto, você deve entender que valores booleanos podem ser "true" ou "false". Eles serão de extrema importância para a construção de lógicas no momento em que estivermos desenvolvendo nossas aplicações. A próxima ferramenta de trabalho que iremos aprender serão os operadores lógicos. Eles não são utilizados só na programação, mas no estudo da lógica em si e no seu dia a dia (e com bastante frequência). A principal funcionalidade desses operadores é determinar a lógica entre dois valores ou variáveis.
+Na linguagem JavaScript, temos três principais operadores lógicos: &&, || e o !. Podemos nos referir a eles como "AND", "OR" e "NOT", respectivamente.
+Essas ferramentas não vão te acompanhar apenas no JavaScript, mas em toda sua carreira. Por isso, é muito importante praticar bastante e ficar bem familiarizado com o conceito de cada um deles.
+Operador AND
+Esse operador é binário. O que significa que ele precisa de dois elementos para funcionar corretamente.
+Para abstrair seu funcionamento, pense o seguinte: Você está numa padaria e quer comer alguma coisa no café da manhã. Então você diz "Por favor, me vê um cafezinho E um pão na chapa".
+Seria muito infeliz se você recebesse apenas o café ou só o pão, não é? Também não seria legal se recebêssemos um pão na chapa, mas a nossa bebida ser um caldo de cana. Porque nossa expectativa era de que as duas condições fossem atendidas corretamente. Esse é exatamente o papel do &&. Ele só vai retornar true se as duas operações que estão em volta dele forem consideradas verdadeiras.
+Em JavaScript, nosso pedido poderia ser interpretado da seguinte maneira:
+Copiar
+const comida = 'pão na chapa';
+const bebida = 'cafezinho';
+
+if (bebida === 'cafezinho' && comida === 'pão na chapa') {
+  console.log('Muito obrigado pela refeição :)');
+} else {
+  console.log('Acho que houve um engano com meu pedido');
+}
+Tente brincar e mude os valores das variáveis, você verá que a condição não vai ser atendida e portanto, a mensagem imprimida será outra.
+Precisamos manter em mente que só teremos true se as duas expressões em volta dele forem true também.
+Copiar
+  const conditionOne = true;
+  const conditionTwo = false;
+
+  console.log(conditionOne && conditionTwo);
+Execute o código acima e veja que a verificação é false porque uma das condições não é true.
+Mas... E o que acontece se existir um encadeamento de &&? 🤔
+Imagine que exista a seguinte expressão:
+Copiar
+const cenouras = true;
+const leite = true;
+const arroz = true;
+const feijao = true;
+
+const listaDeCompras = cenouras && leite && arroz && feijao;
+Você consegue imaginar qual será o resultado final? Será que vai dar erro?
+A ordem que a operação vai obedecer, será da esquerda para a direita, seguindo algo parecido com a imagem abaixo.
+
+Encadeamento de operadores AND
+Abaixo tem um mini cheat sheet para você ver em quais possibilidades teremos resposta true ou false.
+Copiar
+console.log(true && true); // true
+console.log(true && false); // false
+console.log(false && true); // false
+console.log(false && false); // false
+Crie uma constante chamada "currentHour" que recebe um número entre 4 e 24 de sua escolha, para representar as horas do dia.
+Crie uma variável chamada "message" que, inicialmente, é uma string vazia.
+Implemente condicionais para que:
+Se o horário for maior ou igual a 22, insira "Não deveríamos comer nada, é hora de dormir" na variável "message".
+Se o horário for maior ou igual a 18 e menor que 22, insira "Rango da noite, vamos jantar :D" na variável "message".
+Se o horário for maior ou igual a 14 e menor que 18, insira "Vamos fazer um bolo pro café da tarde?" na variável "message".
+Se o horário estiver entre 11 e 14, insira "Hora do almoço!!!" na variável "message".
+Se o horário estiver entre 4 e 11, insira "Hmmm, cheiro de café recém passado" na variável "message".
+Agora imprima a variável message fora das suas condições.
+Operador OR
+Você já viu um operador em que as duas condições devem ser verdadeiras para que o resultado final seja verdadeiro.
+Com o operador OR (ou ||, no JavaScript), precisamos apenas que uma das condições sejam verdadeiras: isso ou aquilo.
+Por exemplo, imagine novamente que estamos na padaria, mas nosso pedido agora vai ser diferente. Dessa vez, se não tiver um café, pode ser um suco de laranja. Como escreveríamos isso em JavaScript?
+Copiar
+const bebidaPrincipal =  'cafezinho';
+const bebidaAlternativa = 'suco de laranja';
+
+if (bebidaPrincipal === 'cafezinho' || bebidaAlternativa === 'suco de laranja') {
+  console.log("Obrigado por me atender :D")
+} else {
+  console.log("Ei, eu não pedi isso!");
+}
+O símbolo "||" é a representação em caractere desse operador. Novamente, precisamos de dois elementos em torno dele para que funcione corretamente. E para que seu retorno seja verdadeiro, um de seus valores deve ser true ou ser considerado truthy.
+Abaixo temos uma tabela mostrando como é o resultado de cada operação, assim como no operador "AND":
+Copiar
+console.log(true || true); // true
+console.log(true || false); // true
+console.log(false || true); // true
+console.log(false || false); // false
+Crie uma variável chamada "weekDay" que recebe a string "quarta-feira".
+Implemente condicionais para que:
+Se nossa variável "weekDay" for "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira" ou "sexta-feira", imprima "Oba, mais um dia de aprendizado na Trybe >:D".
+Se for algum dia de fim de semana, imprima "FINALMENTE, descanso merecido UwU".
+Experimente trocar o valor da string ou até mesmo montar seu próprio algoritmo. Esse assunto é muito importante para seu aprendizado :).
+Operador NOT
+Vamos iniciar com um exemplo do que o NOT é capaz, você consegue prever o que esse código vai imprimir?
+Copiar
+  console.log((2 + 2) === 4);
+Isso aqui deve nos retornar true, não é? Afinal, 2 + 2 resultar em 4 é uma declaração verdadeira. Agora, se adicionarmos o operador NOT antes dessa declaração?
+Copiar
+  console.log(!(2 + 2) === 4);
+Se você executar esse código, vai perceber que o valor impresso é o oposto do anterior. 🤔
+Estamos diante de um operador muito poderoso. Ele pode inverter o valor booleano de um elemento. Isso mesmo!! Se tivermos uma variável ou valor considerado true, podemos gerar o resultado oposto simplesmente fazendo !variável. Ou seja, false.
+Então, sabendo que o resultado original da operação ali em cima é true, quando a gente insere o operador NOT antes da operação, teremos o valor contrário a nossa resposta final, que é false.
+Vale lembrar que o conceito de truthy e falsy também se aplica aqui, por isso não estamos limitados apenas aos tipos primitivos booleanos. Podemos usar em:
+Strings...
+Copiar
+const squirtle = "melhor pokemon inicial";
+
+console.log(!squirtle); // false
+Números...
+Copiar
+console.log(!42); // false
+
+console.log(!0); // true
+// O número 0 tem o valor "falsy" no javascript. Logo, seu oposto é true.
+Valores nulos...
+Copiar
+console.log(!null); // true
+Valores indefinidos..
+Copiar
+console.log(!undefined); // true
+...e em muitos outros elementos. As possibilidades são enormes!!!
+
+
+
+
+Switch e Case
+E, no final do conteúdo de hoje, você vai aprender uma outra forma de criarmos estruturas condicionais com o switch/case.
+O switch/case funciona de maneira similar ao if/else, porém com algumas diferenças.
+No switch/case colocamos dentro do switch o que deve ser analisado e então criamos nossas condicionais com o case. Veja o exemplo abaixo:
+Copiar
+
+// Nesse exemplo o "switch/case" deverá imprimir no terminal a classificação de quais filmes podem ser assistidos
+// de acordo com a faixa etária de uma pessoa.
+
+let faixaEtaria = 'adulto';
+
+switch (faixaEtaria) {
+  case 'adolescente':
+    // Caso a variável seja "adolescente" então entraremos na lógica abaixo.
+
+    console.log('Consulte a classificação do filme');
+    // Quando a pessoa for adolescente essa será a mensagem impressa no console.
+
+    break;
+    
+    // O "break" serve para que o código não continue rodando caso seu resultado já tenha sido atingido
+  case 'adulto':
+    // Após implementar a lógica de um case, você pode abrir outro case.
+    // Agora vamos fazer a lógica do que deve ocorrer se a pessoa for adulta
+
+    console.log('A pessoa adulta é classificada para assistir qualquer filme')
+    //caso seja adulto essa mensagem deverá aparecer no terminal
+
+    break;
+    // Interrompemos o fluxo novamente caso a pessoa seja adulta
+    case 'idoso':
+      // Repetimos o mesmo processo para o case "idoso"
+      console.log('A pessoa idosa é classificada para assistir qualquer filme');
+      break
+  default:
+    // O "default" é utilizado como um retorno padrão caso o valor passado não encaixe em nenhum dos cases
+    // Ou seja, se a pessoa, for criança, recém nascida, ou pertencente à qualquer outra faixa etária, essa será a lógica implementada.
+    console.log('só pode assistir filmes livres');
+    // note que não é necessário utilizar o break após o default. Como todo o código já foi executado, não precisamos interromper o funcionamento do mesmo.
+Bacana né? Teste agora outos valores para variável usando as faixas etárias: 'idoso', 'adolescente' e 'criança'. Observe o código e cada resultado obtido.
+Algo muito legal, é que você pode utilizar o switch case para diversas coisas, não só para imprimir um valor no terminal. No exemplo a seguir, você verá que é possível alterar o valor de uma variável:
+Copiar
+
+mes = 'maio';
+let estacaoDoAno = '?';
+
+switch (mes) {
+    case 'janeiro':
+    case 'fevereiro':
+    case 'março':
+        estacaoDoAno = 'Verão';
+        break;
+    case 'abril':
+    case 'maio':
+    case 'junho':
+        estacaoDoAno = 'Outono';
+        break;
+    case 'julho':
+    case 'agosto':
+    case 'setembro':
+        estacaoDoAno = 'Inverno';
+        break;
+    case 'outubro':
+    case 'novembro':
+    case 'dezembro':
+        estacaoDoAno = 'Primavera';
+}
+
+console.log(estacaoDoAno); // 'Outono'
+Note que não foi necessário escrever a estação do ano à cada case, se vários cases implementam a mesma lógica, basta escrever um abaixo do outro e então escrever a lógica. Legal, né?
+Também não foi colocado um default, assim o código não altera o valor da variável estacaoDoAno caso você passe um valor inválido para a variável mes. Tente trocar o valor da variável mes para 'Trybe' e veja o que acontece.
+Veja agora a criação de um switch/case do zero:
+
+Você com certeza está super feliz com seus novos conhecimentos sobre JS, não é?! 🎉 Então vamos praticar mais um pouco antes de chegar na sessão de exercícios. Vamos!!!
+Crie uma variável para armazenar o estado da pessoa candidata no processo seletivo, que pode ser: 'aprovada', 'lista' ou 'reprovada';
+Crie uma estrutura condicional com o switch/case que irá imprimir as mensagens do exercício anterior se o estado da pessoa candidata for 'aprovada', 'lista' ou 'reprovada'. Como default, imprima a mensagem de 'não se aplica'.
+A estrutura switch/case é utilizada quando queremos executar diferentes ações. A expressão que passamos para o switch é avaliada apenas uma vez, e o seu valor é comparado em cada caso. Se essa comparação for verdadeira, o código do caso avaliado é executado. Se nenhum valor satisfizer os casos listados, é executado o código em default.
+
+
+
+
+Exercícios
+A seguir você verá uma seção orientando a como realizar o versionamento do seu código. Além disso, também temos um conteúdo focado nisso e em como organizar seus exercícios, você pode acessá-lo aqui.
+No conteúdo que criamos, será apresentada para você uma estrutura de organização utilizando pastas para módulos e para blocos. Essa estrutura é diferente da que você verá a seguir na seção de versionamento do código, fica a seu critério decidir qual a melhor forma de organizar seus exercícios!
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/4.1 (bloco 4, dia 1)
+Copiar
+$ git checkout -b exercicios/4.1
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-4-introducao-a-javascript-e-logica-de-programacao
+$ cd bloco-4-introducao-a-javascript-e-logica-de-programacao
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-1-javascript-primeiros-passos
+$ cd dia-1-javascript-primeiros-passos
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-4-introducao-a-javascript-e-logica-de-programacao/dia-1-javascript-primeiros-passos. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/4.1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/4.1)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/4.1 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/4.1
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/4.1, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+
+
+Agora a prática
+Nos exercícios de hoje, você vai fazer quinze pequenos programas. Todos trabalham a lógica condicional (if/else e switch/case), operadores aritméticos (+, -, *, /, %) e operadores lógicos (>, <, &&, ||). Para que consiga executar seus códigos recomendamos que utilize a extensão Code Runner, você pode ver mais sobre ela no conteúdo que fizemos sobre o uso do VS Code.
+Faça cinco programas, um para cada operação aritmética básica. Seu programa deve ter duas constantes, a e b, definidas no começo com os valores que serão operados. Faça programas para:
+Adição (a + b)
+Subtração (a - b)
+Multiplicação (a * b)
+Divisão (a / b)
+Módulo (a % b)
+*Dica: Neste link você encontra mais detalhes sobre operadores matemáticos 😉
+Faça um programa que retorne o maior de dois números. Defina no começo do programa duas constantes com os valores que serão comparados.
+Faça um programa que retorne o maior de três números. Defina no começo do programa três constantes com os valores que serão comparados.
+Faça um programa que, dado um valor definido numa constante, retorne "positive" se esse valor for positivo, "negative" se for negativo e "zero" caso contrário.
+🚀 Faça um programa que defina três constantes com os valores dos três ângulos internos de um triângulo. Retorne true se os ângulos representarem os ângulos de um triângulo e false, caso contrário. Se algum ângulo for inválido o programa deve retornar uma mensagem de erro.
+Para os ângulos serem de um triângulo válido, a soma dos três devem ser 180 graus.
+Um ângulo será considerado inválido se não tiver um valor positivo.
+Escreva um programa que receba o nome de uma peça de xadrez e retorne os movimentos que ela faz.
+Como desafio, faça o programa funcionar tanto se receber o nome de uma peça com letras maiúsculas quanto com letras minúsculas, sem aumentar a quantidade de condicionais.
+Como dica, você pode pesquisar uma função que faz uma string ficar com todas as letras minúsculas (lower case).
+Se a peça passada for inválida, o programa deve retornar uma mensagem de erro.
+Exemplo: bishop (bispo) -> diagonals (diagonais)
+Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100) em conceitos de A a F. Siga essas regras:
+Porcentagem >= 90 -> A
+Porcentagem >= 80 -> B
+Porcentagem >= 70 -> C
+Porcentagem >= 60 -> D
+Porcentagem >= 50 -> E
+Porcentagem < 50 -> F
+O programa deve retornar uma mensagem de erro e encerrar se a nota passada for menor que 0 ou maior que 100.
+🚀 Escreva um programa que defina três números em constantes e retorne true se pelo menos uma das três for par. Caso contrário, ele retorna false.
+Bonus: use somente um if.
+Escreva um programa que defina três números em constantes e retorne true se pelo menos uma das três for ímpar. Caso contrário, ele retorna false.
+Bonus: use somente um if.
+Escreva um programa que se inicie com dois valores em duas constantes diferentes: o custo de um produto e seu valor de venda. A partir dos valores, calcule quanto de lucro (valor de venda descontado o custo do produto) a empresa terá ao vender mil desses produtos.
+Atente que, sobre o custo do produto, incide um imposto de 20%.
+Seu programa também deve emitir uma mensagem de erro e encerrar caso algum dos seus valores de entrada seja menor que zero.
+O lucro de um produto é o resultado da subtração do valor de venda pelo custo do mesmo, sendo que o imposto de 20% também faz parte do valor de custo.
+valorCustoTotal = valorCusto + impostoSobreOCusto
+lucro = valorVenda - valorCustoTotal (lucro de um produto)
+Uma pessoa que trabalha de carteira assinada no Brasil tem descontados de seu salário bruto o INSS e o IR. Faça um programa que, dado um salário bruto, calcule o líquido a ser recebido.
+A notação para um salário de R$1500,10, por exemplo, deve ser 1500.10. Para as faixas de impostos, use as seguintes referências:
+INSS (Instituto Nacional do Seguro Social)
+Salário bruto até R$ 1.556,94: alíquota de 8%
+Salário bruto de R$ 1.556,95 a R$ 2.594,92: alíquota de 9%
+Salário bruto de R$ 2.594,93 a R$ 5.189,82: alíquota de 11%
+Salário bruto acima de R$ 5.189,82: alíquota máxima de R$ 570,88
+IR (Imposto de Renda)
+Até R$ 1.903,98: isento de imposto de renda
+De R$ 1.903,99 a 2.826,65: alíquota de 7,5% e parcela de R$ 142,80 a deduzir do imposto
+De R$ 2.826,66 a R$ 3.751,05: alíquota de 15% e parcela de R$ 354,80 a deduzir do imposto
+De R$ 3.751,06 a R$ 4.664,68: alíquota de 22,5% e parcela de R$ 636,13 a deduzir do imposto
+Acima de R$ 4.664,68: alíquota de 27,5% e parcela de R$ 869,36 a deduzir do imposto.
+Exemplo: Uma pessoa possui o salário bruto de R$ 3.000,00. O cálculo será:
+O salário bruto está entre R$ 2.594,93 e R$ 5.189,82, então sua alíquota para INSS é de 11%. O INSS será 11% de R$ 3.000, ou seja, R$ 330,00.
+Para descobrir o salário-base, subtraia do salário bruto a alíquota do INSS: R$ 3.000,00 - R$ 330,00 = R$ 2.670,00.
+Para pegar o valor do IR, temos um salário (já deduzido o INSS) entre R$ 1.903,99 e 2.826,65, sendo a alíquota, então, de 7.5%, com parcela de R$ 142,80 a deduzir do imposto. Assim, temos:
+R$ 2.670,00: salário com INSS já deduzido;
+7.5%: alíquota de imposto de renda;
+R$ 142,80 parcela a se deduzir do imposto.
+Fazendo a conta, temos: (7,5% de R$ 2.670,00) - R$ 142,80 = R$ 57,45
+O último cálculo para conseguir o salário líquido é R$ 2.670,00 - R$ 57,45 (salário-base - valor IR) = R$ 2.612,55.
+Resultado: R$ 2.612,55.
+Dica: que tal identificar as alíquotas com variáveis de nomes explicativos?
+
+
+
+
+Recursos adicionais (opcional)
+Amou o conteúdo de hoje? Tenho certeza de que você vai querer praticar mais e mais! Aqui vão alguns recursos adicionais para que você se prepare ainda mais.
+Manual de JS
+Artigo com muitos fundamentos de JS
+Curso online de JavaScript
+Tutoriais de JS
+Lista de conteúdos sobre JavaScript
+If-else programming practice for C
+
+
