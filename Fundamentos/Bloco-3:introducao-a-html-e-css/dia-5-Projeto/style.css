@@ -1,0 +1,371 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  background-color: rgb(253, 251, 251);
+  height: 100%;
+}
+
+.clear {
+  clear: both;
+}
+
+/* header */
+
+header#cabecalho {
+  z-index: 1;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+  width: 100%;
+  position: fixed;
+  background-color: green;
+  top: 0;
+  height: 70px;
+}
+
+h1#titulo {
+  margin-left: 20px;
+  float: left;
+  margin-top: 15px;
+  font-family: "Arial";
+  color: white;
+  font-size: 2em;
+}
+
+nav ul {
+  margin-right: 50px;
+  float: right;
+  margin-top: 4px;
+}
+
+nav ul li {
+  margin-top: 20px;
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #ff9f00;
+}
+
+/* section_bemVindos */
+
+section.section_bemVindos {
+  padding: 10px 2%;
+  width: 100%;
+  background-color: rgb(253, 251, 251);
+  margin-top: 150px;
+}
+
+section.section_bemVindos h2 {
+  margin-top: -20px;
+  text-align: center;
+  font-size: 2em;
+  font-style: lighter;
+  color: gray;
+}
+
+section.section_bemVindos p {
+  font-size: 1.1em;
+  color: gray;
+}
+
+section.section_bemVindos img {
+  width: 300px;
+  margin-top: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+}
+
+/* section_licoes */
+
+section.section_licoes {
+  position: absolute;
+  /* background-color: rgba(45, 150, 14, 0.4); */
+  width: 100%;
+  margin-top: 20px;
+  height: 500px;
+}
+
+/* licoes1 */
+
+div.licoes1 {
+  position: relative;
+  float: left;
+  width: 40%;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+}
+
+  div.licoes1 h1 {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    font-style: lighter;
+    color: gray;
+  }
+
+  ol#licoes_aprendidas {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: gray;
+  }
+
+  ol#licoes_aprendidas li {
+  padding: 2px 2%;
+  }
+
+/* licoes2 */
+
+div.licoes2 {
+  position: relative;
+  float: right;
+  width: 40%;
+  margin-top: -346px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.9);
+}
+
+  div.licoes2 h1 {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.5em;
+    font-style: lighter;
+    color: gray;
+  }
+
+  ul#licoes_a_aprender {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: gray;
+  }
+
+  ul#licoes_a_aprender li {
+  padding: 2px 2%;
+  }
+
+  /* section article e aside */
+ 
+  section.article_aside {
+    position: relative;
+    bottom: -70%;
+    width: 100%;
+    margin-top: 20px; 
+  }
+
+  /* article lado esquerdo*/
+
+  [class="lado-esquerdo"] {
+    position: relative;
+    float: left;
+    width: 40%;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: white;
+    text-align: center;
+  }
+
+  [class="lado-esquerdo"] h1, [class="lado-esquerdo"] strong {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 1.5em;
+    font-style: lighter;
+    color: gray;
+  }
+
+  [class="lado-esquerdo"]  p {
+    padding: 50px 4%;
+    font-size: 1.1em;
+    color: gray;
+    border: 1px solid gray;
+  }
+
+ /* aside lado direito */
+
+  [class="lado-direito"]  {
+  position: relative;
+  float: right;
+  width: 40%;
+  margin-top: 85px;
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 1px solid gray;
+  text-align: center;
+}
+
+[class="lado-direito"]  h1 {
+  margin-left: 20px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  font-style: lighter;
+  color: gray;
+}
+[class="lado-direito"]  p {
+padding: 10px 4%;
+  display: inline-block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  color: gray;
+}
+
+  /* footer */
+
+  footer {
+    position: relative;
+    bottom: -70%;
+    width: 100%;
+    background-color: green;
+    height: 100px;
+    margin-top: 20px; 
+  }
+
+  footer#rodape {
+    height: 100px;
+    margin-top: 20px; 
+  }
+
+  footer#rodape p {
+    text-align: center;
+  }
+
+  footer#rodape b {
+    text-align: center;
+    font-style: lighter;
+    display: inline-block;
+    margin-top: 20px;
+    color: white;
+  }
+
+  footer#rodape ul {
+    list-style: none;
+    text-align: center;
+  }
+
+  footer#rodape ul li {
+    display: inline-block;
+    font-size: 20px;
+  }
+
+  footer#rodape ul li a {
+    width: 10px;
+    color: #ff9f00;
+    text-decoration: none;
+    font-size: 30px;
+    transition: 0.5s ease-in-out;
+  }
+
+  footer#rodape ul li a:hover {
+    color: greenyellow;
+    font-size: 35px;
+  }
+
+  /* table*/
+
+  table {
+    border: 1px solid gray;
+    position: relative;
+    bottom: -70%;
+    width: 50%;
+    height: 100px;
+    left: 23%;
+    margin-top: 50px; 
+    box-shadow: 0px 10px 5px rgba(0, 0, 0, 0.9);
+  }
+  th.periodo_curso {
+    border: 1px solid gray;
+    display: inline-block;
+    background-color: rgb(253, 251, 251);
+    color: gray;
+    width: 100%;
+    font-size: 1.1em;
+    text-align: center;
+    padding: 10px;
+  }
+
+  table td {
+  border-bottom: 1px solid gray;
+  line-height: 20px;
+  }
+
+ @media screen and (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  header#cabecalho h1{
+    width: 100%;
+    text-align: center;
+   }
+ }
+ @media screen and (max-width: 500px) {
+  header#cabecalho h1 {
+    font-size: 1.5em;
+    margin-top: 22px;
+  }
+  section.section_licoes {
+    display: inline-block;
+    position: relative;
+    margin-bottom: -100%;
+    width: 100%;
+    margin-top: 20px; 
+  }
+  div.licoes1 h1 {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1em;
+    font-style: lighter;
+    color: gray;
+  }
+  div.licoes2 h1 {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1em;
+    font-style: lighter;
+    color: gray;
+  }
+  div.licoes1 ol li, div.licoes2 ul li{
+    font-size: 0.8em;
+    color: gray;
+  }
+  div.licoes2 {
+    display: inline-block;
+    margin-top: -296px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+  }
+  div.aprendizado h1, div.aprendizado p {
+    font-size: 1em;
+  }
+  aside[class="lado-direito"] {
+    display: inline-block;
+    position: relative;
+    margin-top: 12%;
+  }
+
+  table {
+    display: inline-block;
+    position: relative;
+    width: 80%;
+    margin-top: 20px; 
+    left: calc(50% - 40%);
+  }
+ }
