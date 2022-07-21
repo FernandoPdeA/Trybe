@@ -1,0 +1,355 @@
+O que vamos aprender?
+Nesta segunda parte sobre JavaScript, você aprenderá duas das principais estruturas de dados disponíveis na linguagem e algumas das formas de iterar sobre elas.
+Vamos avançar nossos conhecimentos e entender mais sobre Array e For.
+
+
+
+Você será capaz de:
+Manipular arrays (listas);
+Utilizar o comando for;
+
+
+
+Por que isso é importante?
+A manipulação de Arrays estará presente em toda sua carreira como pessoa desenvolvedora. Você irá usar arrays frequentemente para armazenar os dados que achar necessário.
+Concentre-se em entender ao máximo o conceito de Array e como manipulá-los, pois essa base será importante para avançar seu conhecimento.
+
+
+
+Conteúdos
+Cada tópico do conteúdo apresentará o material de estudo e exercícios para fixar o aprendizado. Faça todo o conteúdo com calma e treine bem com os exercícios.
+
+
+
+Arrays (listas)
+Veja o vídeo abaixo para aprender sobre Arrays em JavaScript.
+
+Como vimos no vídeo acima, uma das grandes vantagens dos arrays é o armazenamento de várias informações em uma mesma estrutura. Veja o exemplo e pratique:
+Copiar
+let tasksList = ['Tomar café', 'Reunião', 'Brincar com o cachorro'];
+
+console.log(tasksList.length);
+// 3
+Sempre que precisar armazenar várias informações, o Array é uma boa alternativa e será uma ferramenta muito útil. Observamos que por meio do .length, conseguimos ter acesso à quantidade de elementos contidos nele. Agora, como podemos acessar essas informações? Veja este exemplo:
+Copiar
+let tasksList = ['Tomar café', 'Reunião', 'Brincar com o cachorro'];
+
+let searchForFirstTask = tasksList[0];
+console.log(searchForFirstTask);
+// Tomar café
+
+let searchForLastTask = tasksList[tasksList.length - 1];
+console.log(searchForLastTask);
+// Brincar com o cachorro
+Como podemos observar, é possível acessar os arrays pelo seu índice. O fato curioso é que a primeira posição do array é representada pelo número 0. Desse modo, para acessarmos o último elemento da estrutura, devemos pegar a quantidade de seus elementos utilizando o .length e subtrair 1.
+Vamos agora adicionar uma nova atividade para nossa lista de arrays. Veja e pratique com o exemplo a seguir:
+Copiar
+let tasksList = ['Tomar café', 'Reunião', 'Brincar com o cachorro'];
+
+tasksList.push('Fazer exercícios da Trybe');  // adiciona mais uma tarefa
+console.log(tasksList);
+
+// ['Tomar café', 'Reunião', 'Brincar com o cachorro', 'Fazer exercícios da Trybe']
+Legal, né!? Repare que o método .push() adiciona um novo item no final do array. Se precisarmos adicionar no início, podemos usar o .unshift(). Teste em seu console e veja o resultado.
+Bacana, já aprendemos a estruturar nosso array, acessar algumas informações e adicionar itens. Espero que esteja animado e se perguntando: "Ok. Agora como faço para remover?". Simples, veja este exemplo:
+Copiar
+let tasksList = ['Tomar café', 'Reunião', 'Brincar com o cachorro'];
+
+tasksList.pop();  // remove a última tarefa
+console.log(tasksList);
+
+// [ 'Tomar café', 'Reunião' ]
+O método .pop() nos permite remover o último item do array. Agora, se precisarmos remover o primeiro item da lista, podemos usar o .shift(). Faça em seu console e veja o resultado.
+Outra importante ferramenta é o indexOf(), usado para procurar o índice de um item no Array. Veja o exemplo:
+Copiar
+let tasksList = ['Tomar café', 'Reunião', 'Brincar com o cachorro'];
+
+let indexOfTask = tasksList.indexOf('Reunião');
+console.log(indexOfTask);
+
+// 1
+Essas são algumas das possibilidades mais utilizadas para manipular arrays. Caso tenha dúvidas, lembre-se sempre de consultar a documentação.
+Para fixar faça os próximos exercícios:
+Exercício 1
+Obtenha o valor "Serviços" do array menu:
+Copiar
+let menu = ['Home', 'Serviços', 'Portfólio', 'Links'];
+let menuServices = ;
+
+console.log(menuServices);
+Exercício 2
+Procure o índice do valor "Portfólio" do array menu:
+Copiar
+let menu = ['Home', 'Serviços', 'Portfólio', 'Links'];
+let indexOfPortfolio = ;
+
+console.log(indexOfPortfolio);
+Exercício 3
+Adicione o valor "Contato" no final do array menu:
+Copiar
+let menu = ['Home', 'Serviços', 'Portfólio', 'Links'];
+
+console.log(menu);
+
+
+
+
+For
+No vídeo sobre arrays, aprendemos um pouco sobre o for. Agora nesta seção, iremos focar em entender melhor como funciona essa estrutura de repetição. Como vimos, os laços podem executar blocos de códigos inúmeras vezes. Vamos aprender o que é o for e aproveitar para ver alguns usos comuns de arrays.
+Alguns aqui podem já ter visto o vídeo da Ana no curso introdutório da Trybe, mas como vamos repassar esse assunto, veremos o vídeo mais uma vez para refrescar a memória e seguir com nosso conteúdo.
+
+Embora seja um recurso da linguagem, o uso do operador de incremento (++) não é recomendado. O maior problema é que, embora seu uso principal esteja na geração de um side effect, esse operador sempre irá retornar algum valor e, pra piorar, as expressões (++x) e (x++), embora sejam facilmente confundidas por usar o mesmo operador e possuir o mesmo side effect, retornam valores diferentes.
+Levando isso em consideração, o uso desse operador pode gerar confusão e causar bugs inesperados. Sendo assim, uma vez que o += 1 substitui completamente o ++, recomenda-se o uso exclusivo de += 1, e é essa a regra que iremos adotar neste conteúdo daqui pra frente!
+Suponha que temos uma lista com marcas de carros:
+Copiar
+let cars = ['Saab', 'Volvo', 'BMW'];
+Anteriormente para apresentar esses valores, o código que utilizariamos para executar essa tarefa seria:
+Copiar
+let cars = ['Saab', 'Volvo', 'BMW'];
+console.log(cars[0]); // Saab
+console.log(cars[1]); // Volvo
+console.log(cars[2]); // BMW
+Mas, agora que conhecemos o for, podemos melhorar o código para algo como:
+Copiar
+let cars = ["Saab", "Volvo", "BMW"];
+
+for (let index = 0; index < cars.length; index += 1) {
+  console.log(cars[index]);
+}
+Os dois códigos geram o mesmo resultado, mas o segundo é muito mais adequado. Pense que, em vez de 3 carros, essa lista possuísse 1000. No primeiro código, teriamos que escrever 1000 linhas!
+Para fixar faça o próximo exercício:
+Exercício 1
+Utilize o for para imprimir os elementos da lista groceryList com o console.log():
+Copiar
+let groceryList = ['Arroz', 'Feijão', 'Alface', 'Melancia'];
+
+
+
+
+
+For/of
+Com a chegada do ES6, ganhamos uma nova funcionalidade para iterar arrays e objetos. Objetos iteráveis são objetos ou uma estrutura de dados que permite acessar o seu conteúdo com um for. O for/of nos permite criar loops em objetos iteráveis como strings, arrays, entre outros, mas vamos focar somente nesses dois!
+Veja o exemplo abaixo:
+Copiar
+
+let numeros = [1,2,3,4,5];
+for(let numero of numeros) {
+  console.log(numero);
+}
+
+// resultado:
+//1
+//2
+//3
+//4
+//5
+Simples, certo? O laço for/of permite iterar os valores das propriedades, nos retornando os números dentro do array numeros
+Vamos para outro exemplo:
+Copiar
+
+let word = 'Hello';
+for (let letter of word) {
+  console.log(letter);
+}
+// resultado:
+// "H"
+// "e"
+// "l"
+// "l"
+// "o"
+Por fim, com o for/of, nós conseguimos somar um valor a cada elemento do array e retorná-los da seguinte forma:
+Copiar
+
+let arrOfNumbers = [10, 20, 30];
+for (let sum of arrOfNumbers) {
+  sum += 1;
+  console.log(sum);
+}
+// 11
+// 21
+// 31
+É importante ressaltar que o for/of não irá alterar o array, e sim trazer os valores de dentro, e no caso, adicionando 1 à soma.
+Copiar
+
+console.log(arrOfNumbers);
+// Resultado: [10, 20, 30]
+Exercício 1
+Utilize o for/of para imprimir os elementos da lista names com o console.log():
+Copiar
+let names = ['João', 'Maria', 'Antônio', 'Margarida'];
+
+
+
+
+
+While/Do
+Você aprendeu a trabalhar com o loop for e agora sabe que ao utilizá-lo você deve informar qual a quantidade de iterações ele deverá realizar mas, já parou para pensar o que acontece quando você não sabe quantas vezes um loop deve se repetir? 🤔
+"Por exemplo, quando precisamos descobrir se duas variáveis possuem o mesmo valor.
+⚠️ Tenha muito cuidado! É fácil causar loops infinitos utilizando o while!
+Ao contrário do for, o while executa a iteração com apenas uma condição. Enquanto essa condição for verdadeira o conteúdo de escopo do while vai sendo cumprido e ao encontrar uma condição falsa o bloco é então encerrado. Por exemplo:
+Copiar
+
+let counter = 0;
+
+while(counter !== 5) {
+  counter += 1;
+}
+Neste caso o while irá rodar até que a variável counter alcance o valor 5. Mas e se o valor inicial fosse 6, o que aconteceria?
+Ele entraria em um loop infinito, e provavelmente travaria o computador. Para então não termos esse problema é importante nos certificarmos do valor inicial que será atribuído.
+💡 Dica: com o comando break é possível também encerrar o loop while quando assim desejar. Veja um exemplo aqui.
+Para o exemplo que falamos anteriormente, a solução utilizando while, seria a seguinte.
+Copiar
+
+function dice () { 
+    return Math.ceil(Math.random() * 6);
+}
+let d1 = dice();
+let d2 = dice();
+while (d1 === d2) {
+    d2 = dice();
+}
+Agora imagine se aqui utilizássemos o for? Quantas repetições seriam necessárias para a variável d1 ser diferente de d2? Como não sabemos o resultado limite, com o while, resolvemos esse problema!
+Saiba mais: Há outras maneiras de iterarmos sobre uma operação, utilizando o do...while, se quiser saber mais, veja aqui.
+
+
+
+
+Vamos praticar!
+Agora que já estudamos objetos, arrays e loops, que tal fazermos um exercício de programação que precisa de todas essas estruturas para funcionar?
+Aula ao vivo! Vamos para o Slack, onde o link estará disponível.
+
+
+
+Exercícios
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/4.2 (bloco 4, dia 2)
+Copiar
+$ git checkout -b exercicios/4.2
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-4-introducao-a-javascript-e-logica-de-programacao
+$ cd bloco-4-introducao-a-javascript-e-logica-de-programacao
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-2-javascript-array-e-loop-for
+$ cd dia-2-javascript-array-e-loop-for
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-4-introducao-a-javascript-e-logica-de-programacao/dia-2-javascript-array-e-loop-for. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/4.2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/4.2)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/4.2 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/4.2
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/4.2, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+
+
+
+Agora a prática
+Aprofunde seus conhecimentos
+🚀 Se liga nesse foguete!
+Os exercícios destacados com 🚀 são os fundamentais pra você ir bem no projeto! Todos os exercícios vão contribuir com sua formação mas fique de olho nesses! 👀
+Leia atentamente os enunciados e faça o que se pede! Iremos utilizar esse array para realizar os exercícios do 1 ao 7:
+Copiar
+let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+Nesse primeiro exercício, percorra o array imprimindo todos os valores nele contidos com a função console.log();
+Para o segundo exercício, some todos os valores contidos no array e imprima o resultado;
+Para o terceiro exercício, calcule e imprima a média aritmética dos valores contidos no array;
+A média aritmética é o resultado da soma de todos os elementos divido pelo número total de elementos.
+Com o mesmo código do exercício anterior, caso o valor final seja maior que 20, imprima a mensagem: "valor maior que 20". Caso não seja, imprima a mensagem: "valor menor ou igual a 20";
+🚀 Utilizando for, descubra qual o maior valor contido no array e imprima-o;
+Descubra quantos valores ímpares existem no array e imprima o resultado. Caso não exista nenhum, imprima a mensagem: "nenhum valor ímpar encontrado";
+Utilizando for, descubra qual o menor valor contido no array e imprima-o;
+Utilizando for, crie um array que vá de 1 até 25 e imprima o resultado;
+Utilizando o array criado no exercício anterior imprima o resultado da divisão de cada um dos elementos por 2.
+
+
+
+
+Bônus
+Para os próximos dois exercícios leia este artigo e tente entender o que está acontencedo no código abaixo:
+Copiar
+for (let index = 1; index < array.length; index += 1) {
+  for (let secondIndex = 0; secondIndex < index; secondIndex += 1) {
+    if (array[index] < array[secondIndex]) {
+      let position = array[index];
+      array[index] = array[secondIndex];
+      array[secondIndex] = position;
+    }
+  }
+}
+Com base na leitura que fez, considere o array numbers abaixo e faça os exercícios:
+Copiar
+let numbers = [5, 9, 3, 19, 70, 8, 100, 2, 35, 27];
+Ordene o array numbers em ordem crescente e imprima seus valores;
+Ordene o array numbers em ordem decrescente e imprima seus valores;
+Agora crie um novo array a partir do array numbers, sem perdê-lo. Cada valor do novo array deverá ser igual ao valor correspondente no array numbers multiplicado pelo seguinte. Por exemplo: o primeiro valor do novo array deverá ser 45, pois é a multiplicação de 5 (primeiro valor) e 9 (valor seguinte). Já o segundo valor do novo array deverá ser 27, pois é a multiplicação de 9 (segundo valor) e 3 (valor seguinte), e assim por diante. Caso não haja próximo valor, a multiplicação deverá ser feita por 2. Faça isso utilizando o for e o método push. O resultado deve ser o array abaixo:
+Copiar
+
+[45, 27, 57, 1330, 560, 800, 200, 70, 945, 54]
+
+
+
+
