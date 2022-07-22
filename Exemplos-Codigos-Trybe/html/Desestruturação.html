@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="portuguese">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desestruturação</title>
+    <h1>Desestruturação</h1>
+</head>
+<body>
+    <script>
+    //Uma das formas usando pontos para chamar (.nome.emdereco.numero etc)
+      const convidado = {
+          nome: "Fernando",
+          idade: 38 +  "anos",
+          endereco: { lagradouro: "AP", numero: 1190}
+      };   
+          console.log(convidado.nome);
+          console.log(convidado.endereco.numero);
+          console.log(convidado.idade);
+
+
+
+  
+    //Outra forma mais prática,usando (Desestruturação) ao invés dos pontos
+       const {
+           nome,
+           idade,
+           endereco: { numero }
+       }  = convidado;
+           console.log(nome);
+           console.log(numero);
+           console.log(idade);
+
+
+
+    //Outra forma ainda melhor,usando (Desconstrução) Aconselhável o uso
+       const imprimir = ({nome, idade, endereco}) => {
+           console.log(nome);
+           console.log(endereco);
+           console.log(idade);
+          
+       }
+          imprimir(convidado);
+        
+
+
+
+
+    </script>
+</body>
+</html>

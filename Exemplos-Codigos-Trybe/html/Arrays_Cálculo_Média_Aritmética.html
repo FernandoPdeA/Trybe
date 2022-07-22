@@ -1,0 +1,19 @@
+<html>
+<script>
+    //Variáveis globais
+    var numeros = [];
+
+
+    while (true) { //Comando while true infinito
+        var numero = prompt(" Digite um numero ou s para sair ");
+        if (numero == "s") {
+            break;
+        } else {
+            numeros.push(Number(numero))
+        }
+        var resultado = numeros[0] * numeros[1];
+        console.log(resultado);
+    };
+</script>
+
+</html>

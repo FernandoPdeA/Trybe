@@ -1,0 +1,43 @@
+<html>
+<body>
+  <canvas id="folha" width="1200" height="600"></canvas>
+
+  <script>
+    var folhaDesenho = document.getElementById("folha");
+    var areaDesenho = folhaDesenho.getContext("2d");
+  //iniciando as variáreis e o modo de exibição 2d
+
+    var larguraCampo = 1200;
+    var alturaCampo = 600;
+    var larguraLinhaCentral = 10;
+    var larguraBola = 20;
+    var alturaBola = 20;
+    var alturaRaquete = 50;
+    var larguraRaquete1 =10;
+    var larguraRaquete2 =-10;
+
+    areaDesenho.fillStyle = '#286047';
+  //inserindo uma cor a folha(campo verde)
+    areaDesenho.fillRect(0, 0, larguraCampo, alturaCampo);
+  //especificando dimenções da folha
+
+    areaDesenho.fillStyle = '#90ff00';
+  //inserindo uma cor no centro da folha
+    areaDesenho.fillRect(larguraCampo/2 - larguraLinhaCentral/2, 0, larguraLinhaCentral, alturaCampo);
+  //inserindo uma linha no centro da folha(rede)
+
+    areaDesenho.fillRect(0, 275, larguraRaquete1, alturaRaquete);
+  //criando a raquete 1
+    areaDesenho.fillRect(larguraCampo, 275, larguraRaquete2, alturaRaquete);
+  //criando a raquete 2
+
+    areaDesenho.fillStyle = '#ffffff';
+  //cor da bola
+    areaDesenho.fillRect(30, 30, larguraBola, larguraBola);
+  //posicionamento e dimensão da bola(inicial)
+
+
+
+    </script>
+  </body>
+</html>

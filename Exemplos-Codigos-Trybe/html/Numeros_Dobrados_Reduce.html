@@ -1,0 +1,24 @@
+<html>
+    <script>
+
+     /* Nesse caso,o (reduce) multiplica,divide,soma,subtrai,enfim... por 2 ou por qualquer número 
+      que o programador desejar localizado dentro do array */
+
+
+     var numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+     var calc = function(total, item) {
+         return total.concat(item * 2);
+
+       
+     }
+
+     var dobrados = numeros.reduce(calc, []);
+
+     
+     console.log(dobrados);
+     document.write(dobrados);
+     window.alert(dobrados);
+
+    </script>
+</html>

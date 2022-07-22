@@ -1,0 +1,44 @@
+<htnl>
+    <script>
+           var registro = 'ABC'
+           var funcionario = {
+               
+               anoNascimento: 1983,
+               departamento: 'TI',
+               nome: "Fernando",
+               idade: "38 Anos",
+               diaNascimento: 08,
+               numRegistro: '123456',
+               mesNascimento: "Março",
+    
+               eventos: [
+                    {evento: "Modificação estrutural", data: "18,05,2021"},
+                    {evento: "Reforma de Silo", data: "12,06,2021"},
+                        ],
+               horarios:[], 
+                      
+                   
+               registrarEntrada: function(data) {
+                  this.horarios.push({data: data, evento: 'entrada'}) 
+                   console.log("entrada às " + data + " - " + this.numRegistro);
+               },
+               registrarSaida: function(data) {
+                  this.horarios.push({data: data, evento: 'saida'}) 
+                   console.log("saída às" + data, + " - " + this.numRegistro);
+               },
+             
+              
+               } 
+               
+              funcionario.registrarEntrada("06/09/2021");
+              funcionario.registrarSaida("06/09/2021");
+    
+            
+           
+            console.log(funcionario);
+          
+    
+    
+    
+    </script>
+    </htnl>

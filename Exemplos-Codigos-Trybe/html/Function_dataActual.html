@@ -1,0 +1,35 @@
+<html>
+    <script>
+
+function dataActual()
+{
+/*
+Cria um objecto com a data e hora actuais e mostra
+o seu valor na janela recorrendo ao método
+toLocaleString() do objecto Date
+*/
+var d = new Date();
+document.write("A data e hora são:" + d.toLocaleString());
+}
+dataActual(); // esta linha faz executar a função
+
+
+
+                                   //Essas são duas formas diferentes...A de cima desta linha e de baixo desta linha
+
+                                   
+
+function cumprimentar(nome)
+{
+var d = new Date();
+document.write("</br>Olá " + nome + "<br/>A data e hora actuais são: "
++ d.toLocaleString());
+}
+cumprimentar('Fernando'); // esta linha faz executar a função
+
+
+    </script>
+
+
+
+</html>

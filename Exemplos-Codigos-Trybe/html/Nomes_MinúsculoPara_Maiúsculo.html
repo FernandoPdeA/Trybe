@@ -1,0 +1,21 @@
+<html>
+    <script>
+
+        var convidados = [
+        {nome: "fernando", vip: true, idade: 38, sexo: "M"}, 
+        {nome: "rodrigo", vip:true, idade: 39, sexo: "M"},
+        {nome:"adriano", vip: true, idade: 40, sexo: "M"},
+     ];
+
+        var convidadosNormalizado = convidados.map(function(item) {
+           
+            return Object.assign(item,  {nome: item.nome.toUpperCase()});
+                   
+        });
+
+           console.log(convidadosNormalizado);
+           document.write(convidadosNormalizado);
+           window.alert(convidadosNormalizado);
+
+    </script>
+</html>

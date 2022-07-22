@@ -1,0 +1,20 @@
+<script>
+  // < > >= <= == != operadores
+
+  ligar();   //Iniciar
+  
+  var teperatura = 0;     //Lê a temperatura a partir do 0.
+  var temperatura = atual;    //Valor da temperatura atual,atualizado.
+  
+
+  while(temperatura <= 180) {      //Enquanto a temperatura for igual ou menor do que 180 graus.
+    console.log("temperatura atual" + temperatura);      //Faça isso.
+    temperatura = ler_temperatura();
+
+    min = ler_tempo();   //Relógio lendo o tempo.
+    if (min > 60) {      //Quando passar de 60 minutos sem atingir a temperatura desejada.
+      break;             //Desligue...para não gastar lenha ou gás a toa,desnecessáriamente.
+    }
+  }
+  console.log("fim do programa");
+  </script>
