@@ -1,0 +1,346 @@
+O que vamos aprender?
+Hoje você vai aprender sobre algoritmos e lógica de programação, a base de tudo que faremos daqui pra frente.
+Assim como em uma receita de bolo, na programação, devemos passo a passo utilizar comandos para resolver um problema. Essa sequência de comandos se chama algoritmo. Para criar um algoritmo, temos que desenvolver uma capacidade analítica para transformar grandes problemas em pequenos e encadeados comandos lógicos. Desenvolvemos essa forma de raciocinar com a lógica de programação.
+
+
+
+
+Você será capaz de:
+Quebrar grandes problemas em pequenos;
+Utilizar a lógica de programação na resolução de problemas.
+
+
+
+Lógica de Programação
+A lógica de programação consiste em uma série de regras e normas baseadas na lógica matemática e em teorias da computação, que tem como objetivo facilitar o raciocínio no momento da criação de uma cadeia de comandos.
+Antes de adentrar os requisitos mais técnicos, tenha em mente que aprender a teoria sobre esse assunto não é suficiente. O processo de utilização da lógica de programação demanda tempo e repetição, até que se torne automático. Você desenvolverá essa habilidade aos poucos ao longo de todo o curso!
+Outro ponto importante é que a lógica de programação não se restringe a uma linguagem específica. Você irá aprender a partir de JavaScript, mas a lógica é aplicável a todas as outras linguagens. Por isso costuma-se dizer que, a cada linguagem que aprendemos, fica mais fácil aprender a próxima, pois já exercitamos nosso raciocínio e temos apenas que adaptar nossos algoritmos, que veremos mais a frente, às particularidades de determinada linguagem.
+Assista esse vídeo para entender os conceitos da lógica:
+
+
+
+
+Algoritmos
+O algoritmo é uma série de comandos encadeados de forma lógica, que busca resolver algum problema.
+Utilizamos lógica em muitos momentos do nosso dia a dia de forma automática. Pense no leite com achocolatado que você toma pela manhã. Simples fazê-lo, não? Vejamos o passo a passo:
+Copiar
+1. Pegar um copo
+2. Colocar o copo em cima da mesa
+3. Abrir a porta da geladeira
+4. Pegar o leite
+5. Fechar a porta da geladeira
+6. Colocar determinada quantidade de leite no copo
+7. Abrir o armário
+8. Pegar o achocolatado
+9. Fechar a porta do armário
+10. Colocar determinada quantidade de achocolatado no copo
+11. Pegar uma colher
+12. Mexer no copo com a colher
+Imagine se tivéssemos que pensar em todo esse passo a passo toda manhã. Felizmente, já conseguimos interpretar essa série de instruções de forma lógica e automática.
+Os computadores não tem esse poder. Para o bem ou para o mal, computadores são isentos de vieses e interpretações. Por isso, cada comando deve ser cirurgicamente determinado. Caso, no passo 4, estivesse escrito "Pegar o lete", o que seria pra nós um simples erro ortográfico, mas que não traria danos à execução do processo, para o computador seria um erro de sintaxe, que inviabilizaria o funcionamento do algoritmo. Provavelmente um erro como lete is not defined seria retornado.
+Porém, algumas ordens poderiam ser trocadas sem prejuízo na execução. Por exemplo, poderíamos utilizar os passos 7, 8, 9 e 10 antes dos 3, 4, 5 e 6. Ou seja, colocar o achocolatado no copo antes do leite. Esse tipo de decisão é comum na vida das pessoas desenvolvedoras.
+Quando nos deparamos com problemas, devemos raciocinar e enxergar quais os caminhos possíveis para a sua resolução. Muitas vezes esses caminhos são múltiplos, o que nos leva a decidir qual percorrer. Alguns fatores como performance, propriedades da linguagem utilizada, legibilidade do código e tempo devem ser levados em consideração no momento da decisão. No exemplo do leite com achocolatado, existem pessoas que vão preferir do jeito como está, e existem pessoas que optarão por colocar o achocolatado antes do leite, e desde que não haja prejuízo nos fatores citados acima, tudo bem!
+Agora, pegue papel e caneta ou abra um bloco de texto e gaste 5 minutos escrevendo um algoritmo sobre como se vestir para uma festa.
+Após escrever o algoritmo, responda as seguintes perguntas:
+Eu resolvi o problema?
+Havia outras maneiras de resolver o problema?
+A maneira que eu escolhi foi a mais eficiente possível, ou havia como fazer a mesma coisa com menos passos?
+Seria possível inverter ou retirar algum passo?
+Se eu fosse um computador, conseguiria entender todas as instruções?
+Existe também, no processo de criação de um algoritmo, um conceito muito importante chamado baby steps ou "passos de bebê".
+Antes de falarmos dos baby steps, vamos analisar o seguinte exercício:
+O enunciado diz:
+Utilizando o array abaixo, percorra-o somando todos os valores. Caso o valor final seja maior que 15, imprima-o. Caso seja igual ou menor que 15, imprima a mensagem: "valor menor que 16":
+Copiar
+let fruits = [3, 4, 10, 1, 12];
+A resolução do problema acontece em 3 etapas:
+Interpretação;
+Criação do algoritmo;
+Codificação do algoritmo.
+Portanto, primeiro vamos interpretar o que está sendo pedido, e essa etapa é crucial para solucionar o problema. Se interpretarmos errado, o algoritmo e consequentemente o código estará errado.
+Analisando o enunciado, sabemos que:
+devemos utilizar o array fruits;
+o termo "percorra" indica uma estrutura de repetição, ou loop;
+"somando todos os valores" mostra que devemos ter uma variável que guarda o valor da soma dos valores;
+o termo "caso" indica uma estrutura condicional, ou if;
+"imprima o valor final" indica um console.log;
+Pode parecer um pouco bobo, mas em enunciados complexos, analisar friamente o enunciado nos afasta de cometermos erros e termos que escrever todo os passos seguintes novamente.
+Agora vamos criar o algoritmo, e pra isso faremos uso dos baby steps. Eles nos estimulam a dividir grandes e complexos problemas em pequenos e simples.
+Adicionar o array;
+Criar uma variável com valor 0;
+Criar um loop que percorre o array;
+Incrementar a variável com o valor correspondente a cada loop;
+Criar um if com a condição da variável ser maior que 15;
+Caso a variável obedeça a condição;
+Imprimir a variável
+Caso não obedeça a condição;
+Imprimir a mensagem "valor menor que 16";
+No momento já interpretamos o problema e já criamos um algoritmo, baseado nos baby steps, para ele. Como última etapa, vamos codificá-lo, seguindo nosso algoritmo:
+Adicionar o array;
+Copiar
+//exercise.js
+let fruits = [3, 4, 10, 1, 12];
+Criar uma variável com valor 0;
+Copiar
+//exercise.js
+let fruits = [3, 4, 10, 1, 12];
+let sum = 0;
+Criar um loop que percorre o array;
+Copiar
+//exercise.js
+let fruits = [3, 4, 10, 1, 12];
+let sum = 0;
+
+for (let index = 0; index < fruits.length; index += 1) {
+
+}
+Incrementar a variável com o valor correspondente a cada loop;
+Copiar
+//exercise.js
+let fruits = [3, 4, 10, 1, 12];
+let sum = 0;
+
+for (let index = 0; index < fruits.length; index += 1) {
+  sum += fruits[index];
+}
+Criar um if com a condição da váriavel ser maior que 15;
+Copiar
+//exercise.js
+let fruits = [3, 4, 10, 1, 12];
+let sum = 0;
+
+for (let index = 0; index < fruits.length; index += 1) {
+  sum += fruits[index];
+}
+
+if (sum > 15) {
+
+} else {
+
+}
+Caso a varíavel obedeça a condição: Imprimir a varíavel;
+Copiar
+//exercise.js
+let fruits = [3, 4, 10, 1, 12];
+let sum = 0;
+
+for (let index = 0; index < fruits.length; index += 1) {
+  sum += fruits[index];
+}
+
+if(sum > 15) {
+  console.log(sum);
+} else {
+
+}
+Caso não obedeça a condição: Imprimir a mensagem “valor menor que 16”;
+Copiar
+//exercise.js
+let fruits = [3, 4, 10, 1, 12];
+let sum = 0;
+
+for (let index = 0; index < fruits.length; index += 1) {
+  sum += fruits[index];
+}
+
+if (sum > 15) {
+  console.log(sum);
+} else {
+  console.log('valor menor que 16');
+}
+Com o tempo e repetição, muitas dessas etapas se tornam automáticas. Porém, é extremamente útil sabermos construir um algoritmo sem codificá-lo. Por isso, até o momento da aula ao vivo, volte aos exercícios do dia anterior, 4.2, e crie um algoritmo para cada.
+Após escrever cada algoritmo, responda novamente as seguintes perguntas:
+Eu resolvi o problema?
+Havia outras maneiras de resolver o problema?
+A maneira que eu escolhi foi a mais eficiente possível?
+Seria possível inverter ou retirar algum passo?
+Se eu fosse um computador, conseguiria entender todas as intruções?
+Lembre-se sempre: se você travar em algum exercício, recomece seu raciocínio com baby steps! Certamente você será capaz de dividir algum passo em outros passos menores. Isso ajudará muito na hora de resolver problemas.
+
+
+
+
+Complexidade de código
+Um código muito complexo não é uma boa prática no mundo da programação. Isso dificulta não só o acompanhamento do código, mas também a testagem ou a implementação de mudanças.
+É normal, principalmente no começo, que o seu código apresente erros de complexidade e você precise encontrar uma maneira de desenvolver a sua lógica de uma forma diferente.
+Para medir a complexidade de um código, existe a complexidade ciclomática, que é uma métrica de software que considera os caminhos independentes que o algoritmo pode tomar. E, quanto maior for a complexidade ciclomática, mais difícil é fazer o acompanhamento do código, sua manutenção e testagem.
+Para manter a complexidade baixa, você deve sempre tentar simplificar os caminhos possíveis, como, por exemplo, quebrando o seu código em partes menores.
+Mas que caminhos são esses?
+Você aprendeu sobre if/else, certo? Por exemplo, se o seu código apresenta apenas uma condicional (somente um if/else), ele tem dois caminhos, ou faz isso ou faz aquilo. E, quanto mais caminhos tiver, mais complexo vai ser. Existem várias formas de aumentar a quantidade desses caminhos, não só usando condicionais. Pode-se, também, por exemplo, aumentar usando laços de repetição, como for. Mas não foque nisso agora!
+Não se preocupe em como resolver esse erro por agora, pois você irá entender melhor como fazer isso no conteúdo de amanhã! O foco hoje é só entender que o erro de complexidade de código existe, para você não ter uma surpresa no futuro.
+
+
+
+
+Vamos praticar!
+Partiu praticar esses conceitos em conjunto?!
+Aula ao vivo! Vamos para o Slack, onde o link estará disponível.
+
+
+
+Exercícios
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/4.3 (bloco 4, dia 3)
+Copiar
+$ git checkout -b exercicios/4.3
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-4-introducao-a-javascript-e-logica-de-programacao
+$ cd bloco-4-introducao-a-javascript-e-logica-de-programacao
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-3-javascript-logica-de-programacao-e-algoritmos
+$ cd dia-3-javascript-logica-de-programacao-e-algoritmos
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-4-introducao-a-javascript-e-logica-de-programacao/dia-3-javascript-logica-de-programacao-e-algoritmos. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/4.3
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/4.3)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/4.3 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/4.3
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/4.3, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+
+Agora a prática
+Aprofunde seus conhecimentos
+Leia atentamente os enunciados e faça o que se pede!
+Recomendamos que você utilize o debugger ou o console.log() durante a realização dos exercícios, desse modo será mais fácil acompanhar o comportamento do código e entender o que ocorre em cada uma das linhas. Para saber mais sobre como utilizar o debugger, acesse nosso conteúdo sobre isso.
+1- O fatorial é a multiplicação de um número natural pelos seus antecessores, exceto o zero. Por exemplo:
+Copiar
+O fatorial é representado pelo sinal !
+4! = 4 x 3 x 2 x 1 = 24
+Com base nessas informações, crie um algoritmo que retorne o fatorial de 10.
+2- Agora, desenvolva um algoritmo que é capaz de inverter uma palavra. Por exemplo, a palavra "banana" seria invertida para "ananab". Utilize a string abaixo como exemplo, depois troque por outras para verificar se seu algoritmo está funcionando corretamente.
+Copiar
+let word = 'tryber';
+3- Considere o array de strings abaixo:
+Copiar
+let array = ['java', 'javascript', 'python', 'html', 'css'];
+Escreva dois algoritmos: um que retorne a maior palavra deste array e outro que retorne a menor. Considere o número de caracteres de cada palavra.
+4- Um número primo é um número inteiro maior do que 1 que possui somente dois divisores, ou seja, é divisível por 1 e por ele mesmo. Sabendo disso, escreva um algoritmo que retorne o maior número primo entre 2 e 50.
+
+
+
+
+Bônus
+1- Agora vamos trabalhar com algumas formas geométricas! Faça um programa que, dado um valor n qualquer, seja n > 1, imprima na tela um quadrado feito de asteriscos de lado de tamanho n. Por exemplo:
+Copiar
+n = 5
+
+*****
+*****
+*****
+*****
+*****
+2- Para o segundo exercício, faça o mesmo que antes, mas que imprima um triângulo retângulo com 5 asteriscos de base. Por exemplo:
+Copiar
+n = 5
+
+*
+**
+***
+****
+*****
+3- Agora inverta o lado do triângulo. Por exemplo:
+Copiar
+n = 5
+
+    *
+   **
+  ***
+ ****
+*****
+Atenção! Note que esse exercício é bem mais complexo que o anterior! Não basta, aqui, imprimir somente asteriscos. Você precisará de uma lógica para imprimir espaços também.
+4- Depois, faça uma pirâmide com n asteriscos de base:
+Copiar
+n = 5
+
+  *
+ ***
+*****
+5- Faça uma pirâmide com n asteriscos de base que seja vazia no meio. Assuma que o valor de n será sempre ímpar:
+Copiar
+Por último, façamos com que a variável seja incrementada com o valor correspondente a cada loop;
+n = 7
+
+   *
+  * *
+ *   *
+*******
+6- Faça um programa que diz se um número definido numa variável é primo ou não.
+Um número primo é um número que só é divisível por 1 e por ele mesmo, ou seja, a divisão dele com quaisquer outros números dá resto diferente de zero.
+Dica: você vai precisar de fazer um loop que vá de 0 ao número definido; Além disso, vai precisar de fazer uma checagem a cada iteração e armazenar os resultados em algum lugar.
+
+
+
+
+
+Recursos adicionais (opcional)
+W3Schools JavaScript Arrays
+Grasshopper - um aplicativo para praticar o básico de programação
+Step up your coding game - The new way to improve your programming skills while having fun and getting noticed
+Code.org - treinando lógica de programação de maneira lúdica
+The 9 Best Coding Games to Build Your Programming Skills
+CheckiO - Coding games for beginners and advanced programmers
