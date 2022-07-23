@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/lampada_acende_apaga.css">
+  <title>Lâmpada</title>
+</head>
+
 <body>
 
-<h2>What Can JavaScript Do?</h2>
+  <div class="lampada_div">
+    <div class="lampada_div2">
+      <h2>O que o JavaScript pode fazer?</h2>
+      <p class="p_1">JavaScript pode alterar valores de atributos HTML.</p>
+      <p class="p_2">Neste caso o JavaScript altera o valor do atributo src (source) de uma imagem.</p>
 
-<p>JavaScript can change HTML attribute values.</p>
+      <img id="myImage" src="../img/lampadaApagada.jpeg">
+      <button onclick="document.getElementById('myImage').src='../img/lampadaAcesa.jpeg'">Acender</button>
+      <button onclick="document.getElementById('myImage').src='../img/lampadaApagada.jpeg'">Apagar</button>
+    </div>
 
-<p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+  </div>
 
-<button onclick="document.getElementById('lampada.gif').src='D:\Fotos\Fotos_Usadas_programar'">Turn on the light</button>
-
-<img id="myImage" src="pic_bulboff.gif" style="width:100px">
-
-<button onclick="document.getElementById('lampadaApagada.gif').src='D:\Fotos\Fotos_Usadas_programar'">Turn off the light</button>
 
 </body>
+
 </html>
