@@ -41,3 +41,16 @@ function greetingsMessage2(name3) {
   console.log("Boas vindo, " + name3);
 }
 greetingsMessage2('Adriano');
+
+
+//---------------------------------------------------------------------------------------------------------------------
+
+let eu = ['Alguém da Trybe', ' que é super legal'];
+console.log(eu[0] + eu[1] + '!');
+
+let a = "Serei a melhor pessoa dev";
+let b = "Esse é meu jeito dev de ser!";
+let num = 2;
+let strings = [a, b];
+
+console.log((typeof strings.length) == (typeof num));
