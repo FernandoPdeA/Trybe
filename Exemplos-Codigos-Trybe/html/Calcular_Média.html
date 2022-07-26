@@ -1,28 +1,29 @@
 <html>
-    <script>
+<script>
 
-      /* Nesse caso calculamos a (média)...que seria a soma dos números dentro do array,dividido pela quantidade de números
-          dentro do mesmo */
-
-          
-     var valores = [1.5, 2, 4, 10];
-
-     var calc = function(total, item, indice, array) {
-         total = total + item;
-
-         if(indice == array.length - 1) {
-             return total /array.length;
-         }
-         return total;
-     }
-
-     var media = valores.reduce(calc);
-     
-
-     console.log(media);
-     document.write(media);
-     window.alert(media);
+    /* Nesse caso calculamos a (média)...que seria a soma dos números dentro do array,dividido pela quantidade de números
+        dentro do mesmo */
 
 
-    </script>
+    var valores = [1.5, 2, 4, 10];
+
+    var calc = function (total, item, indice, array) {
+        total = total + item;
+
+        if (indice == array.length - 1) {
+            return total / array.length;
+        }
+        return total;
+    }
+
+    var media = valores.reduce(calc);
+
+
+    console.log(media);
+    document.write(media);
+    window.alert(media);
+
+
+</script>
+
 </html>
