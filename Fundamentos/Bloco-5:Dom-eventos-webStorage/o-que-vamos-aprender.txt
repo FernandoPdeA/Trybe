@@ -1,0 +1,354 @@
+O que vamos aprender?
+Hoje, você vai aprender sobre o famoso DOM, a estrutura que faz a ponte entre o HTML e o JavaScript e que permite interação entre os dois. Por fim, você vai aprender um pouco sobre algumas das interações possíveis: veremos como recuperar dados do HTML através do JavaScript.
+
+
+Você será capaz de:
+Acessar dados do HTML com o JavaScript através dos seletores do DOM.
+
+
+Conteúdos
+A seguir, você vai aprender sobre DOM e seletores de elementos.
+
+
+Parte I - O DOM. Ou: como o HTML e o JavaScript se comunicam?
+O DOM (Document Object Model) é uma interface que representa como os HTML e XML são lidos pelo browser. Após a leitura do documento HTML pelo browser, o DOM cria um objeto que faz uma representação do documento e define meios de como essa estrutura pode ser acessada, dessa forma podemos utilizar o JavaScript para manipular o DOM e assim alterar o estilo e o conteúdo de nossa página.
+No DOM nossa página é representada por nós e objetos, e é através deles que iremos realizar a comunicação do nosso HTML com o JavaScript. Sendo assim, podemos dizer que o DOM é uma representação orientada a objetos da página da web, que pode ser modificada com uma linguagem de script como JavaScript.
+
+Estrutura DOM
+Nessa imagem temos um exemplo de estrutura do DOM, ou melhor, da árvore do DOM, suas marcações e como ela é montada pelo browser. Vejamos um pouco mais sobre os objetos que a imagem apresenta:
+Window: Representa uma janela que contém um elemento DOM, sendo possível acessar o documento que a janela contém através de Window;
+location: Representa a localização do objeto a qual ele está associado, isso é, o documento atual;
+document: Representa qualquer página da web carregada no navegador e serve como um ponto de entrada para o conteúdo na página da web, sendo assim o document contém todos os documentos HTML;
+history: Permite a manipulação do histórico da sessão do navegador, ou seja, as páginas visitadas na guia ou quadro em que a página atual está carregada;
+element: É a classe base mais geral da qual todos os objetos em um Document herdam, isso é, são todas as tags que estão em arquivos HTML e se transformam em elementos da árvore DOM;
+text: Texto que vai entre os elementos, é todo o conteúdo das tags;
+atribute: São todos os atributos que um nó específico possui, como uma class ou id.
+Ficou nítido? Ou a ideia do que é o DOM ainda está um pouco abstrata?
+Pense assim: a página HTML/CSS/JS que você faz é um programa. O navegador é quem interpreta esse código e, a partir dele, gera a página que você vê na Internet.
+Pois bem, o DOM é uma estrutura da sua página que o navegador monta quando lê. O seu intuito é justamente permitir ao programa acessar os elementos da página usando código e dar a ele o poder de manipulá-las.
+Se, ainda assim, o conceito de DOM estiver um pouco abstrato, não se preocupe! Tudo vai ficar mais nítido quando você começar a interagir com ele.
+
+
+
+Parte II - Seletores de elementos
+Vamos a um exemplo! Suponha que você quer acessar a informação que está dentro da <div> de um site. Você pode estar baixando informações de sua página para alimentar uma base de dados, por exemplo.
+Utilizando JavaScript, você pode, com código, recuperar exatamente o texto que está dentro da <div> que você quiser.
+Para entender como você pode fazer isso, vamos entender a função getElementById.
+
+Curtiu? E observe bem: após recuperar o elemento que escolheu via JavaScript, você pode alterá-lo! Para começar a praticar, copie para um arquivo em sua máquina o exemplo abaixo.
+Copiar
+<!DOCTYPE html>
+<html>
+  <body>
+    <header>
+      <h2 id="page-title">Título</h2>
+      <p id="paragraph">Dê uma cor para este parágrafo!</p>
+      <h4 id="subtitle">Subtítulo</h4>
+      <p id="second-paragraph">Segundo parágrafo!</p>
+    </header>
+    <script>
+      const paragraph = document.getElementById("paragraph");
+      paragraph.style.color = "red";
+    </script>
+  </body>
+</html>
+Agora você! Faça o seguinte:
+Recupere o elemento que contém o título da página e faça algo com ele, como alterá-lo para o nome do seu filme favorito.
+Agora recupere o segundo parágrafo e use sua criatividade para alterá-lo.
+Por fim, recupere o subtítulo e altere-o também.
+Há mais formas de você acessar o conteúdo dos elementos do seu HTML. Aí vão algumas outras!
+Você pode acessar os elementos filtrando pelo nome da classe:
+
+... E pelo nome da tag!
+
+Utilizando o mesmo template de exercício anterior:
+Adicione uma classe igual para os dois parágrafos.
+Recupere os seus parágrafos via código JavaScript, usando a função getElementsByClassName;
+Altere algum estilo do primeiro deles.
+Recupere o subtítulo e altere a cor dele usando a função getElementsByTagName.
+Por fim, há uma função única que você pode usar para fazer todos esses acessos, a querySelector.
+
+Mas como fazer uma busca que retorna vários elementos e não apenas o primeiro? Bem, para isso existe o querySelectorAll, que tem comportamento semelhante ao querySelector. A diferença é simples: ela retorna uma array com todos os elementos que "casem" com a sua seleção, ao invés de retornar apenas o primeiro deles. Veja o vídeo a seguir para entender melhor essa função.
+
+Tanto o querySelector quanto o querySelectorAll acessam CSS Selectors de todos os tipos. Ou seja, eles podem acessar muito além de valores de ids e classes. Para saber mais sobre CSS Selectors, clique aqui.
+
+
+
+Parte III - Qual seletor usar?
+O getElementById(id) funciona de maneira diferente do querySelector('#id'), mas o resultado é o mesmo. Como dito no vídeo, o primeiro tem uma performance melhor, mas o segundo é mais flexível.
+⚠️ Atenção! ⚠️
+Enquanto os getElementsByClassName('ClassName') e getElementsByTagName('TagName') retornam uma HTMLCollection, os querySelectorAll('.ClassName') e querySelectorAll('TagName') retornam uma NodeList.
+Leia sobre a diferença entre HTMLCollection e NodeList aqui.
+Um outro ponto é a forma da resposta, que pode ser diferente entre os seletores (HTMLCollection e NodeList). A forma de buscar os dados armazenados nessas estruturas, em alguns casos, pode mudar, então tenha cuidado na hora de fazer funções que utilizem o resultado dos seletores, isso pode salvar das dores de cabeça sobre o porquê de uma função aparentemente correta não funcionar.
+Para praticar, substitua todas as funções que você usou no exercício anterior por querySelector e/ou querySelectorAll.
+Além disso, vamos consolidar a manipulação dos elementos HTML, colocando a cor do Administrador de Tempo da Trybe como na imagem abaixo usando apenas o JavaScript!
+
+Administrador de tempo finalizado.
+Você vai precisar usar o que aprendeu sobre getElementBy e querySelector para colocar em prática.
+Antes de iniciar, crie um arquivo HTML na pasta exercises/5_1 e copie o código abaixo:
+Copiar
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Administrador do Tempo</title>
+  </head>
+  <body id="container">
+    <header id="header-container">
+      <h1>Administrador do Tempo da Trybe</h1>
+    </header>
+
+    <section class="emergency-tasks">
+      <div>
+        <h3>Urgente e Importante</h3>
+      </div>
+      <div>
+        <h3>Urgente e Não-Importante</h3>
+      </div>
+    </section>
+
+    <section class="no-emergency-tasks">
+      <div>
+        <h3>Não-Urgente e Importante</h3>
+      </div>
+      <div>
+        <h3>Não-Urgente e Não-Importante</h3>
+      </div>
+    </section>
+
+    <footer id="footer-container">
+      <div>&copy; Trybe</div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
+Perceba que agora, na tag script, temos o atributo src. Ele servirá para importarmos arquivos .js externos, e funciona de forma semelhante à importação de arquivos CSS. Assim, mantemos nosso código HTML mais limpo, e podemos editar com mais facilidade nosso JavaScript. Legal, não é?
+Crie um arquivo JavaScript com o nome de "script.js" na pasta exercises/5_1 e coloque seus conhecimentos de getElementBy e querySelector em prática.
+Crie também um arquivo CSS e copie o código abaixo para adicionar estilo à página. Fique a vontade para soltar a criatividade e alterar o arquivo como desejar!
+Copiar
+* {
+  margin: 0;
+}
+
+#container {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
+
+#header-container {
+  color: white;
+  padding: 20px;
+}
+
+.emergency-tasks {
+  display: inline-block;
+  height: 400px;
+  margin: 56px 0;
+  width: 400px;
+}
+
+.emergency-tasks div {
+  height: 198px;
+}
+.emergency-tasks h3 {
+  color: white;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.no-emergency-tasks {
+  display: inline-block;
+  height: 400px;
+  width: 400px;
+}
+
+.no-emergency-tasks div {
+  height: 198px;
+}
+
+.no-emergency-tasks h3 {
+  color: white;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+#footer-container {
+  color: white;
+  font-weight: 700;
+  padding: 15px;
+  text-align: center;
+}
+Perceba que todo o conteúdo da página está na cor branca, utilize o que aprendeu no conteúdo de hoje para que a página fique igual ao Administrador do Tempo da Trybe.
+
+
+
+Vamos praticar!
+Partiu praticar esses conceitos em conjunto?!
+Aula ao vivo! Vamos para o Slack, onde o link estará disponível.
+
+
+
+Exercícios
+Agora vamos exercitar a utilização de funções e o básico do DOM. Você verá que alguns assuntos, como lógica condicional e loops, entre outros, vão reaparecer frequentemente nos nossos exercícios.
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/5.1 (bloco 5, dia 1)
+Copiar
+$ git checkout -b exercicios/5.1
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-5-javascript-dom-eventos-e-web-storage
+$ cd bloco-5-javascript-dom-eventos-e-web-storage
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-1-javascript-dom-e-seletores
+$ cd dia-1-javascript-dom-e-seletores
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-5-javascript-dom-eventos-e-web-storage/dia-1-javascript-dom-e-seletores. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/5.1
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/5.1)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/5.1 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/5.1
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/5.1, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+
+Funções de manipulação do DOM
+É hora de aplicar seus conhecimentos em manipular os elementos do HTML!
+A seguir, você verá um trecho de código HTML e CSS.
+Crie um arquivo HTML dentro do diretório exercises/javascript-dom-eventos-e-web-storage_1 e copie o código a seguir.
+Leia as instruções que estão dentro de um comentário na tag <script>.
+Não se esqueça de fazer um commit a cada exercício!
+Copiar
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Exercício 5.1</title>
+    
+    <style>
+      main, section {
+        border-color: black;
+        border-style: solid;
+      }
+
+      .title {
+        text-align: center;
+      }
+
+      .main-content {
+        background-color: yellow;
+      }
+
+      .main-content .center-content {
+        background-color: red;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      .main-content .center-content p {
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <header> 
+      <h1 class="title">Exercício 5.1 - JavaEscripito </h1>
+    </header>    
+    <main class="main-content">
+      <section class="center-content">
+        <p>Texto padrão do nosso site</p>
+        <p>-----</p>
+        <p>Trybe</p>
+      </section>
+    </main>
+    <script>
+        /*
+        Aqui você vai modificar os elementos já existentes utilizando apenas as funções:
+        - document.getElementById()
+        - document.getElementsByClassName()
+        - document.getElementsByTagName()
+        1. Crie e execute uma função que mude o texto na tag `<p>-----</p>`, para uma descrição de como você se vê daqui a 2 anos. (Não gaste tempo pensando no texto e sim realizando o exercício)
+        2. Crie e execute uma função que mude a cor do quadrado amarelo para o verde da Trybe (rgb(76,164,109)).
+        3. Crie e execute uma função que mude a cor do quadrado vermelho para branco.
+        4. Crie e execute uma função que corrija o texto da tag <h1>.
+        5. Crie e execute uma função que modifique todo o texto da tag <p> para maiúsculo.
+        6. Crie e execute uma função que exiba o conteúdo de todas as tags <p> no console.
+        */
+    </script>
+  </body>
+</html>
+
+
+
+Recursos adicionais (opcional)
+Mal pode esperar pra estudar mais JavaScript? Aqui temos o sumário do guia definitivo de JS pra você saber mais sobre a linguagem.
+Artigo - Trabalhando com DOM em JavaScript
+Mais exercícios de DOM (mais avançados)
+Playground do Codepen para praticar
+
+
