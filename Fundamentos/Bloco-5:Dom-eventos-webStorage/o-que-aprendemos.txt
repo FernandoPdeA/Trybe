@@ -1,0 +1,252 @@
+Passando uma data que já expirou
+Esta alternativa está correta! Para deletar um cookie se coloca um data que já expirou, forçando a remoção dele.
+
+Os cookies são enviados para o servidor, enquanto os outros dois não são
+Esta alternativa está correta! Cookies são enviados para o servidor, enquanto os outros dois nunca são enviados.
+
+Não tem um tempo específico, mas a sessionStorage é apagada ao fechar a aba ou o navegador
+Esta alternativa está correta! A sessionStorage é apagada quando se fecha a aba ou o navegador.
+
+Guardar valores que devem persistir ao fechar ou recarregar uma página e não devem ser enviados ao servidor
+Esta alternativa está correta! Para guardar valores que devem persistir e que não devem ser enviados ao servidor a melhor solução é utilizar localStorage.
+
+localStorage e sessionStorage
+Esta alternativa está correta! Só podemos salvar esses dois tipos de estruturas em sessionStorage e localStorage.
+
+
+localStorage.clear()
+Esta alternativa está correta! O comando localStorage.clear() limpa o localStorage.
+
+
+JSON.stringify()
+Esta alternativa está correta! O comando JSON.stringify() converte outros formatos de dado em string.
+
+
+localStorage.removeItem()
+Esta alternativa está correta! O comando localStorage.removeItem() remove o item do localStorage.
+
+
+localStorage.setItem()
+Esta alternativa está correta! O comando localStorage.setItem() adiciona um novo item ao localStorage.
+
+
+sessionStorage.getItem()
+Esta alternativa está correta! O comando sessionStorage.getItem() recupera um item do sessionStorage.
+
+
+Por que isso é importante?
+Salvar dados no browser das pessoas que acessam uma determinada página web é muito útil, pois podemos fazer com que essa página consuma esses dados e apresente diferentes conteúdos e ações para diferentes pessoas.
+Quando você inicia um vídeo no YouTube e depois retorna, o vídeo continua de onde parou. Um carrinho de compras de um site permanece com os itens que você adicionou durante semanas e uma página é apresentada já com o seu nome, e você nem fez login.
+Esses são exemplos de aplicações que utilizam o browser para salvar esses dados e facilitar a criação de tais funcionalidades.
+Esse armazenamento local é o conteúdo de hoje, Web Storage.
+
+
+
+Conteúdos
+A seguir, você irá aprender como utilizar cookies, localStorage e sessionStorage para salvar informações. Também saberá quais são as diferenças entre estes métodos e quando utilizar cada um deles.
+De olho na dica 👀: Esse conteúdo é essencial para realizar os próximos projetos e é muito importante para a sua jornada em front-end. Portanto, foca no estudos e pratique bastante! 🦭🧑‍💻
+
+
+
+Cookies
+Cookies são dados salvos em pequenos arquivos de texto no computador da pessoa que utiliza a Internet.
+Quando o servidor envia a página Web para o browser, a conexão é desligada e o servidor não tem mais acesso às informações da requisição - como os itens que a pessoa usuária adicionou a um carrinho de compras ou o e-mail que lhe dará acesso a sua conta. Cookies foram inventados para salvar dados das pessoas usuárias no próprio browser, pois, dessa forma, uma página conseguirá acessá-los para executar uma lógica com os parâmetros personalizados por pessoa.
+Cookies são salvos no formato chave-valor. Quando o navegador faz a requisição ao servidor para acessar uma página Web, os cookies dessa página são adicionados à requisição. Dessa forma, o servidor tem acesso aos dados da pessoa usuária. Nos exemplos a seguir, você irá aprender a criar e manipular cookies. Para testá-los, é importante que o seu navegador tenha o suporte a cookie habilitado. Para visualizar os cookies de uma aplicação, abra a janela para inspecionar a página. No menu superior, clique em Application e na barra lateral esquerda, na sessão Storage, clique em Cookies.
+O Javascript permite que a gente crie, leia e delete cookie através da propriedade document.cookie.
+Para criar um cookie, você só precisa atribuir à propriedade document.cookie uma string contendo o nome e o valor do que se pretende armazenar:
+Copiar
+document.cookie = 'email=isabella@email.com';
+Por definição, o cookie é deletado quando fechamos o navegador. Para que isso não aconteça, você pode adicionar uma data para expiração como no exemplo abaixo:
+Copiar
+document.cookie = 'email=isabella@email.com; expires=Thu, 17 Dec 2020 12:00:00 UTC';
+Você pode adicionar também o parâmetro path que dirá ao navegador qual caminho o cookie que você criou pertence. Por padrão, o cookie pertence à página atual.
+Copiar
+document.cookie = 'email=isabella@email.com; expires=Thu, 17 Dec 2020 12:00:00 UTC; path=/';
+O Javascript permite que você atribua document.cookie a uma variável. Assim, você conseguirá ler as informações que estão armazenadas. No exemplo abaixo, ao imprimirmos no console o valor de myCookie, o que será retornado é uma string contendo o nome e o valor do cookie. Quando temos mais de um par chave-valor, a variável armazenará em uma única string os pares separados por ponto-vírgula.
+Copiar
+const myCookie = document.cookie;
+console.log(myCookie) // email=isabella@email.com
+E você pode também alterar o valor do cookie da mesma forma que o criamos. Basta atribuir a document.cookie a nova informação que você quer armazenar.
+Copiar
+document.cookie = 'email=cleyton@email.com; expires=Thu, 17 Dec 2020 12:00:00 UTC';
+Para deletar o cookie, você não precisa especificar o valor que pretende deletar. Você pode deletá-lo passando uma data que já expirou:
+Copiar
+document.cookie = 'email=; expires=Tue, 01 Dec 2020 12:00:00 UTC;'
+
+
+
+Local e Session Storage
+HTML Web Storage provê dois objetos para armazenamento de dados no cliente (browser da pessoa), no formato de chave-valor de um modo mais intuitivo do que nos Cookies:
+localStorage - salva os dados sem data de expiração. Os dados não serão removidos quando o browser for fechado, ou seja, eles ficarão disponíveis enquanto não forem explicitamente removidos.
+Para os exemplos a seguir, você pode usar o seguinte código em seu index.html para poder usar o Live Server. Mas se preferir, pode executar os comandos no console também.
+Copiar
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Dê uma olhada no seu console para checar os exemplos sendo impressos.<br />;)</h1>
+  <script src="script.js"></script>
+</body>
+</html>
+Exemplo de utilização:
+Copiar
+console.log(localStorage.length); // não possui nada salvo, então o retorno é o valor: 0
+localStorage.setItem('firstname', 'Adam'); // salva uma entrada com a key = 'firstname' e value = 'Adam'
+localStorage.setItem('lastname', 'Smith'); // salva uma entrada com a key = 'lastname' e value = 'Smith'
+console.log(localStorage.getItem('lastname')); // retorna o valor 'Smith'
+console.log(localStorage.length); // possui duas entradas, então o retorno é o valor: 2
+localStorage.removeItem('lastname'); // remove a entrada referente a key = 'lastname'
+console.log(localStorage.length); // possui uma entrada, então o retorno é o valor: 1
+localStorage.clear(); // limpa todas as entradas salvas em localStorage
+console.log(localStorage.length); // não possui nada salvo, então o retorno é o valor: 0
+sessionStorage - salva os dados apenas para a sessão atual. Os dados são removidos assim que a pessoa fecha a aba (tab) ou o navegador (browser).
+Exemplo de utilização:
+Copiar
+console.log(sessionStorage.length); // não possui nada salvo, então o retorno é o valor: 0
+sessionStorage.setItem('firstname', 'Adam'); // salva uma entrada com a key = 'firstname' e value = 'Adam'
+sessionStorage.setItem('lastname', 'Smith'); // salva uma entrada com a key = 'lastname' e value = 'Smith'
+console.log(sessionStorage.getItem('lastname')); // retorna o valor 'Smith'
+console.log(sessionStorage.length); // possui duas entradas, então o retorno é o valor: 2
+sessionStorage.removeItem('lastname'); // remove a entrada referente a key = 'lastname'
+console.log(sessionStorage.length); // possui uma entrada, então o retorno é o valor: 1
+sessionStorage.clear(); // limpa todas as entradas salvas em sessionStorage
+console.log(sessionStorage.length); // não possui nada salvo, então o retorno é o valor: 0
+OBS: Tanto o localStorage quanto o sessionStorage, armazenam dados no formato chave e valor e os valores salvos serão sempre no formato string.
+Isso quer dizer que não podemos armazenar qualquer outro formato? Não exatamente. Existem duas funções que irão nos ajudar a armazenar qualquer tipo de dado: uma vai transformar o dado em uma string JSON.stringify() e a outra vai transformar o dado de volta para o formato original JSON.parse().
+Ficou confuso? Não se preocupe, veja os exemplos abaixo:
+Copiar
+const myObj = {
+  name: 'Link',
+  age: 20,
+};
+
+// Precisamos transformar este objeto em uma string. Para isso, utilizamos a função `JSON.stringify()`.
+
+localStorage.setItem('myData', JSON.stringify(myObj));
+
+// Como dito anteriormente, o `localStorage` armazena dados no formato chave e valor, sendo os valores sempre string. Para isso, precisamos passar como primeiro parâmetro do método `setItem()` o nome da chave, passamos `myData` e como segundo parâmetro, a função `JSON.stringify()` com o objeto-valor que queremos armazenar na chave `myData`. Feito isso, teremos salvo no `localStorage` um objeto com a chave `myData` e o valor `{ "name": "Link", "age": 20 }`.
+
+// Agora, precisamos recuperar o objeto armazenado, mas queremos ele no formato original e não como uma string. Para isso, utilizaremos a função `JSON.parse()`.
+
+const recoveredObject = JSON.parse(localStorage.getItem('myData'));
+
+// Utilizamos a função `JSON.parse()` para transformar a string que está armazenada no `localStorage` de volta para seu formato original, um objeto.
+
+console.log(recoveredObject); // { name: 'Link', age: 20 }
+Relembrando 🧠: Ao salvar strings no localStorage, não é necessário utilizar o JSON.stringify e nem o JSON.parse para recuperar as informações. Combinado?
+Veja agora mais exemplos do que pode ser salvo no localStorage ou sessionStorage:
+Copiar
+
+
+
+Vamos praticar!
+É hora de colocar em prática todo esse conhecimento. 💪 Vamos ver como utilizar tudo o que aprendemos sobre Web storage.
+Aula ao vivo! Vamos para o Slack, onde o link estará disponível.
+
+
+Exercícios
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/5.4 (bloco 5, dia 4)
+Copiar
+$ git checkout -b exercicios/5.4
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-5-javascript-dom-eventos-e-web-storage
+$ cd bloco-5-javascript-dom-eventos-e-web-storage
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-4-javascript-web-storage
+$ cd dia-4-javascript-web-storage
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-5-javascript-dom-eventos-e-web-storage/dia-4-javascript-web-storage. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/5.4
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/5.4)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/5.4 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/5.4
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/5.4, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+
+Aprofunde seus conhecimentos
+Imagine que você é a pessoa responsável por desenvolver uma página que servirá como um leitor de conteúdo escrito.
+Esse conteúdo escrito pode ser uma página de livro, uma reportagem de revista ou uma nota de jornal online. Para que você não tenha que pensar no conteúdo da página, utilize este link para gerar o texto para sua página.
+Até aqui, nenhuma novidade, mas essa demanda exige que você aplique preferências das pessoas leitoras na página para melhorar a experiência de leitura dessas pessoas.
+As pessoas devem ter o poder de alterar:
+Cor de fundo da tela;
+Cor do texto;
+Tamanho da fonte;
+Espaçamento entre as linhas do texto;
+Tipo da fonte (Font family).
+Essas preferências devem ser salvas de forma que, ao retornar à página, as preferências que foram previamente configuradas possam ser aplicadas na tela.
+Bônus
+As propriedades descritas acima são obrigatórias, mas você é livre para adicionar qualquer outra propriedade que julgar válida e que tenha como objetivo a melhora da experiência da pessoa que lê em sua página.
+
+
+
