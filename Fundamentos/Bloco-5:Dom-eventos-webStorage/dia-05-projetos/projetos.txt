@@ -1,0 +1,55 @@
+O que vamos fazer?
+Você já aprendeu muito até aqui, e chegou a hora de colocar todo o seu conhecimento em prática!
+A seguir, você vai encontrar a especificação dos projetos que deverá desenvolver durante os próximos dias:
+Com este projeto, você exercitará também a sua criatividade ao colorir pixels! 👾
+Arte com pixels
+Coloque seus projetos no ar!
+Na especificação de cada projeto, você vai encontrar os detalhes sobre como entregá-los para revisão. Mas que tal você também colocar o seu projeto no seu repositório do GitHub Pages? Assim, você poderá divulgar seu trabalho para amigos, colegas e familiares! 😉
+Para cada projeto, você pode criar uma pasta na qual vai colocar os arquivos que você desenvolveu. Por exemplo:
+joaozinho/projetos-javascript/pixel-art (aqui vão os arquivos do projeto 1)
+Bônus
+Aqui você pode ir além e desenvolver os projetos abaixo como uma forma a mais de exercitar seus conhecimentos em HTML, CSS e JavaScript! 🏋🏽‍♂
+Com este projeto, você nunca mais vai perder uma tarefa! ✅
+Lista de afazeres
+Neste projeto, você vai desenvolver um gerador de memes! 🤣
+Gerador de memes
+Neste projeto, você vai jogar e aprender sobre cores! 🌈
+Adivinhe a cor
+Este projeto vai testar suas habilidades de detetive! 🕵‍
+Carta misteriosa
+
+
+
+O que vamos fazer?
+Nas últimas aulas, você aprendeu como manipular o DOM com JavaScript, que serve de base para adicionar interatividade à página. Vamos continuar com a mão na massa?
+Neste projeto, você implementará um editor de arte com pixels. Ou seja, dada uma paleta de cores e um quadro composto por pixels, você vai permitir que quem usa consiga pintar o que quiser no quadro!
+
+
+Por que isso é importante?
+Com este projeto, será reforçada a sua capacidade de modelagem de problemas, uma habilidade essencial com a qual você vai se deparar o tempo todo na sua carreira de desenvolvimento! Uma forma de modelagem de problemas é quebrá-lo em vários menores.
+No contexto deste projeto, o problema que você precisa atacar é: dados um quadro composto por pixels e uma paleta de cores, você precisa permitir que o usuário consiga pintar o quadro com a cor que ele tiver selecionado na paleta. O problema é ilustrado no readme do projeto no Github.
+Além disso, você terá a oportunidade de colocar novamente em prática o que aprendeu sobre HTML, CSS e JavaScript nas últimas semanas!
+Agora #vqv!!! 🚀
+
+
+O que vamos avaliar?
+Aderência do código à especificação. Seu programa deve se comportar como especificado.
+Organização do seu código. Quebre seu código em funções. Prefira funções pequenas, simples e bem definidas a funções grandes e complexas.
+Sua capacidade de estruturar corretamente uma página HTML. Utilize as tags corretas nos contextos apropriados. Feche sempre suas tags e aninhe-as corretamente.
+A estruturação do seu CSS. Evite repetição. Combine e agrupe classes CSS bem definidas.
+
+
+
+Entregáveis
+Para entregar o seu projeto, você deverá criar um Pull Request para um repositório no GitHub. Consulte o canal do Slack da turma para obter o endereço do repositório.
+Fique atento e siga as instruções no README.md do repositório! 🥺
+Qualquer dúvida, procure a monitoria.
+Lembre-se de que você pode consultar nosso conteúdo sobre Git & GitHub sempre que quiser!
+
+
+
+Recursos adicionais (opcional)
+Reagindo a eventos HTML com JavaScript;
+Uso do sistema de cor RGB para definir cores;
+Explicação da tag <table>;
+Função para gerar números aleatórios.
