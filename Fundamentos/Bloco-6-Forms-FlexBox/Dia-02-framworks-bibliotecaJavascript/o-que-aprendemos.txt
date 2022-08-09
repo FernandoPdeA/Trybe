@@ -1,0 +1,177 @@
+O que vamos aprender?
+Hoje você aprenderá como adicionar bibliotecas JavaScript e CSS aos seus sites.
+Existem literalmente milhares de bibliotecas JavaScript e CSS disponíveis gratuitamente na Internet, com os mais diversos propósitos. À medida que os sites que você desenvolve se tornam mais complexos, será preciso encontrar e integrar ferramentas que facilitem e acelerem o desenvolvimento.
+
+
+
+Você será capaz de:
+Adicionar e utilizar bibliotecas JavaScript e CSS em seus sites;
+Utilizar bibliotecas JavaScript externas a partir de uma CDN.
+
+
+
+Por que isso é importante?
+No dia a dia do desenvolvimento de software, você vai precisar encontrar, selecionar e incorporar bibliotecas aos programas que você desenvolve. É muito importante conhecer os fundamentos de uma tecnologia, mas é importante também não reinventar a roda a todo momento. Por exemplo, imagine que você, toda vez que precisasse calcular a raiz quadrada de um número, tivesse que escrever uma função para isso, talvez utilizando uma fórmula matemática complexa! 😨Para que isso não seja necessário, outras pessoas já se deram o trabalho de escrever esse tipo de função de forma extremamente otimizada e disponibilizar para que outras pessoas utilizem.
+O mesmo princípio se aplica ao desenvolvimento web. Existem muitos problemas que aparecem com frequência, à medida que a complexidade dos seus sites aumenta. Por exemplo, na aula anterior você aprendeu a construir formulários HTML. Imagine que, em um formulário de cadastro, você quer garantir que o nome e sobrenome sempre sejam preenchidos, que o email da pessoa tenha um formato válido e que seja impossível selecionar uma data de nascimento inexistente. Além disso, você acha que ficar digitando a data manualmente é cansativo, e quer colocar um campo que, ao ser clicado, abre um calendário para escolher a data. Como você faria isso? Com JavaScript (e um pouco de muito CSS, no caso do calendário). Isso, porém, é algo tão comum que já existem bibliotecas que fornecem essas funcionalidades prontas para você.
+Da mesma forma, existem muitos frameworks CSS que facilitam a construção de sites dinâmicos, acessíveis e responsivos, coisas com as quais você deve se preocupar sempre daqui para frente. Alguns exemplos mais famosos: Bulma, Bootstrap, Semantic UI e Materialize.
+
+
+
+Conteúdo
+Quais páginas Web você já visitou hoje? É bem provável que em pelo menos uma delas você precisou interagir com a aplicação de alguma forma - como preenchendo um formulário para ter acesso, visualizando imagens a medida que a página carrega, validando um campo de e-mail/senha.
+Essas interações são bastante repetitivas e a grande maioria das pessoas desenvolvedoras reutilizam códigos para evitar perder tempo implementando funcionalidades já desenvolvidas. Para isso, utilizamos bibliotecas, que são arquivos em Javascript com funções que podem ser reutilizadas.
+No vídeo você pode ter uma noção da variedade de bibliotecas JavaScript disponíveis e de como elas podem te ajudar nas mais variadas tarefas.
+
+Como vimos, a documentação da biblioteca contém as instruções sobre como instalá-la e uma lista com as funções disponíveis para você utilizar. A documentação deve ser sempre a sua principal fonte de informação, e saber ler documentações é fundamental na sua carreira como pessoa desenvolvedora. Quando uma pessoa programadora cria uma biblioteca, a sua intenção é compartilhá-la com toda a comunidade e, para isso, ela irá se esforçar para escrever uma documentação com bons exemplos para podermos reutilizar funções que são corriqueiras - como manipular datas, exibir alertas, validar campos, dentre outras.
+Algumas bibliotecas têm o seu próprio servidor. Outras, são distribuídas a partir de uma CDN externa. Uma CDN (Content Delivery Network) é uma rede de servidores para a distribuição de conteúdos. Ela armazena réplicas de conteúdos de outros sites e os entrega para a pessoa usuária. Essa distribuição é baseada na localização geográfica do visitante. Assim, a pessoa usuária será conectada ao servidor mais próximo, diminuindo o tempo de latência (transferência de dados).
+A biblioteca que vimos no vídeo, Moment, também está disponível via CDN e você pode acessá-la aqui. A cdnjs hospeda várias bibliotecas que você aprenderá mais para frente, como React JS. O grande benefício de se utilizar uma biblioteca através de CDNs é que os seus servidores são otimizados para servir arquivos estáticos como bibliotecas Javascript rapidamente. No entanto, a maioria dos sites que disponibilizam bibliotecas preferem hospedá-las em servidores próprios para ter mais controle sobre o conteúdo e otimizá-los, como incorporando mais de uma biblioteca em um arquivo para se ter mais recursos e performance.
+Há milhares de bibliotecas JavaScript que irão te auxiliar em diversas tarefas, como:
+Layout da página;
+Acessibilidade;
+Manipulação DOM;
+Efeitos e animação;
+Gráficos e quadros;
+Suporte para dispositivos móveis;
+Diante de tantas opções e funcionalidades, como decidir qual biblioteca utilizar? A verdade é que não há uma resposta correta para essa pergunta, e a escolha de qual biblioteca usar é fundamental no trabalho de uma pessoa desenvolvedora - afinal, você começará a escrever códigos tendo como base qual biblioteca utilizar e mudar de ideia quando a página já está em desenvolvimento pode ser uma tarefa difícil.
+Para tomar a melhor decisão, você pode pensar na sua aplicação a partir da sua composição. Uma página Web é composta por uma interface com a pessoa usuária (HTML e CSS), por elementos de interatividade (Javascript e DOM) e por um banco de dados (que também pode ser acessado por Javascript). Algumas bibliotecas são específicas para a interface com a pessoa usuária, enquanto que outras podem ser utilizadas em diferentes partes da aplicação, como podemos ver no esquema abaixo:
+
+Diagrama bibliotecas Javascript.
+Bibliotecas que "fazem de tudo" são chamadas de frameworks. Elas atuam desde a recuperação de dados até a manipulação do DOM e interface com a pessoa usuária. Por outro lado, por fazer coisas demais, em algumas situações usar bibliotecas menores pode ser mais vantajoso, pois elas são focadas em tarefas específicas. Ainda assim, há muitas vantagens em se usar frameworks. No vídeo abaixo, você aprenderá um pouco mais sobre um Framework CSS muito utilizado para criar páginas com design responsivo: o Bootstrap.
+Você aprenderá a adicionar o Bootstrap ao seu site, fazendo download dos arquivos JavaScript e CSS para seu computador.
+
+Além do Bootstrap, você também pode usar bibliotecas que melhoram a experiência de navegação da pessoa usuária. A biblioteca mais popular para manipulação do DOM é a jQuery, que vimos no vídeo.
+Conforme as suas páginas crescem, você sentirá a necessidade de usar bibliotecas que te auxiliarão na definição da arquitetura da sua aplicação. Logo mais, quando chegarmos no módulo Frontend, você irá aprender uma biblioteca que é muito utilizada para construir user interfaces: o React JS.
+Algumas bibliotecas são bem pontuais, e são utilizadas para tarefas específicas. Alguns exemplos de microbibliotecas são:
+moment.js, que já vimos no primeiro vídeo, tem funções para validação, manipulação e visualização de data e hora;
+highcharts é utilizado para criar gráficos interativos;
+Bibliotecas de teste, como a spoiler alert React Testing Library. Aprenderemos mais sobre ela no módulo de Frontend!
+Como você pode perceber, há milhares de bibliotecas disponíveis e não tem uma resposta correta para qual biblioteca você deve usar. No entanto, você pode fazer algumas considerações na hora de definir qual biblioteca mais se adequa ao produto que você está desenvolvendo. É interessante ponderar como será a experiência do time de desenvolvimento com a biblioteca e como será a experiência da pessoa usuária:
+A biblioteca trará uma boa experiência para quem a desenvolve?
+Bem documentada: a biblioteca deve ser de fácil entendimento, com demonstrações de uso real e um guia sobre como utilizá-la. Se uma biblioteca não tem uma documentação, este pode ser um indício de que ela pode não ser tão amigável assim para time de desenvolvimento. Prefira bibliotecas com uma documentação acessível;
+Flexível: é fácil alterar as opções de configuração da funcionalidade que você gostaria de usar? Muitas vezes, a biblioteca pode ter demonstrações impressionantes, mas ser engessada para um uso específico;
+Atualizada: o mundo da Internet está em constante mudança. Bibliotecas podem parar de funcionar por depender de alguma característica específica de um navegador que foi atualizado. Verifique se a biblioteca que você quer utilizar está sempre ativa e atualizada;
+Testada: todas as bibliotecas devem incluir testes que garantem que as suas funcionalidades são executadas como o esperado.
+Código limpo: algumas vezes tratamos a biblioteca como uma caixa preta, e não damos tanta importância para o código que implementa as suas funcionalidades. Mas pode acontecer de você precisar entendê-lo, caso você encontre algum bug que pode estar relacionado à biblioteca, por exemplo. Dê uma olhada nos códigos da biblioteca e veja se ele é fácil de ser lido, com trechos comentados.
+Comunidade ativa: você vai ter dúvidas, e você irá encontrar bugs nas bibliotecas que usará como pessoa desenvolvedora. A melhor forma de tirar dúvidas e resolver bugs é junto com outras pessoas desenvolvedoras em uma comunidade ativa.
+Se a biblioteca é hospedada em sites como o GitHub, algumas dicas para conferir se a biblioteca é uma boa escolha é olhar o número de Forks ou o número de estrelas. Esses números são um bom indicativo sobre a quantidade de pessoas desenvolvedoras e pessoas programadoras que estão utilizando a biblioteca. Algumas podem atingir milhares de Forks! Você pode conferir também se há muitos problemas em aberto. Se sim, isso pode ser um sinal de que a comunidade não está muito empenhada em resolvê-los.
+Além dessas dicas, observe também como a comunidade externa está utilizando a biblioteca. As perguntas no StackOverflow são respondidas? Não deixe de buscar na Internet pelo nome da biblioteca que você quer utilizar e analise bem os resultados retornados.
+A biblioteca trará uma boa experiência para a pessoa usuária?
+Acessibilidade: verifique se a biblioteca que você quer usar tem recursos que tornarão a sua aplicação acessível para qualquer pessoa usuária - inclusive pessoas com deficiência.
+Responsividade: se a pessoa usuária for utilizar a aplicação em um dispositivo móvel, a biblioteca deve funcionar bem para o dispositivo. Os botões são grandes o bastante e respondem ao toque?
+Suporte ao navegador: algumas bibliotecas podem não suportar todos os navegadores. Elas podem ter sido projetadas para navegadores de dispositivos móveis, ou simplesmente não são compatíveis com navegadores mais antigos. Verifique se a sua biblioteca funciona bem para o navegador que você deseja.
+Com muita prática, experiência e conversando com outras pessoas desenvolvedoras você criará uma lista com as suas bibliotecas favoritas!
+Vamos ver na prática como estilizar um formulário, como o que criamos na última aula, com o Bootstrap? Você verá como bibliotecas CSS facilitam (e muito!) a nossa vida 😉. Aproveite para colocar em prática o que você aprendeu sobre bibliotecas em alguma página que você já criou!
+
+
+
+
+Vamos praticar!
+Agora que você já entendeu como utilizar bibliotecas JavaScript nas suas páginas, é hora de praticarmos!
+Aula ao vivo! Vamos para o Slack, onde o link estará disponível.
+
+
+
+Exercícios
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/6.2 (bloco 6, dia 2)
+Copiar
+$ git checkout -b exercicios/6.2
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-6-html-e-css-forms-flexbox-e-responsivo
+$ cd bloco-6-html-e-css-forms-flexbox-e-responsivo
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-2-bibliotecas-javascript-e-frameworks-css
+$ cd dia-2-bibliotecas-javascript-e-frameworks-css
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-6-html-e-css-forms-flexbox-e-responsivo/dia-2-bibliotecas-javascript-e-frameworks-css. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/6.2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/6.2)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/6.2 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/6.2
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/6.2, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+
+
+Agora a prática
+Adicione um framework CSS de sua escolha ao formulário que você construiu na última aula e o utilize para estilizar o formulário.
+Sugestões: Bulma, Bootstrap, Semantic UI e Materialize.
+
+
+
+Bônus
+Adicione uma biblioteca JavaScript de date picker ao formulário que você construiu na última aula. Utilize essa biblioteca no campo "Data", responsável por receber a data escolhida para a viagem no formulário. Como a bliblioteca será usada pora validar as datas escolhidas pela pessoa usuária, remova as validações de data usadas previamente e aplique as validações da biblioteca. Lembre-se que, ao selecionar o tipo do input através do type, você está criando uma forma de validação também.
+Sugestões: DatePickerX e Pikaday.
+spoiler-alert: a leitura de documentações pode parecer algo complexo de início mas é extremamente normal se você sentir alguma dificuldade. Algumas bibliotecas terão uma maneira mais direta de mostrar as informações, como é o caso da DatePickerX que indicamos acima. Outras tendem a ser mais detalhadas e exigem um pouco mais de atenção na leitura, o que pode parecer mais difícil a princípio, como a Pikaday, que também te indicamos. Sugerimos que você leia as duas documentações e escolha a que você compreender melhor a utilização. E não se preocupe, pois ler documentações fará parte de sua rotina na sua vida de pessoa desenvolvedora, e a experiência junto com a prática torna tudo mais intuitivo e simples.
+Adicione uma biblioteca JavaScript de validações ao formulário que você construiu na última aula. Utilize essa biblioteca para substituir as validações que você fez manualmente.
+Sugestões: Just-validate e popup-validation
+
+
+
+Recursos Adicionais
+Tutorial de como instalar e utilizar a biblioteca Just-validate
+Tutorial de como instalar e utilizar a biblioteca popup-validation
