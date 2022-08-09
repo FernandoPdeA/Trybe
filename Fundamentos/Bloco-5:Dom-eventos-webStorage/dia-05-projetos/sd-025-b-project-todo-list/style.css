@@ -1,0 +1,208 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: rgb(235, 235, 235);
+}
+
+header {
+  height: 100px;
+  text-align: center;
+  width: 100%;
+  background-color: rgb(56, 195, 149);
+}
+
+header h1 {
+  padding-top: 25px;
+  font-size: 35px;
+  color: rgb(51, 51, 51);
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main p {
+  border-bottom: 1px solid rgb(51, 51, 51);
+  font-size: 20px;
+  color: rgb(51, 51, 51);
+  margin-top: 20px;
+}
+
+main input {
+  width: 300px;
+  height: 30px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0 20px;
+  font-size: 20px;
+  color: rgb(51, 51, 51);
+  margin-top: 20px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+main input:hover {
+  background-color: rgb(225, 245, 216);
+}
+
+main button {
+  padding: 5px 5px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  color: rgb(128, 128, 128);
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: rgb(56, 195, 149);
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 15px;
+}
+
+main button:hover {
+  background-color: rgb(19, 235, 163);
+ color: rgb(46, 45, 45);
+}
+
+main section.listas {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.listas ol {
+padding-left: 30px;
+width: 30%;
+margin-top: 20px;
+margin-left: calc(58% - 25%);
+border: 1px solid rgb(128, 128, 128);
+}
+
+ li.tarefa {
+  padding: 10px;
+  border-bottom: 1px solid rgb(196, 195, 195);
+  font-size: 20px;
+  color: rgb(51, 51, 51);
+  cursor: pointer;
+}
+
+section.controles {
+  padding: 5px 25px;
+  margin-top: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgb(216, 214, 214);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+ button#apaga-tudo {
+  margin-left: 5px;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: rgb(138, 7, 7);
+  transition: all 0.3s ease-in-out;
+}
+
+  button#apaga-tudo:hover {
+    background-color: rgb(255, 0, 0);
+    scale: 1.05;
+  }
+
+  button#remover-finalizados {
+    margin-left: 5px;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(111, 133, 24);
+    transition: all 0.3s ease-in-out;
+  }
+
+  button#remover-finalizados:hover {
+    background-color: rgb(135, 166, 8);
+    scale: 1.05;
+  }
+
+  button#salvar-tarefas {
+    margin-left: 5px;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(6, 107, 35);
+    transition: all 0.3s ease-in-out;
+  }
+
+  button#salvar-tarefas:hover {
+    background-color: rgb(14, 172, 14);
+    scale: 1.05;
+  }
+
+  button#remover-selecionado {
+    margin-left: 5px;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(44, 3, 3);
+    transition: all 0.3s ease-in-out;
+  }
+
+  button#remover-selecionado:hover {
+    background-color: rgb(0, 0, 0);
+    scale: 1.05;
+  }
+
+  button#mover-cima {
+    height: 100%;
+  }
+ 
+  button#mover-cima span {
+    color: black;
+    padding: 3px 5px;
+  }
+
+    button#mover-cima:hover {
+    scale: 1.05;
+  }
+
+  button#mover-baixo {
+    margin-left: 5px;
+    height: 100%;
+  }
+
+  button#mover-baixo span {
+    color: black;
+    padding: 3px 5px;
+  }
+
+    button#mover-baixo:hover {
+    scale: 1.05;
+  }
