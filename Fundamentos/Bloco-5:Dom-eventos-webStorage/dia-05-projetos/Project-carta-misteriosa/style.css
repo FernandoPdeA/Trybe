@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: lighter;
+  font-family: 'Roboto', sans-serif;
+  font-style: lighter;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: rgb(46, 40, 40);
+}
+
+header h1 {
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-align: center;
+  padding-top: 28px;
+}
+
+form {
+  width: 100%;
+  height: 200PX;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(46, 40, 40);
+  box-shadow: 0px 0px 10px rgb(46, 40, 40);
+}
+
+form input {
+  width: 500px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  padding-left: 10px;
+  font-size: 20px;
+  color: rgb(46, 40, 40);
+  border: 1px solid rgb(128, 128, 128);
+  outline: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+form input:hover {
+  background-color: rgb(250, 235, 215);
+}
+
+.btn:focus,
+.btn::-moz-focus-inner {
+  outline: none;
+  border: none;
+}
+
+.btn {
+  font-family: arial;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+.btn-gray {
+  background: rgb(46, 40, 40);
+  color: #fff;
+  box-shadow: 0 5px 5px rgb(78, 69, 69);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-gray:hover {
+  background: rgb(103, 88, 88);
+  box-shadow: 0 5px 5px rgb(104, 104, 78);
+}
+
+.btn-gray:active {
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+}
+
+section.visualiza-texto {
+  margin-top: 20px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section.visualiza-texto p {
+  color: rgb(46, 40, 40);
+  font-size: 30px;
+  text-align: center;
+  padding-top: 28px;
+}
+
+div.contador {
+  width: 400px;
+  height: 100px;
+  font-size: 20px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 10px solid rgb(183, 180, 180);
+}
+
+div.contador p {
+  color: rgb(46, 40, 40);
+  font-size: 25px;
+  text-align: center;
+}
+
+#carta-contador {
+  margin-left: 10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgb(46, 40, 40);
+  box-shadow: 0px 0px 10px rgb(46, 40, 40);
+}
+
+.newspaper {
+  background-color: rgb(250, 235, 215);
+  font-family: 'Times New Roman';
+  font-weight: 700;
+}
+
+.magazine1 {
+  background-color: rgb(0, 128, 128);
+  color: rgb(255, 255, 255);
+  font-family: 'Verdana';
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.magazine2 {
+  background-image: url(images/pink-pattern.png);
+  color: rgb(255, 0, 255);
+  font-family: 'Verdana';
+  font-weight: 900;
+}
+
+.medium {
+  font-size: 20px;
+  padding: 8px;
+}
+
+.big {
+  font-size: 30px;
+  padding: 10px;
+}
+
+.reallybig {
+  font-size: 40px;
+  padding: 15px;
+}
+
+.rotateleft {
+  transform: matrix(0.996195, -0.0871557, 0.0871557, 0.996195, 0, 0);
+}
+
+.rotateright {
+  transform: matrix(0.996195, 0.0871557, -0.0871557, 0.996195, 0, 0);
+}
+
+.skewleft {
+  transform: matrix(1, 0, 0.176327, 1, 0, 0);
+}
+
+.skewright {
+  transform: matrix(1, 0, -0.176327, 1, 0, 0);
+}
