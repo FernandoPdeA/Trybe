@@ -1,0 +1,550 @@
+O que vamos aprender?
+Construir páginas responsivas é uma habilidade fundamental para pessoas que trabalham com desenvolvimento front-end hoje em dia. Quando falamos sobre páginas responsivas, o termo "mobile first" - layout voltado para dispositivos móveis - vem à cabeça imediatamente.
+Em teoria, é mais fácil construir um layout "mobile first" quando você está começando o desenvolvimento, pois você não tem que se preocupar muito sobre funcionalidades complexas que podem entrar em telas grandes de desktop.
+Você vai aprender como utilizar media queries para mostrar um layout diferente em tamanhos de tela diferentes.
+Exemplo:
+Layout 1 para telas grandes: desktops, laptops, etc;
+Layout 2 para telas médias: tablets, telefones com tela grande (Samsung Note), etc;
+Layout 3 para telas pequenas: smartphones.
+Media queries são bastante utilizadas no design responsivo para mostrar diferentes layouts para diferentes telas, dependendo do seu tamanho e/ou orientação. A principal razão para isso é que alguns layouts podem parecer "estranhos" (ou até completamente quebrados) em telas muito estreitas, ou muito largas.
+
+
+
+
+Você será capaz de:
+Criar regras CSS específicas para serem aplicadas a dispositivos móveis;
+Construir páginas que alteram o seu layout de acordo com a orientação da tela;
+
+
+
+Por que isso é importante?
+Responsividade é uma abordagem de design e desenvolvimento que se adapta ao comportamento e ambiente da pessoa usuária baseado no tamanho, orientação e plataforma da sua tela. Em um cenário onde os tamanhos das telas que usamos variam drasticamente, ela é considerada uma habilidade indispensável para qualquer novo projeto.
+É importante deixar claro que: design não é desenvolvimento e desenvolvimento não é design.
+As duas frentes trabalham juntas para criar um produto final, mas a forma como elas trabalham não necessariamente segue o mesmo padrão. É comum escolher entre um caminho estritamente voltado para desktop ou para mobile durante tanto o design quanto o desenvolvimento, se isso for o melhor para o projeto.
+Porém, podemos adotar uma abordagem flexível onde durante o design o foco é no desktop, e durante o início do desenvolvimento focar no mobile primeiro.
+Pode parecer contraintuitivo, mas essa abordagem flexível é mais comum do que você imagina. Quando acontece o design de uma página que vai atender pessoas usuárias tanto de desktop quanto de mobile, geralmente é melhor fazer o design da versão desktop primeiro (porque no pior caso, esse será o único design da página). 😆
+E então, quando chegar na fase de desenvolvimento, existem alguns benefícios de você inverter essa lógica e codar o CSS focado para o mobile primeiro:
+O tempo de carregamento para dispositivos móveis é menor.
+Pense em como o navegador interpreta o código CSS: de cima pra baixo. ⬇ 🤔
+Isso significa que se você colocar o CSS para a versão desktop primeiro, o navegador do mobile vai ter que interpretar todo esse CSS antes dele chegar no código CSS feito para o mobile que é o que ele precisa renderizar.
+Se você colocar o CSS para mobile primeiro, o navegador da pessoa usuária mobile vai renderizar logo o primeiro CSS que ele encontrar, resultando numa experiência mais rápida.
+É importante lembrar que pessoas usuárias de dispositivos mobile geralmente tem menos poder de processamento, menos banda de internet disponível... então qualquer otimização que reduza o tempo de carregamento para eles já é um ganho! 🏅
+Geralmente, resulta em menos linhas de código.
+Quando você toma uma abordagem de pensar no mobile primeiro, o resultado geralmente são menos linhas de CSS. Mas por quê?
+Os elementos mostrados na versão mobile tendem a ser blocos mais simples, o que significa que é muito mais fácil escrever CSS para customizar essa versão numa tela desktop mais complexa, do que pegar um código complexo e cheio de detalhes feito para uma tela desktop e ter que simplificá-lo para uma tela mobile. 🧠
+Faz muito mais sentido você começar com elementos simples que você pode ir adicionando detalhes e comportamentos conforme a necessidade, do que começar com elementos extensos e complexos que você possivelmente precisará de muito mais código para redefiní-los.
+
+
+
+
+Conteúdos
+Essa é a hora de você aprender como o CSS pode ser poderoso!
+
+
+
+Parte I - Media Query
+Para começar mergulhando de cabeça, vamos entender como utilizar media query
+Obs: não se preocupe em reproduzir o código demonstrado no vídeo, faremos isso logo em seguida!
+
+
+
+
+Parte I - Media Query
+Para começar mergulhando de cabeça, vamos entender como utilizar media query
+Obs: não se preocupe em reproduzir o código demonstrado no vídeo, faremos isso logo em seguida!
+
+
+
+
+Parte II - Mão na massa
+Vamos praticar um pouco!
+Copie os códigos HTML e CSS abaixo, salve-os no mesmo diretório com os nomes index.html e style.css, respectivamente;
+Copiar
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+  <meta charset="UTF-8">
+  <title>Media Queries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Raleway:wght@300;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1 id="mySpotrybefy">✨ Trybe Tricks ✨</h1>
+      <p>Vamos fazer algumas divs desaparecerem hoje?</p>
+    </header>
+    <main>
+      <section class="cards">
+        <div class="card">
+          <h3>Primeira div</h3>
+          <p>E será a primeira participante de hoje!</p>
+          <p>Essa div só poderá aparecer se nossa tela possuir <strong>largura mínima</strong> de 500px.</p>
+        </div>
+        <div class="card">
+          <h3>Segunda div</h3>
+          <p>Ué, mas ela deveria aparecer aqui?</p>
+          <p>Pois é! Mas essa div deverá aparecer apenas se a largura <strong>estiver entre</strong> 600px e 1000px.</p>
+        </div>
+        <div class="card">
+          <h3>Terceira div</h3>
+          <p>Vamos para nosso Grand Finale!</p>
+          <p>Para nosso grande truque, precisaremos que essa div <strong>não apareça</strong> entre 650px e 950px.</p>
+        </div>
+        <div class="dont-show">
+          <p>Quem gostou, pediu bis!</p>
+          <p>Sem alterar a classe '.trick', como fazer para o texto dela aparecer quando a tela estiver com menos de 500px de largura?</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Trybe Tricks, criando pessoas desenvolvedoras que fazem mágica com as mãos!</p>
+    </footer>
+    <p class="trick">Floreio! Como você conseguiu fazer aparecer mais essa caixa de texto?</p>
+  </body>
+</html>
+Copiar
+body {
+  align-items: center;
+  color: #525252;
+  display: flex;
+  flex-flow: column wrap;
+  font-family: Raleway, sans-serif;
+  justify-content: center;
+  overflow: hidden;
+  width: 100vw;
+}
+
+h1 {
+  font-family: Cinzel, serif;
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 25px;
+  margin: 0;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+p.trick {
+  color: white;
+  font-size: 14px;
+}
+
+p strong {
+  font-weight: 700;
+}
+
+.card p:nth-last-child(1) {
+  align-self: flex-end;
+  font-size: 14px;
+}
+
+.cards {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.card {
+  border-radius: 5px;
+  color: white;
+  display: none;
+  flex-flow: row wrap;
+  height: 200px;
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+}
+
+.card:nth-of-type(1) {
+  background-color: #0fa36b;
+}
+
+.card:nth-of-type(2) {
+  background-color: #0255c2;
+}
+
+.card:nth-of-type(3) {
+  background-color: #41197f;
+}
+Para os seguintes exercícios você não precisará alterar o arquivo HTML, apenas o CSS. 😉
+1 - A primeira div só poderá aparecer se nossa tela possuir largura mínima de 500px.
+2 - A segunda div só poderá aparecer apenas se a largura estiver entre 600px e 1000px.
+3 - A terceira div não deverá aparecer se nossa tela possuir largura entre 650px e 950px.
+4 - Sem alterar a classe trick, faça com que o texto dela apareça somente quando a tela estiver com menos de 500px de largura.
+
+
+
+
+Vamos praticar!
+Esse tal de CSS é realmente impressionante não é?! Com ele, podemos criar infinitos estilos para nossas páginas. Então, vamos praticar?
+Aula ao vivo! Vamos para o Slack onde o link estará disponível.
+
+
+
+Exercícios
+Agora que você aprendeu como criar layouts específicos para diferentes tamanhos de tela, vamos colocar as mãos na massa! 💻📲
+🚀 Se liga nesse foguete!
+Os exercícios destacados com 🚀 são os fundamentais pra você ir bem no projeto! Todos os exercícios vão contribuir com sua formação mas fique de olho nesses! 👀
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/6.5 (bloco 6, dia 5)
+Copiar
+$ git checkout -b exercicios/6.5
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-6-html-e-css-forms-flexbox-e-responsivo
+$ cd bloco-6-html-e-css-forms-flexbox-e-responsivo
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-5-css-responsivo-mobile-first
+$ cd dia-5-css-responsivo-mobile-first
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-6-html-e-css-forms-flexbox-e-responsivo/dia-5-css-responsivo-mobile-first. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/6.5
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/6.5)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/6.5 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/6.5
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/6.5, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+
+
+🚀 Parte I - Criar uma página para uma tela pequena
+Antes de começar, copie o template HTML e CSS abaixo, e salve em seus respectivos arquivos:
+exercise1.html
+Copiar
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Media Query Exercise 1</title>
+  <link rel="stylesheet" href="exercise1.css" />
+</head>
+  <body>
+    <header>
+      <h1>Media Query Demo</h1>
+    </header>
+    <article>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, ipsum quae veritatis in nihil laudantium labore beatae nulla laborum rem. Error, molestiae eaque quod placeat at. Labore architecto minus accusantium.
+      </p>
+    </article>
+    <main>
+      <h2>Box Columns</h2>
+      <section>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=12" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=5" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=1" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=9" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=6" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=16" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>
+exercise1.css
+Copiar
+/*
+ * @see http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * apply a natural box layout model to all elements, but allowing components to change
+ */
+ html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+
+}
+
+article {
+
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+img {
+	max-width: 100%;
+}
+
+main {
+
+}
+
+section {
+
+}
+
+figure {
+	margin: 0;
+}
+
+figcaption {
+  font-size: .8em;
+}
+Comece o exercício analisando a página em uma tela de tamanho pequeno, para simular como ela pode parecer em um dispositivo móvel (você pode usar o Chrome para isso, veja no detalhe nos Recursos adicionais).
+Ao pensar no design de uma tela pequena primeiro, estamos aplicando a abordagem do mobile first. Fazendo isso, começamos com um design básico (mínimo denominador comum) e então trabalhamos em melhorias mais sofisticadas para os navegadores com funcionalidades avançadas e layouts específicos.
+Isso garante que estamos desenvolvendo uma experiência que funcionará para todos. Também tem um efeito colateral, que isso também nos ajuda a perceber qual o conteúdo é realmente importante na nossa página.
+Dica: no Chrome você pode facilmente encontrar qual o tamanho da sua tela usando o "Inspecionar elemento". Abra-o e redimensione a janela, enquanto isso preste atenção no topo da tela: as dimensões de largura e altura irão aparecer conforme você redimensiona a tela.
+Comece a expandir a largura da sua tela. Faça isso até chegar em um ponto onde o design atual da página não funciona mais. Por exemplo, o comprimento das linhas pode começar a ficar muito grande para que o texto seja facilmente lido, ou talvez a página fique com uma largura grande o suficiente que não faça mais sentido as imagens serem mostradas uma abaixo da outra.
+Agora você vai ajustar o CSS para melhorar a visualização da página.
+Realize as seguintes tarefas:
+1 - Faça o tamanho da fonte ser maior;
+2 - Faça o tamanho da fonte dos elementos h1 ser menor;
+3 - Aumente o espaçamento entre as figuras;
+4 - Adicione um pouco de margin na página.
+5 - Guarde a largura da tela no ponto que você identificou que o layout atual não funcionou bem (por exemplo 800px). Esse será o primeiro breakpoint do layout. Um breakpoint é apenas um ponto onde estamos definindo que o design atual deve mudar;
+6 - Crie uma media query no seu arquivo CSS, usando a dimensão em pixels que você guardou como o min-width do teste da media query. Dentro desse breakpoint, adicione os seguintes ajustes:
+Altere a cor de fundo (isso vai te ajudar a perceber quando a media query teve efeito);
+Ajuste o tamanho da fonte;
+Ajuste as margens da página;
+Faça as imagens serem mostradas em duas colunas.
+7 - Agora, você vai criar outro breakpoint para telas grandes. Redimensione sua tela de novo para encontrar um novo breakpoint.
+8 - Crie uma nova media query no seu arquivo CSS usando a dimensão que você encontrou para telas grandes (por exemplo 1300px), e realize os seguintes ajustes dentro do breakpoint:
+Altere a cor de fundo;
+Ajuste o tamanho da fonte;
+Ajuste as margens da página;
+Adicione a propriedade max-width à página, para garantir que a largura das linhas não fique muito grande.
+
+
+
+
+🚀 Parte I - Criar uma página para uma tela pequena
+Antes de começar, copie o template HTML e CSS abaixo, e salve em seus respectivos arquivos:
+exercise1.html
+Copiar
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Media Query Exercise 1</title>
+  <link rel="stylesheet" href="exercise1.css" />
+</head>
+  <body>
+    <header>
+      <h1>Media Query Demo</h1>
+    </header>
+    <article>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti, ipsum quae veritatis in nihil laudantium labore beatae nulla laborum rem. Error, molestiae eaque quod placeat at. Labore architecto minus accusantium.
+      </p>
+    </article>
+    <main>
+      <h2>Box Columns</h2>
+      <section>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=12" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=5" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=1" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=9" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=6" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+        <figure>
+          <img src="http://placekitten.com/452/450?image=16" alt="Placeholder kitteh">
+          <figcaption>Place Kittens are great</figcaption>
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>
+exercise1.css
+Copiar
+/*
+ * @see http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * apply a natural box layout model to all elements, but allowing components to change
+ */
+ html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+
+}
+
+article {
+
+}
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+img {
+	max-width: 100%;
+}
+
+main {
+
+}
+
+section {
+
+}
+
+figure {
+	margin: 0;
+}
+
+figcaption {
+  font-size: .8em;
+}
+Comece o exercício analisando a página em uma tela de tamanho pequeno, para simular como ela pode parecer em um dispositivo móvel (você pode usar o Chrome para isso, veja no detalhe nos Recursos adicionais).
+Ao pensar no design de uma tela pequena primeiro, estamos aplicando a abordagem do mobile first. Fazendo isso, começamos com um design básico (mínimo denominador comum) e então trabalhamos em melhorias mais sofisticadas para os navegadores com funcionalidades avançadas e layouts específicos.
+Isso garante que estamos desenvolvendo uma experiência que funcionará para todos. Também tem um efeito colateral, que isso também nos ajuda a perceber qual o conteúdo é realmente importante na nossa página.
+Dica: no Chrome você pode facilmente encontrar qual o tamanho da sua tela usando o "Inspecionar elemento". Abra-o e redimensione a janela, enquanto isso preste atenção no topo da tela: as dimensões de largura e altura irão aparecer conforme você redimensiona a tela.
+Comece a expandir a largura da sua tela. Faça isso até chegar em um ponto onde o design atual da página não funciona mais. Por exemplo, o comprimento das linhas pode começar a ficar muito grande para que o texto seja facilmente lido, ou talvez a página fique com uma largura grande o suficiente que não faça mais sentido as imagens serem mostradas uma abaixo da outra.
+Agora você vai ajustar o CSS para melhorar a visualização da página.
+Realize as seguintes tarefas:
+1 - Faça o tamanho da fonte ser maior;
+2 - Faça o tamanho da fonte dos elementos h1 ser menor;
+3 - Aumente o espaçamento entre as figuras;
+4 - Adicione um pouco de margin na página.
+5 - Guarde a largura da tela no ponto que você identificou que o layout atual não funcionou bem (por exemplo 800px). Esse será o primeiro breakpoint do layout. Um breakpoint é apenas um ponto onde estamos definindo que o design atual deve mudar;
+6 - Crie uma media query no seu arquivo CSS, usando a dimensão em pixels que você guardou como o min-width do teste da media query. Dentro desse breakpoint, adicione os seguintes ajustes:
+Altere a cor de fundo (isso vai te ajudar a perceber quando a media query teve efeito);
+Ajuste o tamanho da fonte;
+Ajuste as margens da página;
+Faça as imagens serem mostradas em duas colunas.
+7 - Agora, você vai criar outro breakpoint para telas grandes. Redimensione sua tela de novo para encontrar um novo breakpoint.
+8 - Crie uma nova media query no seu arquivo CSS usando a dimensão que você encontrou para telas grandes (por exemplo 1300px), e realize os seguintes ajustes dentro do breakpoint:
+Altere a cor de fundo;
+Ajuste o tamanho da fonte;
+Ajuste as margens da página;
+Adicione a propriedade max-width à página, para garantir que a largura das linhas não fique muito grande.
+
+
+
+
+Bônus (opcional)
+O vídeo abaixo mostra como você pode criar layouts responsivos utilizando o framework Bootstrap.
+Use-o como referência para realizar o exercício bônus proposto a seguir.
+
+Agora que você já está fera em criar layouts específicos para diferentes tamanhos de tela utilizando a abordagem mobile first, que tal voltar à pagina que você criou na aula de HTML Semântico sobre o camarão louva deus e criar um layout bem bacana para ela ser acessada a partir de telas menores? 🦐🦗🥊
+Sugestão:
+Crie um layout específico para telas pequenas (smartphones); 📱
+Crie um layout específico para telas médias (tablets); 📱
+Crie um layout específico para impressão (impressoras, salvar como PDF, etc). 🖨
+Dica: o Bootstrap não tem uma classe específica para o tipo de media print. Você deve definir a media query no seu arquivo CSS e estilizar conforme achar melhor! 😉
