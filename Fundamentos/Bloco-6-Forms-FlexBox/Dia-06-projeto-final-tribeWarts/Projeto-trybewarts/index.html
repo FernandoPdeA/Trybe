@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="style.css">
+  <title>Site Trybe</title>
+</head>
+
+<body>
+
+  <header class="header">
+    <img class="trybewarts-header-logo" src="./images/trybewarts-header-logo.svg" alt="">
+    <h1 id="trybewarts-header-title">Trybewarts</h1>
+    <form action="" class="trybewarts-login">
+      <input id="email" type="text" name="email" placeholder="Email">
+      <input id="senha" type="text" name="password" placeholder="Senha">
+      <button id="botao" type="button">Entrar</button>
+    </form>
+  </header>
+  <span class="material-symbols-sharp">
+    menu
+  </span>
+  <div class="mobile">
+    <form action="" class="trybewarts-mobile">
+      <input id="email" type="text" name="email" placeholder="Email">
+      <input id="senha" type="text" name="password" placeholder="Senha">
+      <button id="botao" type="button">Entrar</button>
+    </form>
+    <div class="imagem-mobile">
+      <img class="logo-trybeWarts" src="./images/trybewarts-header-logo.svg" alt="">
+    </div>
+  </div>
+
+  <main id="main">
+    <form action="" id="evaluation-form" method="get">
+      <div class="dados-pessoais">
+        <h1>Forms</h1>
+        <input type="text" id="input-name" name="nome" placeholder="Nome">
+        <input type="text" id="input-lastname" name="sobrenome" placeholder="Sobrenome">
+        <br>
+        <input type="text" id="input-email" name="email" placeholder="Email">
+
+        <label class="casa" for="casa">Casa</label>
+        <select name="casa" id="house">
+          <option name="casa" id="gitnoria-house">Gitnória</option>
+          <option name="casa" id="reactpuff-house">Reactpuff</option>
+          <option name="casa" id="corvinode-house">Corvinode</option>
+          <option name="casa" id="pytherina-house">Pytherina</option>
+        </select>
+      </div>
+
+      <div class="divisoria"></div>
+
+      <div class="familia">
+        <label for="family" id="label-family">Qual sua família?</label>
+        <br>
+        <label for="front">Família Frontend</label>
+        <input type="radio" name="family" id="front" value="Frontend">
+        <br>
+        <label for="back">Família Backend</label>
+        <input type="radio" name="family" id="back" value="Backend">
+        <br>
+        <label for="full">Família FullStack</label>
+        <input type="radio" name="family" id="full" value="FullStack">
+      </div><!-- familia -->
+      <br>
+      <div class="aprender">
+        <label id="label-content" for="">Qual conteúdo você está com mais vontade de aprender?</label>
+        <br>
+        <label for="">Hosts</label>
+        <input type="checkbox" name="conteudo" id="" class="subject" value="HoFs">
+        <label for="">Jest</label>
+        <input type="checkbox" name="conteudo" id="" class="subject" value="Jest">
+        <label for="">Promisses</label>
+        <input type="checkbox" name="conteudo" id="" class="subject" value="Promises">
+        <br>
+        <label for="">React</label>
+        <input type="checkbox" name="conteudo" id="" class="subject" value="React">
+        <label for="">Sql</label>
+        <input type="checkbox" name="conteudo" id="" class="subject" value="SQL">
+        <label for="">Python</label>
+        <input type="checkbox" name="conteudo" id="" class="subject" value="Python">
+      </div><!-- aprender -->
+      <br>
+      <div class="avalia">
+        <label id="label-rate" for="">Como você avalia a Trybewarts?</label>
+        <label for="">1</label>
+        <input type="radio" name="rate" value="1" id="">
+        <label for="">2</label>
+        <input type="radio" name="rate" value="2" id="">
+        <label for="">3</label>
+        <input type="radio" name="rate" value="3" id="">
+        <label for="">4</label>
+        <input type="radio" name="rate" value="4" id="">
+        <label for="">5</label>
+        <input type="radio" name="rate" value="5" id="">
+        <label for="">6</label>
+        <input type="radio" name="rate" value="6" id="">
+        <label for="">7</label>
+        <input type="radio" name="rate" value="7" id="">
+        <label for="">8</label>
+        <input type="radio" name="rate" value="8" id="">
+        <label for="">9</label>
+        <input type="radio" name="rate" value="9" id="">
+        <label for="">10</label>
+        <input type="radio" name="rate" value="10" id="">
+      </div><!-- avalia -->
+      <br>
+      <label class="textarea">Deixe seu comentário:</label>
+      <textarea id="textarea" name="validar" class="textarea" maxlength="500" rows="10"></textarea>
+      <br>
+      <div class="concorda">
+        <p id="counter">500</p>
+        <br>
+        <label id="label-infos" for="">Você concorda com o uso das informações acima?</label>
+        <input type="checkbox" name="validar" id="agreement" class="concorda" value="Concordo">
+      </div>
+      <br>
+      <button disabled="true" id="submit-btn" type="submit">Enviar</button>
+    </form>
+
+    <form id="form-data">
+      <div hidden id="form-data-none">
+        <p>Nome: <span>Alguem aqui</span></p>
+        <p>Email: <span>email@gmail.com</span></p>
+        <p>Casa: <span>Casa Escolhida</span></p>
+        <p>Família: <span>Família Escolhida</span></p>
+        <p>Matérias: <span>Matérias marcadas</span></p>
+        <p>Avaliação: <span>NotaAqui</span></p>
+        <p>Observações: <span>Observações aqui</span></p>
+      </div>
+      <button class="retorne">Retornar</button>
+    </form>
+
+    <aside id="aside">
+      <img src="/images/trybewarts-colored.svg" alt="" id="trybewarts-forms-logo">
+    </aside>
+  </main>
+
+
+
+  <footer class="footer">
+    <p>Direitos reservados à Trybewarts©</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
