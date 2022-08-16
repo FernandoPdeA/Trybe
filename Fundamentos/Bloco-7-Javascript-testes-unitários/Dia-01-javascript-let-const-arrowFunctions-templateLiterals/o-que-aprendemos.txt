@@ -1,0 +1,361 @@
+O que vamos aprender
+Neste bloco e no próximo, você vai aprender sobre a mais nova versão do JavaScript, conhecida como ES6, ECMAScript 6 ou ES2015.
+Esses vários nomes podem gerar alguma dúvida, mas na verdade todos fazem referência à mesma linguagem. JavaScript é como nós chamamos a linguagem, só que esse nome é um trademark da Oracle. O nome oficial da linguagem é ECMAScript, e ES é apenas a abreviação (ECMAScript).
+Essa nova versão possui alguns objetivos:
+Ser uma linguagem melhor para construir aplicações complexas;
+Resolver problemas antigos do JavaScript;
+Facilitar o desenvolvimento de libraries.
+Fantástico não é mesmo? E tem mais... nesse bloco você vai ter o primeiro contato com mais uma ferramenta que fará parte da sua vida de pessoa desenvolvedora: testes. Você aprenderá sobre a importância de testar suas aplicações e desenvolver orientado a testes. Além disso, você vai aprender a instalar e utilizar a biblioteca do Jest para criar seus testes.
+Já na aula de hoje, você vai aprender quatro features do ES6 que são muito importantes para que seu código fique limpo e bem escrito, além de resolverem alguns problemas da linguagem.
+let;
+const;
+arrow functions;
+template literals;
+operador ternário
+
+
+
+
+
+Você será capaz de:
+Utilizar corretamente let e const;
+Simplificar seu código com arrow functions;
+Simplificar a construção de strings com template literals;
+Criar expressões condicionais simplificadas com ternary operator.
+
+
+
+
+Por que isso é importante?
+O let e o const vieram como solução para um antigo problema do JavaScript de falta de definição de escopo de variáveis. Sabe quando você declara uma variável dentro de um bloco e depois a utiliza fora dele? Isso é um vazamento de variável. Esse problema sempre trouxe grandes prejuízos, principalmente para aplicações maiores. Saber utilizar o let e o const de maneira consistente irá te ajudar a ter um código mais confiável e previsível.
+As arrow functions, além de deixar o código mais legível, quando bem utilizadas, ainda resolvem outro problema antigo do famigerado var that = this. Vamos ver esse problema com mais detalhes na sessão de conteúdos.
+Os template literals são importantes pois irão nos ajudar a construir strings mais bem escritas e concisas, ajudando na prevenção de erros.
+Por último, mas não menos importante, vem o operador ternário, ou ternary operator, que permite criar expressões condicionais com dois outputs possíveis em apenas uma linha.
+
+
+
+
+Conteúdos
+Até aqui, você já foi apresentado a algumas features do ES6, como let, const e talvez até mesmo já tenha usado arrow functions, template literals e operador ternário. Agora, você vai aprender as motivações para se usar cada um desses recursos para escrever códigos mais limpos, concisos e identificar a presença desses elementos ao revisar códigos de outras pessoas.
+
+
+
+Parte I - var, let e const
+Você certamente já se deparou com três diferentes formas de se declarar variáveis em Javascript:
+var userEmail = 'maria@email.com';
+let userId = '78945-6';
+const userLocation = 'Brasil';
+Qual a diferença entre essas declarações? Apesar de serem utilizadas para o mesmo propósito, é importante entender essas diferenças para saber quando usar o var, let e const na hora de declarar variáveis. Afinal, quando declaradas na raiz do arquivo as três formas estão corretas e funcionam da mesma forma.
+Em primeiro lugar, vamos entender o que é o escopo em que a variável é declarada. Podemos pensar em escopo como sendo o 'local' em que uma variável é visível e pode ser referenciada. Como exemplo, observe a função abaixo:
+Copiar
+function userInfo() {
+  let userEmail = 'maria@email.com';
+
+  // Toda expressão dentro do escopo da função userInfo tem acesso à variável userEmail
+  console.log(userEmail);
+}
+userInfo();
+Tente rodar a função userInfo no seu editor de código. Nesse caso, a variável userEmail foi declarada dentro do escopo da função userInfo. Agora experimente mover o console.log(userEmail) para fora da função e a execute novamente. Você verá um erro dizendo que userEmail não é definida - a variável só é reconhecida dentro do escopo da função. O que aconteceria se trocássemos o let por var e const? Não deixe de fazer esse teste! Você verá que nos três casos, não temos acesso à variável fora do escopo da função userInfo. Como saber, então, qual expressão utilizar para declarar variáveis?
+Veja este vídeo que fala sobre onde utilizar var, let e const.
+
+Vamos agora pensar em variáveis declaradas dentro do escopo de um bloco de código - como o corpo de um if ou um for. Acompanhe o exemplo abaixo e não deixe de testá-lo no seu editor de código:
+Copiar
+if (true) {
+  // inicio do escopo do if
+  var userAge = '20';
+  console.log(userAge); // 20
+  // fim do escopo do if
+}
+console.log(userAge); // 20
+Nesse exemplo, temos acesso à variável userAge dentro e fora do bloco de código. Experimente trocar o var por let e const. Qual será o resultado? Temos acesso à variável declarada com o var dentro e fora do escopo do bloco. No entanto, não temos acesso à userAge fora do bloco de código quando usamos let e const para declarar essa variável. Isso é interessante quando queremos trabalhar com variáveis acessíveis apenas no contexto daquele bloco de código. Por ter um escopo mais abrangente, em aplicações mais complexas declarar variáveis com o var pode confundir até mesmo programadores mais experientes.
+Agora observe de uma forma um pouco mais visual como funcionam os escopos e o comportamento do var em casos que sua utilização "vaza" o escopo.
+
+GIF Escopos.
+Ou seja, uma função é capaz de segurar em seu escopo uma variável de tipo var, mas trechos de código que sejam estruturas condicionais e/ou de repetição não são capazes de fazer o mesmo. Logo se temos uma variável var em um trecho de código em escopo global , ou seja, fora de uma função, ela vai "vazar" se tornando também global, assim como o trecho de código.
+Outro grande problema ao utilizar o var para atribuir valor à variáveis é que você consegue sobrescrevê-las sem gerar erros.
+Copiar
+var userName = 'Isabella';
+var userName = 'Lucas';
+console.log(userName); // Resultado: Lucas
+Em aplicações maiores ao usar o var, você pode redeclarar variáveis acidentalmente e nem perceber o que aconteceu. Por isso, encontrar e corrigir bugs pode se tornar uma verdadeira missão impossível. ⚠️ Por estes motivos, declarar variáveis com o var não é uma boa prática.
+O ES6 corrige esse problema ao introduzir o let e o const, fazendo com que uma variável, com um nome específico, só possa ser declarada uma única vez dentro de um escopo. Experimente executar o exemplo anterior usando o let e const e veja o que acontece!
+E quanto ao const, como ele se diferencia do let? O const permite que você declare constantes. Em outras palavras, o valor atribuído a uma variável declarada com o const não pode ser alterado. Já quando usamos o let, podemos substituir o valor original atribuído à variável. Tente executar o código abaixo usando o const e let e veja o que acontece!
+Copiar
+const favoriteLanguage = 'Javascript';
+favoriteLanguage = 'Python';
+console.log(favoriteLanguage); // Erro
+
+let favoriteTechnology = 'Machine learning';
+favoriteTechnology = 'Facial recognition';
+console.log(favoriteTechnology); // Facial recognition
+No exemplo acima, vimos que o const é imutável - ao declarar const favoriteLanguage = 'Javascript' o valor de favoriteLanguage não pode ser alterado. Mas quando usamos o const para criar um objeto, o Javascript nos permite alterar as suas propriedades sem, contudo, reatribuir um novo objeto. Acompanhe o exemplo abaixo para entender melhor como funciona:
+Copiar
+const userInfo = {
+  name: 'Cláudio',
+  id: '5489-2',
+  email: 'claudio@email.com',
+};
+
+userInfo.name = 'João';
+
+console.log(userInfo); // { name: 'João', id: '5489-2', email: 'claudio@email.com' }
+Esse raciocínio também se aplica a um array. Podemos alterá-lo indiretamente adicionando/removendo um novo item sem sobrescrever o que já foi declarado:
+Copiar
+const technologies = ['Javascript', 'CSS', 'HTML'];
+technologies.push('React');
+console.log(technologies); // [ 'Javascript', 'CSS', 'HTML', 'React' ]
+
+technologies = ['Javascript', 'CSS', 'HTML', 'React']
+console.log(technologies); // Erro
+Hoisting
+Hoisting é um comportamento padrão do JavaScript que acontece com variáveis declaradas com var. Esse comportamento move todas as declarações destas variáveis para o topo do escopo global, independentemente de onde a declaração foi feita.
+Veja o exemplo abaixo:
+Copiar
+age = 20;
+
+var age;
+
+console.log(age); // 20
+Mesmo atribuindo um valor à variável age antes mesmo de declará-la, o console.log conseguiu imprimir o seu valor, isso por causa do hoisting. É como se tivéssemos primeiro declarado a variável age e depois atribuído o valor 20, como no exemplo abaixo:
+Copiar
+var age;
+
+age = 20;
+
+console.log(age); // 20
+Porém, apenas a declaração da variável é movida para o topo do escopo e não seu valor. No código abaixo podemos ver um exemplo disso. Ao atribuirmos um valor à variável age apenas após o console.log, recebemos undefined como resultado.
+Copiar
+var age;
+
+console.log(age); // undefined
+
+age = 20;
+Não se esqueça de que esse comportamento acontece apenas com variáveis declaradas com var. Se tentarmos fazer isso com let ou const, irá dar erro.
+Em resumo, variáveis podem ser declaradas com o const, let e var. Apesar das três terem o mesmo propósito, é importante nos atentar às boas práticas para escrevermos códigos confiáveis. Assim, sempre que possível, usar o const para declarar variáveis é interessante porque conseguimos um comportamento mais previsível, já que o seu valor não pode ser alterado diretamente.
+
+
+
+
+Parte II - template literals
+template literals é mais uma feature do ES6 que nos permite criar strings complexas de forma mais fácil. Você certamente já concatenou strings e variáveis em Javascript da seguinte forma:
+Copiar
+const myName = 'Isabella';
+console.log('Hello' + ' ' + myName + '!');
+Essa solução nada elegante é como fazíamos antes do ES6 introduzir uma nova forma de criar e manipular strings dinamicamente através de template literals. Com o template literals o exemplo acima pode ser substituído por:
+Copiar
+const myName = 'Isabella';
+console.log(`Welcome ${myName}!`);
+A sintaxe do template literals pede para usarmos o sinal de crases no início e no final da frase, e variáveis dentro de um ${...}. Você também pode adicionar uma expressão dentro das chaves, como ${a + b}. Outra novidade é poder adicionar quebras de linha com o template literals sem a necessidade de concatená-las com o operador + e \n para trocar de linha. Execute o código abaixo para ver o resultado!
+Copiar
+// Com o template literals
+console.log(`Primeira linha;
+Segunda linha;
+Terceira linha;`
+);
+
+// Sem o template literals:
+console.log('Primeira linha;\n' + 'Segunda linha;\n' + 'Terceira linha;\n');
+Para reforçar ainda mais esse conceito de template literals, assista ao vídeo abaixo:
+
+Agora você já está pronto para escrever códigos mais limpos e legíveis usando template literals!
+
+
+
+
+Parte III - arrow functions
+Você já está craque em declarar funções em JavaScript utilizando a seguinte sintaxe:
+Copiar
+const printName = function () {
+  const myName = 'Lucas';
+  return myName;
+};
+
+console.log(printName());
+A expressão acima está correta. Mas como você verá nos exemplos a seguir, é possível deixá-la ainda mais direta e léxica. Você aprenderá com alguns exemplos as vantagens de usarmos mais essa novidade do Javascript ES6 - arrow functions. Uma das aplicações para arrow functions é em funções anônimas. Em Javascript, é muito comum não precisarmos nomear funções, como mostrado no exemplo acima. Isso pode acontecer quando criamos funções que não serão reutilizadas, ou que serão passadas como argumento para uma outra função. Chamamos funções sem um nome específico de funções anônimas.
+Primeiramente, assista ao vídeo a seguir.
+
+arrow functions nada mais é do que uma forma diferente de se declarar funções escrevendo menos código. Veja abaixo como ficaria a função printName utilizando a sintaxe da arrow function:
+Copiar
+const printName = () => {
+  const myName = 'Lucas';
+  return myName;
+};
+
+console.log(printName());
+Quando não há nada no corpo da função além do que será retornado, a sintaxe da arrow function nos permite simplificar ainda mais a função printName omitindo o return e as chaves:
+Copiar
+const printName = () => 'Lucas';
+console.log(printName());
+Mas lembre-se que podemos omitir os parênteses apenas em um cenário:
+Quando a função recebe apenas um argumento, como podemos ver no exemplo abaixo:
+Copiar
+const multiplyByTwo = number => number * 2;
+console.log(multiplyByTwo(10));
+Em funções que recebem mais de um parâmetro, os parênteses não são omitidos:
+Copiar
+const multiplication = (number, multi) => number * multi;
+console.log(multiplication(8, 2));
+
+
+
+
+Parte IV - ternary operator
+Até o momento você já aprendeu a usar expressões if/else e switch/case pra executar código baseado em certas condições, correto? Mas e se te disséssemos que existe uma sintaxe mais simples para a construção de algumas condicionais no JavaScript e que combina muito bem com as novas alterações do ES6?
+Pois é! Além dos condicionais que você já aprendeu, o JavaScript traz consigo uma ferramenta que permite fazer operações condicionais mais simples, que só tenham duas possibilidades de resposta (x se verdadeiro, y se falso), com uma sintaxe simplificada e legível: o operador ternário. Ele funciona muito bem com as sintaxes simplificadas que você acabou de aprender, como arrow functions, por exemplo! Para entendê-lo melhor, observe a seguinte lógica:
+Copiar
+// A sintaxe básica do operador ternário é muito simples:
+`expressão verdadeira ou falsa` ? `retorno se verdadeira` : `retorno se falsa`;
+
+// Assim, por exemplo, podemos ter expressões com a seguinte estrutura:
+const trueExpression = (1 + 1 === 2) ? `isso é verdade` : `isso é mentira`;
+console.log(trueExpression); // isso é verdade
+
+const falseExpression = (2 + 2 === 3) ? `isso é verdade` : `isso é mentira`;
+console.log(falseExpression); // isso é mentira
+Como você pode ver, a sintaxe do operador ternário é bem simples: x ? y : z.
+O x é uma condição que será avaliada como verdadeira ou falsa;
+O y é o retorno se a condição for verdadeira;
+O z é o retorno se a condição for falsa;
+A vantagem do operador ternário é que ele é fácil de entender quando se pega o jeito e é muito mais sucinto do que escrever um bloco condicional com if/else ou switch, gerando um código mais limpo e simples.
+Por outro lado, é bom saber que o operador ternário não substitui as expressões condicionais tradicionais! Em qualquer situação onde exista mais de uma condição a ser avaliada, gerando três ou mais resultados possíveis, o mais simples será utilizar as opções já aprendidas anteriormente:
+Copiar
+// Situação em que é mais simples usar o operador ternário:
+const checkIfElse = (age) => {
+  if (age >= 18) {
+    return `Você tem idade para dirigir!`;
+  } else {
+    return `Você ainda não tem idade para dirigir...`;
+  }
+};
+
+const checkTernary = (age) => (
+  age >= 18 ? `Você tem idade para dirigir!` : `Você ainda não tem idade para dirigir...`;
+);
+
+// ------------------------
+
+// Situação em que usar o operador ternário não faz muito sentido:
+const checkIfElse = (fruit) => {
+  if (fruit === `maçã`) {
+    return `Essa fruta é vermelha`;
+  } else if (fruit === `banana`) {
+    return `Esta fruta é amarela`;
+  } else {
+    return `Não sei a cor`;
+  }
+};
+
+const checkTernary = (fruit === `maçã`) ? `Essa fruta é vermelha`
+  : ((fruit === `banana`) ? `Esta fruta é amarela` : `Não sei a cor`);
+
+// Aninhar operadores  ternários, como no exemplo acima, não é uma boa prática,
+// pois torna o seu código truncado e difícil de ler, tirando todo o sentido de um
+// operador cujo objetivo é facilitar a sua vida e a da pessoa que lerá seu código
+// no futuro!
+Se você quiser reforçar ainda mais o conceito sobre operador ternário e ainda receber uma super dica de como realizar apenas uma verificação para casos verdadeiros, assista ao vídeo abaixo 😉:
+
+No mais, vale dizer que o ternary operator é uma excelente adição à caixa de ferramentas de qualquer pessoa desenvolvedora, basta saber usá-lo para tornar o código mais simples e legível!
+
+
+
+
+Vamos praticar!
+Agora que você já ficou fera nos recursos do ES6, que tal vermos algumas aplicações juntinhos? 💚
+Aula ao vivo! Vamos para o Slack, onde o link estará disponível.
+
+
+
+Parte I
+Agora você vai fazer alguns exercícios de fixação.
+🚀 Se liga nesse foguete!
+Os exercícios destacados com 🚀 são os fundamentais pra você ir bem no projeto! Todos os exercícios vão contribuir com sua formação mas fique de olho nesses! 👀
+Dica: Para a resolução dos exercícios você deverá aplicar conceitos sobre arrays, principalmente utilizar o for.
+🚀 Altere o tipo das variáveis(var) para let ou const para que respeitem o escopo em que foram declaradas, e altere a função utilizando arrow function e template literals.
+Modifique a estrutura da função para que ela seja uma arrow function;
+Modifique as variáveis para que respeitem o escopo onde estão declaradas;
+Modifique as concatenações para template literals.
+Copie o código abaixo:
+Copiar
+      function testingScope(escopo) {
+        if (escopo === true) {
+          var ifScope = 'Não devo ser utilizada fora do meu escopo (if)';
+          ifScope = ifScope + ' ótimo, fui utilizada no escopo !';
+          console.log(ifScope);
+        } else {
+          var elseScope = 'Não devo ser utilizada fora meu escopo (else)';
+          console.log(elseScope);
+        }
+        console.log(ifScope + ' o que estou fazendo aqui ? :O'); // Se necessário esta linha pode ser removida.
+      }
+
+      testingScope(true);
+🚀 Crie uma função que retorne um array em ordem crescente.
+Copie o código abaixo:
+Copiar
+    const oddsAndEvens = [13, 3, 4, 10, 7, 2];
+
+    const sortOddsAndEvens = () => {
+
+    // Seu código aqui.
+
+    };
+
+    console.log(oddsAndEvens); // será necessário alterar essa linha 😉
+Crie uma função que faça com que o array oddsAndEvens fique em ordem crescente;
+Utilize template literals para que a chamada console.log(<seu código>oddsAndEvens<seu código>); retorne a frase "Os números 2,3,4,7,10,13 se encontram ordenados de forma crescente!".
+Bônus (opcional): tente fazer o mesmo exercício utilizando o método array.sort(). Spoiler: É possível realizar uma função que ordene qualquer array de números.
+
+
+
+
+Parte II
+Abaixo, você verá algumas especificações de algoritmos para desenvolver. É fundamental que você utilize o que aprendeu sobre let, const, arrow functions, template literals e ternary operator.
+Crie uma função que receba um número e retorne seu fatorial.
+Na matemática, o fatorial de um número inteiro e positivo N, representado por N!, é o produto de todos os seus antecessores até o número um. Exemplo: 4! = 4 * 3 * 2 * 1 = 24.
+Com base nessas informações:
+Crie a função factorial que recebe um número como parâmetro, utilizando arrow functions (Lembre-se de armazenar a função utilizando o tipo de variável correta).
+Dentro da função crie uma variável result.
+Crie a lógica para retornar o fatorial de N!.
+Imprima no terminal "Esse é o fatorial resultado da função" (Lembre-se de utilizar template literals nesse momento).
+Dica: Armazene a chamada da função em uma varíavel para imprimir no terminal seu resultado.
+Bônus: tente fazer o mesmo exercício de forma recursiva. Spoiler: É possível resolver com uma linha usando ternary operator.
+Crie uma função que receba uma frase como parâmetro e retorne a maior palavra da frase.
+Exemplo:
+Copiar
+      longestWord('Antônio foi no banheiro e não sabemos o que aconteceu') // retorna 'aconteceu'
+Dica: Nesse exercício será necessário utilizar os conhecimentos sobre array, método split e loop for/of.
+Bônus (opcional): tente fazer o mesmo exercício utilizando o método array.sort().
+🚀 Crie uma página HTML que possua um contador de cliques.
+Além da estrutura básica do HTML, sua página deve possuir:
+Uma tag que receberá o valor atualizado da quantidade de clicks do botão.
+Um botão com o texto click aqui!, que receberá um event listener do tipo click;
+Na estrutura do script (dentro do HTML ou em um arquivo de JavaScript ):
+Crie uma variável clickCount que irá acumular o número de clicks do botão;
+Crie a lógica do evento, para que a cada click no botão seja adicionado o valor de 1. Exemplo: Caso não tenha sido realizado nenhum click, o valor renderizado será de 0. Caso o botão seja clicado 5 vezes o valor renderizado no HTML será de 5.
+Dica: Nesse exercício utilize document. getElementById para retornar o elemento do DOM que deseja.
+🚀 Crie duas funções JavaScript com as seguintes especificações:
+Não se esqueça de usar template literals
+Função 1: Escreva uma função que substitua a letra 'x' em uma frase.
+O nome da função deverá ser substituaX;
+A função deverá receber um nome por parâmetro;
+Declare dentro da função uma variável do tipo const, com o nome frase, atribuindo o valor 'Tryber x aqui!';
+A função deverá retornar uma nova frase onde o x da frase 'Tryber x aqui!' seja substituído pelo nome passado por parâmetro.
+Exemplo:
+Parâmetro: 'Bebeto'
+Retorno: 'Tryber Bebeto aqui!'
+Spoiler: O método split() pode ser utilizado de diferentes maneiras, como separar as palavras de um texto.
+Função 2: Escreva uma função que irá receber o retorno da Função 1 por parâmetro e retornará uma nova string.
+O nome da função deverá ser minhasSkills;
+A função deverá receber o retorno da Função 1 - substituaX por parâmetro;
+Declare dentro da função uma variável com o nome skills, do tipo const;
+A variável skills deverá ser um array contendo três strings com tecnologias que você já aprendeu.
+Crie uma varável do tipo let e concatene o valor retornado da Função 1 - substituaX (utilize template literals), a frase 'Minhas três principais habilidades são:' e o valor da variável skills.
+Exemplo de retorno:
+Tryber Bebeto aqui!
+Minhas três principais habilidades são:
+JavaScript
+HTML
+CSS
+
+
+

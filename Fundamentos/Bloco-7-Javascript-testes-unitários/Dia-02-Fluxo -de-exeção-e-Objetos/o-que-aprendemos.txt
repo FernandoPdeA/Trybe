@@ -1,0 +1,776 @@
+O que vamos aprender?
+Hoje você vai aprender um pouco sobre fluxo de exceção! Ou seja, como tratar os erros do seu código utilizando os métodos throw e try/catch. Além disso, você verá algumas funções que interagem com objetos. Esses métodos te ajudarão bastante quando for necessária alguma leitura de seus valores ou chaves, ou quando precisar copiá-los. Esse é um passo muito importante para o bom e mais avançado uso do JavaScript. Objetos são muito presentes em todas as lógicas do ES6. Os métodos que veremos são:
+Object.keys;
+Object.entries;
+Object.assign;
+Object.values.
+
+
+
+Você será capaz de:
+Lançar erros com throw e capturá-los com o bloco try/catch;
+Acessar todas as chaves de um objeto com o método Object.keys;
+Acessar os pares chave-valor de um objeto com o método Object.entries;
+Acessar todos os valores de um objeto com o método Object.values;
+Copiar um objeto com o método Object.assign;
+Adicionar propriedades a um objeto.
+
+
+
+Por que isso é importante?
+Em JavaScript, o tratamento de erros em um código é fundamental, pois ajudará você a entender melhor o que está ocasionando tais erros. Além disso, aprender a lidar com objetos e suas propriedades é essencial, uma vez que você se deparará com eles frequentemente. Você verá métodos que servem para melhorar o uso de um objeto, facilitando o acesso a suas informações e te permitindo adicionar novas funcionalidades a ele. Um exemplo prático disso é que você não precisará mais utilizar um for para percorrer um objeto para pegar sua lista de chaves ou de valores.
+
+
+
+Conteúdos
+Até aqui, você já aprendeu a criar funções e obter os mais diversos resultados com elas, mas e quando as coisas dão errado? Como tratar os erros? Hoje você verá como dar maior legibilidade a esses erros e, consequentemente, ao seu código como um todo.
+Você também viu e utilizou bastante os objetos no JavaScript e hoje aprenderá sobre métodos com objetos bastante úteis para a lógica do seu código. No decorrer do conteúdo, execute os exemplos na sua máquina para ver melhor como cada método funciona. Sinta-se livre para mudar os objetos ou o código para explorar mais cada exemplo.
+
+
+
+Throw e Try/Catch
+Para começar, relembre o conteúdo da aula anterior com este exemplo de arrow function:
+Copiar
+const sum = (value1, value2) => value1 + value2;
+A função acima é bastante simples: recebe dois parâmetros e retorna a soma entre eles. Copie o código e chame a função com dois parâmetros numéricos (por exemplo, 2 e 3). Não esqueça do console.log para que seja possível ver o retorno.
+Copiar
+const sum = (value1, value2) => value1 + value2;
+
+console.log(sum(2, 3));
+Tudo funciona perfeitamente quando você tem o controle do código, certo? Mas digamos que você está desenvolvendo uma aplicação onde uma pessoa irá fornecer os valores. Sabemos que pessoas cometem erros e podem, por exemplo, tentar somar o número 2 com a string '3'. O que aconteceria nesse caso?
+Copiar
+const sum = (value1, value2) => value1 + value2;
+
+console.log(sum(2, '3')); // resultado: 23
+2 + '3' = 23?? Uma interação bastante inusitada, concorda? O que aconteceu foi que a sua função, ao perceber que estava fazendo uma operação com parâmetros de tipos distintos, tentou adaptá-los para que o código não quebrasse - no caso, o primeiro parâmetro foi convertido para uma string, e a operação realizada foi uma concatenação de strings através do sinal de +.
+Esse comportamento ocorre porque considera-se o JavaScript como uma linguagem dinâmica. Ou seja, quando se declara uma variável, não é necessário atrelar ela a nenhum tipo, o que permite inclusive que ela mude de tipo ao longo da execução do código.
+Por mais que esse aspecto traga alguma flexibilidade, ele também produz comportamentos inesperados que podem ser difíceis de identificar. Por isso, você enquanto boa pessoa programadora deve ser capaz de prever esses comportamentos e evitar que eles ocorram. 😉
+Vamos adicionar uma condicional que impede a pessoa usuária de quebrar a sua calculadora.
+Copiar
+const sum = (value1, value2) => {
+  if (typeof value1 !== 'number' || typeof value2 !== 'number') {
+    return 'Os valores devem ser numéricos';
+  }
+  return value1 + value2;
+};
+
+console.log(sum(2, '3'));
+Pronto, agora o seu código avisa para a pessoa usuária que a função sum só aceita números. Aparentemente está tudo funcionando como deveria, mas essa ainda não é a melhor forma de se tratar um erro em JavaScript. Na prática, a função sum está retornando uma string, e essa não é o objetivo de uma função que soma dois números, certo? Você precisa indicar de alguma forma que ocorreu um erro.
+Para isso existe o fluxo de exceção: quando um erro acontece em Javascript, devemos lançar uma exceção, que vai interromper o funcionamento do código. Essa é a função do throw:
+Copiar
+const sum = (value1, value2) => {
+  if (typeof value1 !== 'number' || typeof value2 !== 'number') {
+    throw new Error('Os valores devem ser numéricos');
+  }
+  return value1 + value2;
+};
+
+console.log(sum(2, '3'));
+Percebeu a diferença? Agora a execução da função sum foi interrompida e temos uma mensagem de erro no console, bem como uma indicação da linha onde esse erro ocorre.
+
+Exemplo de erro lançado com throw.
+Mas vamos detalhar por partes o que foi feito:
+A palavra reservada throw serve para lançar uma exceção criada por você. No caso, definimos que não seria aceito um parâmetro que não fosse do tipo number, então criamos esse "erro customizado". Caso contrário, a função sum apresentaria um comportamento incorreto. Se quiser saber mais detalhes, consulte a documentação.
+O operador new serve para criar um objeto personalizado ou nativo do JavaScript. Mais sobre o new aqui.
+A palavra Error é um objeto nativo do JavaScript que representa um erro. Quando você o chama com o operador new, você cria uma cópia deste objeto, que será lançada como uma exceção no seu código. Veja mais sobre Error na documentação oficial.
+Você programou o código para lançar uma exceção caso aconteceça um erro, mas o fluxo do código ainda pode ser melhorado. Você precisa, por exemplo, capturar esse erro para melhor tratá-lo. É aí que entra o bloco try/catch. Enquanto o try tenta executar o código com sucesso, o catch é chamado caso ocorra um erro.
+Aproveitando a ocasião, seria uma ótima ideia refatorar a função sum para que ela não tenha funcionalidades demais.
+Copiar
+const verifyIsNumber = (value1, value2) => {
+  if (typeof value1 !== 'number' || typeof value2 !== 'number') {
+    throw new Error('Os valores devem ser numéricos');
+  }
+};
+
+const sum = (value1, value2) => {
+  try {
+    verifyIsNumber(value1, value2);
+    return value1 + value2;
+  } catch (error) {
+    return error.message;
+  }
+};
+
+console.log(sum(2, '3'));
+Agora sim! Você criou um fluxo para quando nosso código é executado com sucesso, representado pelo bloco try, que tenta fazer a soma de dois valores. Esse bloco chama a função recém-criada verifyIsNumber, que verifica se os parâmetros passados são números. Quando se depara com um valor que não é um número, o código lança um erro com o throw, que é capturado pelo catch no fluxo de exceção, através da variável error (aqui podemos usar qualquer nome). Dentro do catch retornamos a chave error.message, uma propriedade do objeto nativo Error que contém a mensagem de erro criada anteriormente.
+Como sempre, dê uma olhada na documentação oficial para aprofundar seus conhecimentos.
+Para reforçar ainda mais o conceito de try/catch, assista o vídeo a seguir:
+
+
+
+
+
+Objetos: Parte I - Adicionando novas chaves (keys)
+Para começar, veja o exemplo abaixo de um objeto que contém as informações de um cliente de uma loja:
+Copiar
+const customer = {
+  firstName: 'Roberto',
+  age: 22,
+  job: 'Teacher',
+};
+Imagine um cenário em que você precisa completar as informações do cliente adicionando uma nova propriedade para armazenar seu sobrenome. Uma das formas já vistas até então é reescrever o objeto, dessa vez já com a nova propriedade lastName.
+Copiar
+const customer = {
+  firstName: 'Roberto',
+  lastName: 'Faria', // Propriedade adicionada.
+  age: 22,
+  job: 'Teacher',
+};
+Existem também outras formas de adicionar essa propriedade de maneira muito mais simples e prática, sem a necessidade de reescrever o objeto e suas propriedades. Veja o exemplo abaixo:
+Copiar
+const customer1 = {
+  firstName: 'Roberto',
+  age: 22,
+  job: 'Teacher',
+};
+
+console.log(customer1);
+
+customer1.lastName = 'Faria';
+console.log(customer1);
+
+const customer2 = {
+  firstName: 'Maria',
+  age: 23,
+  job: 'Medic',
+};
+
+console.log(customer2);
+customer2['lastName'] = 'Silva';
+console.log(customer2);
+No exemplo acima, ao invés de reescrever o objeto inteiro, apenas adicionamos a nova propriedade. Para isso, basta seguir a sintaxe abaixo:
+objeto.nomeDaPropriedade.
+objeto[variavelQueContemONomeDaPropriedade].
+Agora, suponha que seja necessário adicionar algumas novas propriedades ao objeto, como a naturalidade, a data de nascimento e o estado civil.
+Essas novas propriedades serão adicionadas de acordo com o valor de algumas variáveis.
+Copiar
+const customer = {
+  firstName: 'Roberto',
+  age: 22,
+  job: 'Teacher',
+};
+
+let newKey = 'lastName';
+const lastName = 'Ferreira';
+customer[newKey] = lastName;
+newKey = 'fullName';
+const fullName = `${customer.firstName} ${customer.lastName}`;
+customer[newKey] = fullName;
+console.log(customer);
+No exemplo acima, você viu que há diferentes formas de associar chaves e valores a um objeto.
+Agora, para praticar, crie uma função que receba três parâmetros, sendo eles: um objeto, o nome de uma chave e o seu valor. O retorno dessa função deve ser o objeto já com a nova chave adicionada nele.
+
+
+
+
+Objetos: Parte II - Object.keys
+Como você já sabe, objetos são um dos tipos de dados em JavaScript que possuem uma estrutura de chave e valor. Dê uma olhada no exemplo a seguir e pense como você poderia listar as chaves desse objeto:
+Copiar
+const coolestTvShow = {
+  name: "BoJack Horseman",
+  genre: "adult animation",
+  createdBy: "Raphael Bob-Waksberg",
+  favoriteCharacter: "Princess Carolyn",
+  quote: "Princess Carolyn always lands on her feet.",
+  seasons: 6,
+};
+Com o que você aprendeu até o momento de objetos, você poderia utilizar a estrutura de repetição for...in. Por exemplo:
+Copiar
+const coolestTvShow = {
+  name: "BoJack Horseman",
+  genre: "adult animation",
+  author: "Raphael Bob-Waksberg",
+  favoriteCharacter: "Princess Carolyn",
+  quote: "Princess Carolyn always lands on her feet.",
+  seasons: 6,
+};
+
+for (const property in coolestTvShow) {
+  console.log(property);
+}
+
+// name
+// genre
+// author
+// favoriteCharacter
+// quote
+// seasons
+Mas e se dissermos que há uma maneira mais robusta de trabalhar com objetos e seus valores? O método Object.keys como o próprio nome diz, é utilizado para listar as chaves de um objeto, retornando-as em um array. Cada entrada do array retornado será uma string com o valor de cada chave do objeto. Fantástico não é mesmo? Vamos ver como ficaria nosso exemplo utilizando este método:
+Copiar
+const coolestTvShow = {
+  name: "BoJack Horseman",
+  genre: "adult animation",
+  createdBy: "Raphael Bob-Waksberg",
+  favoriteCharacter: "Princess Carolyn",
+  quote: "Princess Carolyn always lands on her feet.",
+  seasons: 6,
+};
+
+// for (const property in coolestTvShow) {
+//   console.log(property);
+// }
+
+console.log(Object.keys(coolestTvShow));
+
+// [ 'name', 'genre', 'createdBy', 'favoriteCharacter', 'quote', 'seasons' ]
+Agora que você já sabe o que é o Object.keys, que tal dar uma olhadinha na sua documentação? Leia até a seção sobre Polyfill.
+Após a leitura, veja mais um exemplo de aplicação do Object.keys. Nesse exemplo estão listadas as habilidades de uma pessoa desenvolvedora.
+Copiar
+const student1 = {
+  Html: 'Muito Bom',
+  Css: 'Bom',
+  JavaScript: 'Ótimo',
+  SoftSkills: 'Ótimo',
+};
+
+const student2 = {
+  Html: 'Bom',
+  Css: 'Ótimo',
+  JavaScript: 'Ruim',
+  SoftSkills: 'Ótimo',
+  Git: 'Bom', // chave adicionada
+};
+Tente criar uma função que exiba as habilidades do objeto student. Cada habilidade deve ser exibida no formato "Nome da habilidade, Nível: valor da chave referente à habilidade". Após tentar criar a função, veja a sugestão de resposta logo abaixo e compare com a sua solução.
+Copiar
+const student1 = {
+  Html: 'Muito Bom',
+  Css: 'Bom',
+  JavaScript: 'Ótimo',
+  SoftSkills: 'Ótimo',
+};
+
+const student2 = {
+  Html: 'Bom',
+  Css: 'Ótimo',
+  JavaScript: 'Ruim',
+  SoftSkills: 'Ótimo',
+  Git: 'Bom', // chave adicionada
+};
+
+const listSkills = (student) => {
+  const arrayOfSkills = Object.keys(student);
+  for (const index in arrayOfSkills) {
+    console.log(`${arrayOfSkills[index]}, Nível: ${student[arrayOfSkills[index]]}`);
+  }
+};
+
+console.log('Estudante 1');
+listSkills(student1);
+
+console.log('Estudante 2');
+listSkills(student2);
+Verifique que usamos o método Object.keys e a estrutura de repetição for...in em conjunto. Além disso, perceba que a mesma função é utilizada para iterar sobre os dois objetos, mesmo o segundo tendo uma chave a mais que o outro.
+
+
+
+
+Objetos: Parte III - Object.values
+O Object.values segue a mesma lógica que o Object.keys, a diferença está em que ele lista os valores de cada chave. Voltando ao nosso exemplo anterior, como faríamos para listar os valores de cada chave do nosso objeto coolestTvShow? Utilizando o for...inseria algo como:
+Copiar
+const coolestTvShow = {
+  name: "BoJack Horseman",
+  genre: "adult animation",
+  createdBy: "Raphael Bob-Waksberg",
+  favoriteCharacter: "Princess Carolyn",
+  quote: "Princess Carolyn always lands on her feet.",
+  seasons: 6,
+};
+
+for (const property in coolestTvShow) {
+  console.log(coolestTvShow[property]);
+}
+
+// BoJack Horseman
+// adult animation
+// Raphael Bob-Waksberg
+// Princess Carolyn
+// Princess Carolyn always lands on her feet.
+// 6
+Podemos então refatorar para utilizar o Object.values, nosso código ficaria assim:
+Copiar
+const coolestTvShow = {
+  name: "BoJack Horseman",
+  genre: "adult animation",
+  createdBy: "Raphael Bob-Waksberg",
+  favoriteCharacter: "Princess Carolyn",
+  quote: "Princess Carolyn always lands on her feet.",
+  seasons: 6,
+};
+
+// for (const property in coolestTvShow) {
+//   console.log(coolestTvShow[property]);
+// }
+
+console.log(Object.values(coolestTvShow));
+
+// [
+//   'BoJack Horseman',
+//   'adult animation',
+//   'Raphael Bob-Waksberg',
+//   'Princess Carolyn',
+//   'Princess Carolyn always lands on her feet.'
+//    6
+// ]
+Vamos dar uma olhadinha na documentação para entender melhor seu funcionamento.
+Para fixar melhor veja abaixo mais um exemplo, em que foram implementadas, de formas diferentes, duas funções que retornam a mesma lista de valores. Veja como fica muito mais fácil obter os valores de um objeto com o uso do Object.values.
+Copiar
+const student = {
+  Html: 'Muito Bom',
+  Css: 'Bom',
+  JavaScript: 'Ótimo',
+  SoftSkill: 'Ótimo',
+};
+
+const listSkillsValuesWithFor = (student) => {
+  const skills = [];
+  for(skill in student) {
+    skills.push(student[skill]);
+  }
+
+  return skills;
+};
+
+const listSkillsValuesWithValues = (student) => Object.values(student);
+
+// Sem Object.values
+console.log(listSkillsValuesWithFor(student));
+
+// Com Object.values
+console.log(listSkillsValuesWithValues(student));
+Observe como a função listSkillsValuesWithValues é bem mais simples e resolve o problema da listagem de valores de forma mais direta.
+
+
+
+
+Objetos: Parte IV - Object.entries
+Outro método muito útil para se trabalhar com objetos é o Object.entries. Um pouco diferente dos métodos apresentados anteriormente, este retorna um array cujos elementos são também arrays para cada conjunto chave e valor do objeto. Ficou confuso? Não se preocupe, vamos ao nosso exemplo e ver qual seria a saída:
+Copiar
+const coolestTvShow = {
+  name: "BoJack Horseman",
+  genre: "adult animation",
+  createdBy: "Raphael Bob-Waksberg",
+  favoriteCharacter: "Princess Carolyn",
+  quote: "Princess Carolyn always lands on her feet.",
+  seasons: 6,
+};
+
+console.log(Object.entries(coolestTvShow));
+
+// [
+//   [ 'name', 'BoJack Horseman' ],
+//   [ 'genre', 'adult animation' ],
+//   [ 'createdBy', 'Raphael Bob-Waksberg' ],
+//   [ 'favoriteCharacter', 'Princess Carolyn' ],
+//   [ 'quote', 'Princess Carolyn always lands on her feet.' ],
+//   [ 'seasons', 6 ]
+// ]
+Como você pode perceber, ao aplicar o Object.entries no nosso objeto, o retorno foi um array de arrays. Onde a primeira entrada de cada array é a chave do objeto em formato de string, e, o segundo valor é seu respectivo valor, que pode ser uma string ou outro tipo de dado, como por exemplo o número de temporadas do exemplo que é um number. Bem legal, não é mesmo? Vamos então agora ler a documentação até a seção "Convertendo um Object em um Map".
+Após a leitura que tal analisarmos mais um exemplo? Então bora lá:
+Copiar
+const países = {
+  França: 'Paris',
+  Brasil: 'Brasília',
+  Espanha: 'Madrid',
+  Portugal: 'Lisboa',
+};
+const pairKeyValue = Object.entries(países);
+console.log(pairKeyValue);
+Observe que o retorno dele é um array e que cada um de seus elementos é um outro array com apenas dois dados, a chave do objeto e o seu valor. Para ver os valores separadamente, adicione o for abaixo ao código anterior e execute-o novamente.
+Copiar
+for(index in pairKeyValue) {
+  console.log('--------');
+  console.log('País:', pairKeyValue[index][0]);
+  console.log('Capital:', pairKeyValue[index][1]);
+};
+Que tal reforçar ainda mais os conceitos de Object.keys, Object.values e Object.entries com o vídeo abaixo?
+
+
+
+
+
+Objetos: Parte V - Object.assign
+Esse método é utilizado para copiar os valores de todas as propriedades de um ou mais objetos para um objeto destino. Sua estrutura é:
+Copiar
+// A função recebe um número qualquer de parâmetros. Todos são agregados como valores para adicionar ao objeto de destino!
+
+Object.assign(destino, objeto1);
+Object.assign(destino, objeto1, objeto2);
+Object.assign(destino, objeto1, objeto2, objeto3, objeto4);
+Como você pode ver, ele recebe pelo menos dois parâmetros, de forma que o primeiro sempre será o objeto de destino, e os parâmetros restantes serão os valores que serão adicionados a esse objeto destino.
+Veja o exemplo abaixo:
+Copiar
+const person = {
+  name: 'Alberto',
+  lastName: 'Gomes',
+  age: 20,
+};
+
+const info = {
+  age: 23,
+  job: 'engenheiro',
+};
+
+const family = {
+  children: ['Maria', 'João'],
+  wife: 'Ana',
+};
+
+Object.assign(person, info, family)
+console.log(person)
+
+/* Output
+  { name: 'Alberto',
+  lastName: 'Gomes',
+  age: 23,
+  job: 'engenheiro',
+  children: [ 'Maria', 'João' ],
+  wife: 'Ana'
+  } */
+Como você pode ver, o método Object.assign adicionou as propriedades de info e de family ao objeto person. Observe também que a chave age aparece tanto em person como em info e é sobrescrita pelo valor contido em info. Isso acontece quando há propriedades repetidas entre o objeto destino e os objetos passados por parâmetro, de forma que a propriedade do objeto destino sempre utilizará o último valor disponível.
+Agora, observe o exemplo abaixo.
+Copiar
+const person = {
+  name: 'Roberto',
+};
+
+const lastName = {
+  lastName: 'Silva',
+};
+
+const clone = Object.assign(person, lastName);
+
+console.log(clone); // { name: 'Roberto', lastName: 'Silva' }
+console.log(person); // { name: 'Roberto', lastName: 'Silva' }
+Como pôde ver acima, o clone é exatamente igual ao objeto person, e se você mudar qualquer propriedade nele, observará que o objeto person também será modificado. Isso ocorre devido ao fato de que o objeto retornado pelo método Object.assign é o próprio objeto destino, que foi alterado adicionando as novas propriedades.
+Que tal fazer um teste para confirmar isso?
+Copiar
+clone.name = 'Maria';
+
+console.log('Mudando a propriedade name através do objeto clone')
+console.log(clone); // Output: { name: 'Maria', lastName: 'Silva' }
+console.log(person); // Output: { name: 'Maria', lastName: 'Silva' }
+console.log('--------------');
+
+person.lastName = 'Ferreira';
+
+console.log('Mudando a propriedade lastName através do objeto person');
+console.log(clone); // Output: { name: 'Maria', lastName: 'Ferreira' }
+console.log(person); // Output: { name: 'Maria', lastName: 'Ferreira' }
+Quando se faz o que foi feito no exemplo mais acima, ao criar uma nova variável para armazenar o retorno do método Object.assign, cria-se apenas um outro "caminho" para modificar ou acessar os dados do objeto destino (nesse caso, person). No exemplo abaixo, é apresentada outra forma de se copiar um objeto.
+Copiar
+const obj = { value1: 10, value2: 11 };
+const cloneObj = obj;
+Se você modificar o cloneObj, verá que novamente teremos o mesmo resultado anterior, de forma que o obj também é alterado. Ok, tendo isso em vista, como faremos para mudar os dados do novo objeto criado sem modificar o objeto inicial?
+Para resolver esse problema, podemos passar como primeiro parâmetro do Object.assign um objeto vazio {} e armazenar seu retorno em uma nova variável. Veja como fazer isso no exemplo abaixo.
+Copiar
+
+const person = {
+  name:'Roberto',
+};
+
+const lastName = {
+  lastName: 'Silva',
+};
+
+const newPerson = Object.assign({},person,lastName);
+newPerson.name = 'Gilberto';
+console.log(newPerson);
+console.log(person);
+Agora, apenas o objeto newPerson será modificado.
+
+
+
+
+Vamos praticar!
+Agora que você já ficou fera em fluxos de exceção e nos usos do Object, que tal vermos algumas aplicações para os dois casos? 💚
+Aula ao vivo! Vamos para o Slack, onde o link estará disponível.
+
+
+
+Exercícios
+Hora de pôr a mão na massa!
+fundamentos
+Antes de começar: versionando seu código
+Para versionar seu código, utilize o seu repositório de exercícios. 😉
+Abaixo você vai ver exemplos de como organizar os exercícios do dia em uma branch, com arquivos e commits específicos para cada exercício. Você deve seguir este padrão para realizar os exercícios a seguir.
+Abra a pasta de exercícios:
+Copiar
+$ cd ~/trybe-exercicios
+Certifique-se de que está na branch main e ela está sincronizada com a remota. Caso você tenha arquivos modificados e não comitados, deverá fazer um commit ou checkout dos arquivos antes deste passo.
+Copiar
+$ git checkout main
+$ git pull
+A partir da main, crie uma branch com o nome exercicios/7.2 (bloco 7, dia 2)
+Copiar
+$ git checkout -b exercicios/7.2
+Caso seja o primeiro dia deste módulo, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir fundamentos
+$ cd fundamentos
+Caso seja o primeiro dia do bloco, crie um diretório para ele e o acesse na sequência:
+Copiar
+$ mkdir bloco-7-introducao-a-javascript-es6-e-testes-unitarios
+$ cd bloco-7-introducao-a-javascript-es6-e-testes-unitarios
+Crie um diretório para o dia e o acesse na sequência:
+Copiar
+$ mkdir dia-2-javascript-es6-fluxo-de-excecao-e-objetos
+$ cd dia-2-javascript-es6-fluxo-de-excecao-e-objetos
+Os arquivos referentes aos exercícios deste dia deverão ficar dentro do diretório ~/trybe-exercicios/fundamentos/block-7-introducao-a-javascript-es6-e-testes-unitarios/dia-2-javascript-es6-fluxo-de-excecao-e-objetos. Lembre-se de fazer commits pequenos e com mensagens bem descritivas, preferencialmente a cada exercício resolvido.
+
+Verifique os arquivos alterados/adicionados:
+Copiar
+$ git status
+On branch exercicios/7.2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+  modified:   exercicio-1
+
+Adicione os arquivos que farão parte daquele commit:
+Copiar
+# Se quiser adicionar os arquivos individualmente
+$ git add caminhoParaArquivo
+
+# Se quiser adicionar todos os arquivos de uma vez, porém, atente-se
+para não adicionar arquivos indesejados acidentalmente
+$ git add --all
+
+Faça o commit com uma mensagem descritiva das alterações:
+Copiar
+$ git commit -m "Mensagem descrevendo alterações"
+Você pode visualizar o log de todos os commits já feitos naquela branch com git log.
+Copiar
+$ git log
+commit 100c5ca0d64e2b8649f48edf3be13588a77b8fa4 (HEAD -> exercicios/7.2)
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 17:48:01 2019 -0300
+
+    Exercicio 2 - mudando o evento de click para mouseover, tirei o alert e coloquei pra quando clicar aparecer uma imagem do lado direito da tela
+
+commit c0701d91274c2ac8a29b9a7fbe4302accacf3c78
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 16:47:21 2019 -0300
+
+    Exercicio 2 - adicionando um alert, usando função e o evento click
+
+commit 6835287c44e9ac9cdd459003a7a6b1b1a7700157
+Author: Tryber Bot <tryberbot@betrybe.com>
+Date:   Fry Sep 27 15:46:32 2019 -0300
+
+    Resolvendo o exercício 1 usando eventListener
+Agora que temos as alterações salvas no repositório local precisamos enviá-las para o repositório remoto. No primeiro envio, a branch exercicios/7.2 não vai existir no repositório remoto, então precisamos configurar o remote utilizando a opção --set-upstream (ou -u, que é a forma abreviada).
+Copiar
+$ git push -u origin exercicios/7.2
+Após realizar o passo 9, podemos abrir a Pull Request a partir do link que aparecerá na mensagem do push no terminal, ou na página do seu repositório de exercícios no GitHub através de um botão que aparecerá na interface. Escolha a forma que preferir e abra a Pull Request. De agora em diante, você repetirá o fluxo a partir do passo 7 para cada exercício adicionado, porém como já definimos a branch remota com -u anteriormente, agora podemos simplificar os comandos para:
+Copiar
+# Quando quiser enviar para o repositório remoto
+$ git push
+
+# Caso você queria sincronizar com o remoto, poderá utilizar apenas
+$ git pull
+Quando terminar os exercícios, seus códigos devem estar todos commitados na branch exercicios/7.2, e disponíveis no repositório remoto do GitHub. Pra finalizar, compartilhe o link da Pull Request no canal de Code Review para a monitoria e/ou colegas revisarem. Faça review você também, lembre-se que é muito importante para o seu desenvolvimento ler o código de outras pessoas. 🤜🏼🤛🏼
+
+
+
+
+Agora a prática
+🚀 Se liga nesse foguete!
+Os exercícios destacados com 🚀 são os fundamentais pra você ir bem no projeto! Todos os exercícios vão contribuir com sua formação mas fique de olho nesses! 👀
+
+
+
+Parte I
+Lembra da calculadora que fizemos como exemplo anteriormente? Hora de levá-la para um nível mais avançado!
+Copie e cole o código abaixo no seu editor de texto:
+Copiar
+<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Calculadora</title>
+</head>
+<body>
+  <p>Informe dois números para realizar a soma:</p>
+  <label for='value1'>Valor 1:</label>
+  <input type='text' id='value1'>
+  <label for='value2'>Valor 2:</label>
+  <input type='text' id='value2'>
+  <button id='button'>Somar</button>
+  <p id='result'></p>
+  <script>
+    function sum() {
+      const value1 = document.getElementById('value1').value;
+      const value2 = document.getElementById('value2').value;
+      const result = Number(value1) + Number(value2);
+      document.getElementById('result').innerHTML = `Resultado: ${result}`;
+      document.getElementById('value1').value = '';
+      document.getElementById('value2').value = '';
+    }
+    window.onload = () => {
+      const button = document.getElementById('button');
+      button.addEventListener('click', sum);
+    }
+  </script>
+</body>
+</html>
+Tire um tempinho para entender o código acima:
+A aplicação pede ao usuário que informe dois números para realizar uma soma. Esses números são inseridos através dos inputs;
+Ao clicar o botão, a função sum é chamada, capturando o valor escrito nos inputs e realizando a operação. Antes, é necessária a conversão do valor usando o Number(), pois ele chega à função em forma de string, existem outras formas de converter uma string em um número, como o parseInt() e o parseFloat();
+Ao final, a função sum imprime o valor em um parágrafo e limpa os inputs para que a pessoa usuária possa inserir novos valores.
+Aparentemente está tudo funcionando, mas a aplicação não possui fluxo de exceção. Ou seja, caso ocorra um erro, eles não serão tratados. Que tal resolver isso?
+1 🚀 - Crie erros personalizados.
+Tente executar a aplicação com um dos valores em branco. Notou que o retorno não é muito descritivo?
+Utilize o throw new Error e o bloco try/catch.
+Evite funções que tenham muitas responsabilidades distintas.
+Caso a pessoa usuária nao preencha nenhum input, ou preencha apenas um input, lance um erro.
+Caso os valores inseridos nos inputs pela pessoa usuária não sejam números, lance um erro. Para isso você pode utilizar a função isNan().
+Adicione o texto do erro no parágrafo com id result, para que a pessoa usuária saiba o que aconteceu. Lembre-se de usar erros descritivos!
+Utilize o finally para apagar os valores dos inputs ao final do bloco try/catch.
+Dica: Cuidado ao utilizar o isNaN pois valores considerados falsy são transformados em 0, podendo assim gerar um falso positivo. E lembre-se que, no javascript para se separar a parte inteira da decimal de um número, você deve utilizar o . exemplo: 1.5, e não a , exemplo: 1,5.
+
+
+
+
+Parte II
+Para os exercícios a seguir, use o seguinte código.
+Copiar
+const order = {
+  name: 'Rafael Andrade',
+  phoneNumber: '11-98763-1416',
+  address: {
+    street: 'Rua das Flores',
+    number: '389',
+    apartment: '701',
+  },
+  order: {
+    pizza: {
+      marguerita: {
+        amount: 1,
+        price: 25,
+      },
+      pepperoni: {
+        amount: 1,
+        price: 20,
+      }
+    },
+    drinks: {
+      coke: {
+        type: 'Coca-Cola Zero',
+        price: 10,
+        amount: 1,
+      }
+    },
+    delivery: {
+      deliveryPerson: 'Ana Silveira',
+      price: 5,
+    }
+  },
+  payment: {
+    total: 60,
+  },
+};
+
+const customerInfo = (order) => {
+  // Adicione abaixo as informações necessárias.
+
+}
+
+customerInfo(order);
+
+const orderModifier = (order) => {
+  // Adicione abaixo as informações necessárias.
+
+}
+
+orderModifier(order);
+Agora você vai fazer alguns exercícios de fixação.
+Complete a função customerInfo() para que seu retorno seja similar a "Olá Ana Silveira, entrega para: Rafael Andrade, Telefone: 11-98763-1416, R. Rua das Flores, Nº: 389, AP: 701".
+Note que o parâmetro da função já está sendo passado na chamada da função.
+
+
+
+
+
+Complete a função orderModifier() para que seu retorno seja similar a "Olá Luiz Silva, o total do seu pedido de marguerita, pepperoni e Coca-Cola Zero é R$ 50,00."
+Modifique o nome da pessoa compradora.
+Modifique o valor total da compra para R$ 50,00.
+
+
+
+
+Parte III
+Para os exercícios a seguir, use o seguinte código.
+Copiar
+const lesson1 = {
+  materia: 'Matemática',
+  numeroEstudantes: 20,
+  professor: 'Maria Clara',
+  turno: 'manhã',
+};
+
+const lesson2 = {
+  materia: 'História',
+  numeroEstudantes: 20,
+  professor: 'Carlos',
+};
+
+const lesson3 = {
+  materia: 'Matemática',
+  numeroEstudantes: 10,
+  professor: 'Maria Clara',
+  turno: 'noite',
+};
+Crie uma função para adicionar o turno da noite na lesson2. Essa função deve possuir três parâmetros, sendo eles: o objeto a ser modificado, a chave que deverá ser adicionada e o valor dela.
+Crie uma função para listar as keys de um objeto. Essa função deve receber um objeto como parâmetro.
+Crie uma função para mostrar o tamanho de um objeto. Essa função deve receber um objeto como parâmetro.
+Crie uma função para listar os valores de um objeto. Essa função deve receber um objeto como parâmetro.
+Crie um objeto de nome allLessons, que deve agrupar todas as aulas através do Object.assign. Cada chave desse novo objeto será uma aula, sendo essas chaves: lesson1, lesson2 e lesson3. Ao executar o comando console.log(allLessons), a saída deverá ser a seguinte:
+Copiar
+console.log(allLessons);
+/*
+{
+  lesson1:
+   { materia: 'Matemática',
+     numeroEstudantes: 20,
+     professor: 'Maria Clara',
+     turno: 'manhã' },
+  lesson2:
+   { materia: 'História',
+     numeroEstudantes: 20,
+     professor: 'Carlos',
+     turno: 'noite' },
+  lesson3:
+   { materia: 'Matemática',
+     numeroEstudantes: 10,
+     professor: 'Maria Clara',
+     turno: 'noite' }
+};
+*/
+Usando o objeto criado no exercício 5, crie uma função que retorne o número total de estudantes em todas as aulas.
+Crie uma função que obtenha o valor da chave de acordo com o seu índice no objeto. Por exemplo:
+Copiar
+console.log(getValueByNumber(lesson1, 0));
+// Output: 'Matématica'
+Crie uma função que verifique se o par (chave / valor) existe na função. Essa função deve possuir três parâmetros, sendo eles: o objeto, o nome da chave e o valor da chave. Exemplo:
+Copiar
+console.log(verifyPair(lesson3, 'turno', 'noite'));
+// Output: true,
+console.log(verifyPair(lesson3, 'materia', 'Maria Clara'));
+// Output: false
+
+
+
+
+Bônus
+🚀 Crie uma função para contar quantos estudantes assistiram às aulas de Matemática. Use o objeto criado no exercício 5.
+🚀 Crie uma função que deverá retornar um objeto que representa o relatório do professor ou professora, as aulas que ele ou ela ministrou e o número total de estudantes. Use o objeto criado no exercício 5:
+Copiar
+console.log(createReport(allLessons, 'Maria Clara'))
+/* {
+  professor: 'Maria Clara',
+  aulas: [ 'Matemática', 'Matemática' ],
+  estudantes: 30
+} */
