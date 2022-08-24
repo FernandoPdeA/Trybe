@@ -1,0 +1,360 @@
+O que vamos aprender?
+Hoje você vai aprender sobre outra Higher Order Functions: Array.reduce
+Essa função é, talvez, uma das mais poderosas funções para manipulação e criação de arrays. Ela deixará seu código mais legível, conciso e expressivo.
+
+
+
+Você será capaz de:
+Utilizar a função Array.reduce para manipular e construir arrays;
+
+
+
+Por que isso é importante?
+Como já viu na primeira parte, as HOFs ajudam bastante a reduzir o código e deixá-lo mais compreensível. A HOF de hoje é um pouco mais desafiadora, mas você usará ela bastante no seu código daqui pra frente e logo estará tirando-a de letra!
+
+
+
+Array.reduce
+O reduce é diferente das outras HOFs: ele recebe dois parâmetros sendo o primeiro uma callback e o segundo um valor inicial, que é opcional. Como o próprio nome diz o reduce busca reduzir um array. Isto é, iterando em elementos de um array, ao final ele gera um valor único de qualquer tipo, como, por exemplo, a soma de todos os elementos de tal array. Como principais vantagens do uso do método reduce podemos destacar:
+escrita de código mais limpo;
+maior facilidade ao implementar a lógica com a qual se quer trabalhar;
+melhor manutenção de código. Veja abaixo a estrutura completa do reduce:
+Copiar
+
+reduce((accumulator, currentValue, currentIndex, array) => { /* ... */ }, initialValue )
+A callback, que é o primeiro parâmetro do reduce, também pode receber até quatro parâmetros. Desses quatro parâmetros apenas dois deles devem existir obrigatoriamente, sendo eles o acc e o curr. Temos então que acc abreviatura de accumulator ou acumulador, deve obrigatoriamente ser o primeiro parâmetro da callback e o curr, abreviatura de currentValue ou valor atual também obrigatório, deve ser o segundo parâmetro da callback. Sendo assim, para trabalhar com uma função de reduce você deve ter algo parecido com o código abaixo:
+Copiar
+
+array.reduce((acc, curr) => {
+      // escopo de execução da função
+}, valorInicial)
+Lembrando que initialValue ou valorInicial não é um parâmetro obrigatório do reduce e que a callback pode receber até quatro parâmetros, mas aqui vamos abordar os obrigatórios, o acc e o curr.
+O que então faz o acumulador ou acc? A função do acumulador é guardar o retorno da callback, a cada iteração, tendo como ponto de partida o valorInicial quando estabelecido. Quando não estabelecido, automaticamente o acc assume o valor do primeiro elemento do array que está iterando. Confira o código abaixo onde vamos calcular a soma total dos elementos de um array:
+Copiar
+
+const numbers = [1, 32, 44, 2, 3];
+const iteracoesDoReduce = numbers.reduce((acc, curr) => {
+  console.log(`valor atual é ${curr}`);
+  // Antes da primeira iteração o valor de início do `acc` é o valor no index 0 do array, e o valor de início de `curr` é o valor no index 1 do array.
+      // Iteração 1: valor do acc é 1 e o de curr é 32;
+ // Após a primeira iteração, o valor de `acc` muda e passa a acumular agora o resultado do retorno da callback (acc + curr).
+     // Iteração 2: valor do acc é 33 e o de curr é 44;
+// Acontece então uma segunda iteração, e `curr` agora assume o valor do index na sequência do array, no caso o valor do segundo index e `acc` segue armazenando os retornos.
+    // Iteração 3: valor do acc é 77 e o de curr é 2;
+    // Iteração 4: valor do acc é 79 e o de curr é 3;
+    // Valor final de `acc`é 82 e `curr` para no 3.
+  
+  
+  return acc +  curr // Ao fim das iterações podemos ver que o `acc` armazenou o resultado total do retorno da função.
+  
+});
+
+console.log(`O resultado final é ${iteracoesDoReduce}`);
+  // por fim, esse console.log imprime o retorno final da nossa função, 
+Ao observar o código acima identificamos também o papel do curr, que sempre armazena o valor do elemento atual, ou seja, o elemento do array que está sendo iterado no momento.
+Passando um valor para o acc
+Confuso 🤔? Vamos a outro exemplo! Imagine que novamente você queira somar todos os valores de um array. Mas agora teremos um valor inicial já estipulado para o acc. Antes de conhecer o reduce, você faria algo parecido com o código abaixo, correto?
+Copiar
+const numbers = [1, 32, 44, 2, 3];
+let sumNumbers = 30;
+// A variável `sumNumbers` tem um valor inicial de 30 e vai acumulando, a cada iteração do for, o resultado da operação feita em seu escopo!
+
+for (let index = 0; index < numbers.length; index += 1) {
+  sumNumbers += numbers[index];
+}
+console.log(sumNumbers); // 112
+Veja o mesmo feito com reduce:
+Copiar
+const numbers = [1, 32, 44, 2, 3];
+
+const totalSum = numbers.reduce((acc, curr) => {
+  console.log(`valor do acc é ${acc} e o de curr é ${curr}`);
+   // Iteração 1: valor do acc é 30 e o de curr é 1
+   // Iteração 2:valor do acc é 31 e o de curr é 32
+   // Iteração 3: valor do acc é 63 e o de curr é 44
+   // Iteração 4: valor do acc é 107 e o de curr é 2
+   // Iteração 5: valor do acc é 107 e o de curr é 3
+   // Valor final de `acc`é 112 e `curr` para no 3
+
+
+  return acc + curr;
+}, 30); // O `valorInicial` é 30, ou seja, `acc` antes de executar a primeira iteração já está armazenando esse valor.
+
+console.log(`valor final do acc é ${totalSum}`);
+  // por fim, esse `console.log` imprime o retorno da nossa função, que é o valor final de `acc` após cada uma das 5 iterações, tendo iniciado com valor 30.
+Pode parecer estranho definir um valor fixo para o acumulador, mas isso porque estamos trabalhando com números. O reduce é uma ferramenta poderosa e em um código mais complexo ele poderia receber um valor dinâmico, através de uma variável ou até mesmo qualquer valor que não seja um número. Vale lembrar também que você aprendeu a usar o reduce com seus dois primeiros parâmetros, mas embora pouco utilizados, existem mais dois parâmetros opcionais: index e array. Veja exemplos utilizando todos os quatro parâmetros do reduce acessando sua documentação.
+Dissecando as funções
+Basicamente o reduce funciona como o funil no gif abaixo:
+
+GIF ilustrando o método .reduce()
+E na prática, qual a vantagem de se usar o reduce 🤔? Vamos dissecar a diferença ao usar o for e ao usar o reduce:
+Método for:
+Necessidade de criar uma variável para acumular o resultado de cada iteração do for, a soma de cada resultado - let sumNumbers;
+Necessidade de setar um valor inicial para variável - sumNumbers = 30;
+Método .reduce:
+A função callback passada por parâmetro recebe dois parâmetros, o acumulador acc e o elemento do array de cada iteração, curr;
+Como a função é uma arrow function que possui apenas uma linha, o retorno de cada iteração será: acc + curr;
+O retorno é salvo no primeiro parâmetro , acc. É como se você estivesse fazendo igual à primeira função, sumNumbers = sumNumbers + numbers[index], mas nesse caso seria acc = acc + curr;
+Organizando para simplificar
+Veja também que ao invés de passar a lógica direto dentro da callback do reduce, você pode criar uma função externa e chamá-la como sendo o parâmetro callback:
+Copiar
+const numbers = [1, 32, 44, 2, 3];
+
+const sumNumbers =  (acc, curr) => acc + curr;
+
+const totalSum = numbers.reduce(sumNumbers, 30);
+
+console.log(totalSum); //112
+Dessa maneira seu código fica mais organizado e você poderá reutilizar a função sumNumbers caso seja necessário.
+✍️ Anote a dica: acc e curr são apenas nomes costumeiros, você pode dar o nome que quiser para o seu código, sendo uma boa opção escolher nomes semânticos, de acordo com o que é executado pela função em questão.
+
+
+
+Array.reduce
+O reduce é diferente das outras HOFs: ele recebe dois parâmetros sendo o primeiro uma callback e o segundo um valor inicial, que é opcional. Como o próprio nome diz o reduce busca reduzir um array. Isto é, iterando em elementos de um array, ao final ele gera um valor único de qualquer tipo, como, por exemplo, a soma de todos os elementos de tal array. Como principais vantagens do uso do método reduce podemos destacar:
+escrita de código mais limpo;
+maior facilidade ao implementar a lógica com a qual se quer trabalhar;
+melhor manutenção de código. Veja abaixo a estrutura completa do reduce:
+Copiar
+
+reduce((accumulator, currentValue, currentIndex, array) => { /* ... */ }, initialValue )
+A callback, que é o primeiro parâmetro do reduce, também pode receber até quatro parâmetros. Desses quatro parâmetros apenas dois deles devem existir obrigatoriamente, sendo eles o acc e o curr. Temos então que acc abreviatura de accumulator ou acumulador, deve obrigatoriamente ser o primeiro parâmetro da callback e o curr, abreviatura de currentValue ou valor atual também obrigatório, deve ser o segundo parâmetro da callback. Sendo assim, para trabalhar com uma função de reduce você deve ter algo parecido com o código abaixo:
+Copiar
+
+array.reduce((acc, curr) => {
+      // escopo de execução da função
+}, valorInicial)
+Lembrando que initialValue ou valorInicial não é um parâmetro obrigatório do reduce e que a callback pode receber até quatro parâmetros, mas aqui vamos abordar os obrigatórios, o acc e o curr.
+O que então faz o acumulador ou acc? A função do acumulador é guardar o retorno da callback, a cada iteração, tendo como ponto de partida o valorInicial quando estabelecido. Quando não estabelecido, automaticamente o acc assume o valor do primeiro elemento do array que está iterando. Confira o código abaixo onde vamos calcular a soma total dos elementos de um array:
+Copiar
+
+const numbers = [1, 32, 44, 2, 3];
+const iteracoesDoReduce = numbers.reduce((acc, curr) => {
+  console.log(`valor atual é ${curr}`);
+  // Antes da primeira iteração o valor de início do `acc` é o valor no index 0 do array, e o valor de início de `curr` é o valor no index 1 do array.
+      // Iteração 1: valor do acc é 1 e o de curr é 32;
+ // Após a primeira iteração, o valor de `acc` muda e passa a acumular agora o resultado do retorno da callback (acc + curr).
+     // Iteração 2: valor do acc é 33 e o de curr é 44;
+// Acontece então uma segunda iteração, e `curr` agora assume o valor do index na sequência do array, no caso o valor do segundo index e `acc` segue armazenando os retornos.
+    // Iteração 3: valor do acc é 77 e o de curr é 2;
+    // Iteração 4: valor do acc é 79 e o de curr é 3;
+    // Valor final de `acc`é 82 e `curr` para no 3.
+  
+  
+  return acc +  curr // Ao fim das iterações podemos ver que o `acc` armazenou o resultado total do retorno da função.
+  
+});
+
+console.log(`O resultado final é ${iteracoesDoReduce}`);
+  // por fim, esse console.log imprime o retorno final da nossa função, 
+Ao observar o código acima identificamos também o papel do curr, que sempre armazena o valor do elemento atual, ou seja, o elemento do array que está sendo iterado no momento.
+Passando um valor para o acc
+Confuso 🤔? Vamos a outro exemplo! Imagine que novamente você queira somar todos os valores de um array. Mas agora teremos um valor inicial já estipulado para o acc. Antes de conhecer o reduce, você faria algo parecido com o código abaixo, correto?
+Copiar
+const numbers = [1, 32, 44, 2, 3];
+let sumNumbers = 30;
+// A variável `sumNumbers` tem um valor inicial de 30 e vai acumulando, a cada iteração do for, o resultado da operação feita em seu escopo!
+
+for (let index = 0; index < numbers.length; index += 1) {
+  sumNumbers += numbers[index];
+}
+console.log(sumNumbers); // 112
+Veja o mesmo feito com reduce:
+Copiar
+const numbers = [1, 32, 44, 2, 3];
+
+const totalSum = numbers.reduce((acc, curr) => {
+  console.log(`valor do acc é ${acc} e o de curr é ${curr}`);
+   // Iteração 1: valor do acc é 30 e o de curr é 1
+   // Iteração 2:valor do acc é 31 e o de curr é 32
+   // Iteração 3: valor do acc é 63 e o de curr é 44
+   // Iteração 4: valor do acc é 107 e o de curr é 2
+   // Iteração 5: valor do acc é 107 e o de curr é 3
+   // Valor final de `acc`é 112 e `curr` para no 3
+
+
+  return acc + curr;
+}, 30); // O `valorInicial` é 30, ou seja, `acc` antes de executar a primeira iteração já está armazenando esse valor.
+
+console.log(`valor final do acc é ${totalSum}`);
+  // por fim, esse `console.log` imprime o retorno da nossa função, que é o valor final de `acc` após cada uma das 5 iterações, tendo iniciado com valor 30.
+Pode parecer estranho definir um valor fixo para o acumulador, mas isso porque estamos trabalhando com números. O reduce é uma ferramenta poderosa e em um código mais complexo ele poderia receber um valor dinâmico, através de uma variável ou até mesmo qualquer valor que não seja um número. Vale lembrar também que você aprendeu a usar o reduce com seus dois primeiros parâmetros, mas embora pouco utilizados, existem mais dois parâmetros opcionais: index e array. Veja exemplos utilizando todos os quatro parâmetros do reduce acessando sua documentação.
+Dissecando as funções
+Basicamente o reduce funciona como o funil no gif abaixo:
+
+GIF ilustrando o método .reduce()
+E na prática, qual a vantagem de se usar o reduce 🤔? Vamos dissecar a diferença ao usar o for e ao usar o reduce:
+Método for:
+Necessidade de criar uma variável para acumular o resultado de cada iteração do for, a soma de cada resultado - let sumNumbers;
+Necessidade de setar um valor inicial para variável - sumNumbers = 30;
+Método .reduce:
+A função callback passada por parâmetro recebe dois parâmetros, o acumulador acc e o elemento do array de cada iteração, curr;
+Como a função é uma arrow function que possui apenas uma linha, o retorno de cada iteração será: acc + curr;
+O retorno é salvo no primeiro parâmetro , acc. É como se você estivesse fazendo igual à primeira função, sumNumbers = sumNumbers + numbers[index], mas nesse caso seria acc = acc + curr;
+Organizando para simplificar
+Veja também que ao invés de passar a lógica direto dentro da callback do reduce, você pode criar uma função externa e chamá-la como sendo o parâmetro callback:
+Copiar
+const numbers = [1, 32, 44, 2, 3];
+
+const sumNumbers =  (acc, curr) => acc + curr;
+
+const totalSum = numbers.reduce(sumNumbers, 30);
+
+console.log(totalSum); //112
+Dessa maneira seu código fica mais organizado e você poderá reutilizar a função sumNumbers caso seja necessário.
+✍️ Anote a dica: acc e curr são apenas nomes costumeiros, você pode dar o nome que quiser para o seu código, sendo uma boa opção escolher nomes semânticos, de acordo com o que é executado pela função em questão.
+
+
+
+Vamos praticar!
+É hora de colocar em prática todo esse conhecimento. 💪 Vamos ver alguns exemplos de como aplicar o reduce.
+Aula ao vivo! Vamos para o Slack onde o link estará disponível.
+
+
+
+Instruções para realização dos exercícios
+Nos exercícios a seguir, você trabalhará com uma estrutura de dados representando uma lista de livros, contendo informações como nome do livro, gênero, pessoa autora do livro e data de lançamento.
+Em cada exercício, será pedido que você encontre ou produza alguma informação a respeito dessa lista utilizando as funções que você aprendeu hoje. Todos os exercícios contêm um código base. Você deverá copiar esse código e salvá-lo em um arquivo nomeado conforme o número do exercício, completando a função em branco.
+Por exemplo, o exercício 1 deve ser salvo no arquivo exercise1.js, e assim por diante.
+🚀 Se liga nesse foguete!
+Os exercícios destacados com 🚀 são os fundamentais pra você ir bem no projeto! Todos os exercícios vão contribuir com sua formação mas fique de olho nesses! 👀
+
+
+
+Agora a prática
+Todos os exercícios devem ser realizados utilizando reduce, e se necessário outra HOF, a informação será citada no enunciado.
+1 - Dada uma matriz, transforme em um array.
+Copiar
+const arrays = [
+  ['1', '2', '3'],
+  [true],
+  [4, 5, 6],
+];
+
+function flatten() {
+  // escreva seu código aqui
+}
+Para os exercícios 2, 3 e 4 considere o seguinte array:
+Copiar
+const books = [
+  {
+    id: 1,
+    name: 'As Crônicas de Gelo e Fogo',
+    genre: 'Fantasia',
+    author: {
+      name: 'George R. R. Martin',
+      birthYear: 1948,
+    },
+    releaseYear: 1991,
+  },
+  {
+    id: 2,
+    name: 'O Senhor dos Anéis',
+    genre: 'Fantasia',
+    author: {
+      name: 'J. R. R. Tolkien',
+      birthYear: 1892,
+    },
+    releaseYear: 1954,
+  },
+  {
+    id: 3,
+    name: 'Fundação',
+    genre: 'Ficção Científica',
+    author: {
+      name: 'Isaac Asimov',
+      birthYear: 1920,
+    },
+    releaseYear: 1951,
+  },
+  {
+    id: 4,
+    name: 'Duna',
+    genre: 'Ficção Científica',
+    author: {
+      name: 'Frank Herbert',
+      birthYear: 1920,
+    },
+    releaseYear: 1965,
+  },
+  {
+    id: 5,
+    name: 'A Coisa',
+    genre: 'Terror',
+    author: {
+      name: 'Stephen King',
+      birthYear: 1947,
+    },
+    releaseYear: 1986,
+  },
+  {
+    id: 6,
+    name: 'O Chamado de Cthulhu',
+    genre: 'Terror',
+    author: {
+      name: 'H. P. Lovecraft',
+      birthYear: 1890,
+    },
+    releaseYear: 1928,
+  },
+];
+
+// Adicione o código do exercício aqui:
+2 - Crie uma string com os nomes de todas as pessoas autoras.
+Copiar
+const expectedResult = "George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.";
+
+function reduceNames() {
+  // escreva seu código aqui
+}
+🚀 3- Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
+Copiar
+const expectedResult = 43;
+
+function averageAge() {
+  // escreva seu código aqui
+}
+🚀 4- Encontre o livro com o maior nome.
+Copiar
+
+const expectedResult = {
+  id: 1,
+  name: 'As Crônicas de Gelo e Fogo',
+  genre: 'Fantasia',
+  author: {
+    name: 'George R. R. Martin',
+    birthYear: 1948,
+  },
+  releaseYear: 1991,
+};
+
+function longestNamedBook() {
+  // escreva seu código aqui
+}
+🚀 5- Dada o array de nomes, retorne a quantidade de vezes em que aparecem a letra a maiúscula ou minúscula.
+Copiar
+const names = [
+  'Aanemarie', 'Adervandes', 'Akifusa',
+  'Abegildo', 'Adicellia', 'Aladonata',
+  'Abeladerco', 'Adieidy', 'Alarucha',
+];
+
+function containsA() {
+  // escreva seu código aqui
+}
+🚀 6- Para o próximo exercício você deve criar um novo array de objetos a partir das informações das constantes students e grades, onde cada objeto desse novo array terá o formato { name: nome do aluno, average: media das notas }. Para isso vamos assumir que a posição do index 0 de grades refere-se ao estudante na posição de index 0 de students. Para resolver este exercício, além de reduce, será necessário utilizar também a função map. Dica: Você pode acessar o index do array dentro de map, e você pode ver o objeto esperado na constante expected.
+Copiar
+const students = ['Pedro Henrique', 'Miguel', 'Maria Clara'];
+const grades = [[9, 8, 10, 7, 5], [10, 9, 9, 10, 8], [10, 7, 10, 8, 9]];
+
+function studentAverage() {
+  // escreva seu código aqui
+}
+
+const expected = [
+  { name: 'Pedro Henrique', average: 7.8 },
+  { name: 'Miguel', average: 9.2 },
+  { name: 'Maria Clara', average: 8.8 },
+];
+
+
