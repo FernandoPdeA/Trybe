@@ -1,0 +1,658 @@
+O que vamos aprender?
+Você aprenderá sobre testes unitários e também sobre como testar em pequenos passos.
+Já o conceito de testar em pequenos passos fala sobre como orientar nosso desenvolvimento com base nos testes!
+Para isso, você utilizará o Jest , um framework de testes para JavaScript desenvolvido pelo Facebook.
+
+
+
+Você será capaz de:
+Entender o que são e para que servem testes unitários;
+Aplicar o conceito de TDD, ou seja, o desenvolvimento orientado a testes;
+Criar testes unitários a partir do framework Jest.
+
+
+
+Por que isso é importante?
+O desenvolvimento de software não é algo simples e cada engrenagem de uma aplicação pode ser muito delicada. São muitas variáveis que você deve se preocupar, a cada vez que implementa alguma modificação, como o desempenho, disposição dos componentes e etc. Seria muito infeliz ter que checar cada retorno do seu código antes de toda vez que for fazer um commit. Além disso, não seria confiável, pois seres humanos cometem falhas. Por isso, programe a máquina para trabalhar a seu favor 😉.
+Quando você pensa em comprar um carro, espera que ele tenha passado por diversos testes para garantir a sua segurança. Qualquer pessoa deseja um produto de qualidade, por que então não criar aplicações web com esse padrão também? Afinal, a única consequência será reduzir defeitos e aumentar o valor do sistema.
+E o mais importante: o mindset que se desenvolve ao escrever testes para uma aplicação força quem desenvolve a imaginar e prever os fluxos que uma pessoa pode percorrer ao usar a sua aplicação. Isso diminui as chances de gerar bugs ou escrever códigos que precisarão ser refeitos depois.
+Testes são fundamentais e tem um grande valor no dia a dia de quem desenvolve. Até o curso acabar, espera-se que a ideia de fazer um código sem testá-lo seja incômoda. Você irá se formar com um mindset orientado a testes!
+
+
+
+
+Conteúdos
+Na indústria, qualidade é algo perseguido há tempos! Diversas metodologias surgiram, sempre com o objetivo de melhorar a qualidade e ao mesmo tempo reduzir custo, pois a consequência de um defeito pode ser desastroso, não só para as finanças, mas também para o nome da empresa.
+Basicamente, existem três dimensões de qualidade que precisam ser consideradas:
+Confiança: O sistema é resistente a falhas durante a execução, isto é, não entra em loop, não interrompe a execução por falta de recursos.
+Funcionalidade: O sistema se comporta conforme o que foi definido em seus requisitos.
+Performance: O sistema tem um tempo de resposta adequado e aceitável, mesmo quando submetido a um volume de processamento próximo de situações reais ou de pico.
+E, para atender a essas três dimensões, a pessoa que programa tem uma nova tarefa: desenvolver com foco em qualidade.
+
+
+
+Testes unitários: uma analogia ao relógio
+Digamos que você, como pessoa desenvolvedora de software em um universo paralelo, seja uma pessoa relojoeira. A sua responsabilidade é confeccionar relógios de qualidade desde o zero, construindo desde as menores peças. Ao confeccionar as centenas de engrenagens, molas e parafusos que irão constituir seu relógio, você deve seguir especificações.
+Cada unidade de engrenagens, molas e parafusos, ao serem confeccionadas, são testadas individualmente, medidas e verificadas, para garantir que irão funcionar conforme o esperado. Engrenagens devem suavemente girar, molas devem ter uma certa resistência, e parafusos devem ter diferentes espessuras e tamanhos, e por aí vai.
+Como você poderia ter certeza de que cada pecinha do relógio está cumprindo sua devida função?
+Com essa provocação, introduziremos você aos testes unitários, que tem a função de validar o comportamento do nosso código de forma sólida e precisa. Testes unitários são porções de código responsáveis por validar o comportamento de unidades funcionais de código.
+Nesse contexto, entende-se como unidade funcional qualquer porção de código que, através de algum estímulo, seja capaz de gerar um comportamento esperado. Isso inclui funções, propriedades, construtores... tudo que, de alguma maneira, processe um comportamento de valor e que você deseja garantir que, apesar das alterações em nível de código, o comportamento siga sendo o mesmo.
+Portanto, os testes unitários, assim como qualquer teste automatizado, permitem uma melhor manutenção do seu código. Eles não servem somente para verificar se uma função específica está funcionando, mas também para garantir que sua aplicação continue funcionando após alguma alteração. Sendo assim, é interessante pensar neles como um investimento de tempo para o futuro.
+
+
+
+Testando em pequenos passos
+O TDD: Test Driven Development, em tradução livre, o desenvolvimento orientado a testes, é uma técnica de desenvolvimento que, em certos cenários, favorece a produtividade e a escrita de códigos confiáveis. Essa técnica é interessante porque ela ajuda a criar uma mente programadora orientada a testes, ainda que nem sempre escrever testes antes de escrever funcionalidades seja a prática mais adequada.
+O TDD é muito importante como exercício e para determinados tipos de projetos, mas está longe de ser um consenso na comunidade programadora como prática fundamental para 100% dos casos. É importante que essa visão crítica fique bem clara.
+Tendo isso em mente hoje você vai aprender e praticar o TDD, mas o conhecimento a ser absorvido é "como testar bem uma aplicação, de forma eficaz e produtiva" e "como ter um mindset orientado a testes", e não especificamente como a metodologia funciona.
+Com muita prática e experiência, você irá desenvolver a intuição necessária para avaliar se o TDD é a melhor abordagem para testar a sua aplicação. Um exemplo interessante que o TDD pode ser bastante útil é no teste de funções puras.
+O desenvolvimento orientado a testes é um processo cíclico que pode ser descrito em três etapas, como ilustrado abaixo. O princípio básico do TDD é fazer testes pequenos.
+
+Ciclo TDD - inspirado no artigo de Kent Dodds disponível nos recursos adicionais
+Destrinchando cada etapa, o TDD consiste em:
+Escrever um teste que cubra a função que você pretende implementar antes mesmo de executá-la. Este teste irá falhar - afinal, a sua função ainda não foi declarada. Você pode começar do teste mais elementar possível para esse cenário, como verificar se a função que você irá criar existe.
+Implementar apenas o necessário para que o teste passe. No caso do exemplo anterior, você só precisaria declarar a função para passar o teste.
+Refatorar o código para que ele esteja bem escrito e fácil de se entender. O pulo do gato nessa etapa é que você tem um teste já implementado que irá falhar caso você quebre algo ao refatorar o seu código.
+Repetir! Afinal de contas, o desenvolvimento orientado a testes é um ciclo. Volte a etapa 1 e repita esse processo até que todas as funcionalidades da sua função sejam implementadas.
+Com muita prática e experiência, você irá desenvolver a intuição necessária para avaliar se o TDD é a melhor abordagem para testar a sua aplicação. Um exemplo interessante onde o TDD pode ser bastante útil é no teste de funções puras, uma vez que elas são mais fáceis de testar e não causam efeitos colaterais.
+E o que são funções puras? São funções cujo resultado é determinado puramente pelos argumentos passados a elas, ou seja, o retorno é sempre previsível. Por exemplo, uma função que retorna o dobro do valor recebido como argumento. Então, sempre que o argumento for 2, o valor de retorno será 4.
+Dessa forma se a função acessa ou modifica qualquer coisa que não tenha sido passada como parâmetro a ela, é então uma função impura.
+Exemplos de funções impuras:
+Copiar
+var count = 0;
+
+function increaseCount(val) {
+    count += val;
+}
+
+function getSomething() {
+    return count > 0;
+}
+A função increaseCount não é pura, pois, apesar de usar o valor do parâmetro, o seu retorno está modificando uma variável que está fora do seu escopo. A função getSomething não é pura, pois acessa a variável que não está em seu escopo.
+Além de ser útil para testar funções puras, outro exemplo prático em que o desenvolvimento orientado a testes pode ser útil é consertar bugs. Os testes ajudam a quebrar problemas complexos em partes menores que podem ser analisadas mais facilmente. Assim, você poderá focar em uma regra de negócio específica sem medo de quebrar alguma outra funcionalidade.
+
+
+
+
+NodeJS Assert
+Para começar, conheça um pouco sobre o NodeJS Assert.
+O módulo Assert é uma ferramenta que testa expressões. Esse módulo já vem instalado com o NodeJS. Podemos entender o assert como sendo uma expressão booleana que será sempre true, a menos que haja uma falha.
+Abaixo temos um exemplo de como podemos fazer um teste simples com assert:
+Copiar
+const assert = require('assert'); // Sintaxe para incluir o módulo assert
+
+assert.strictEqual(50, 50); // Sem erros: 50 === 50
+assert.strictEqual(50, 70); // AssertionError: 50 !== 70
+Para o seu desenvolvimento durante o curso, será necessário o uso de ferramentas mais robustas, como o Jest, que você aprenderá na aula de hoje. Mas, caso tenha se interessado, você pode consultar mais sobre o NodeJS Assert aqui na documentação.
+
+
+
+
+Introdução ao Jest
+"Por que precisamos de um framework? Não dá pra escrever todos os testes somente com asserts simples? "
+Em teoria, sim. Mas à medida que suas aplicações se tornam maiores e mais complexas, esse processo torna-se inviável pelos motivos abaixo:
+Sua aplicação terá várias funções, provavelmente distribuídas por vários arquivos. Colocar todos os testes em um único arquivo torna-se impraticável rapidamente. Não é possível saber onde começam e onde terminam os testes de uma função. Mesmo em uma função mais complexa, você pode querer separar e agrupar testes relacionados;
+Node.js só executa um arquivo por vez, com o comando node <nome_do_arquivo>. Se há vários arquivos de teste, é preciso executar um por vez ou escrever um script shell para executar todos os arquivos;
+Você sempre precisa executar todos os testes de um arquivo. Não há como executar apenas um subgrupo dos testes presentes no arquivo;
+Sempre que um teste falha, a execução é interrompida imediatamente. Isso dificulta saber se os testes posteriores estão corretos, necessitando garantir que todos os testes anteriores estejam corretos;
+Vários testes podem requerer que os mesmos passos sejam executados antes ou após a execução, resultando em muita duplicação;
+Para pular ou desabilitar um teste falhando, é preciso removê-lo ou comentá-lo;
+Não há informações sobre a cobertura de testes. Ou seja, quais partes do código estão sendo estressadas pelos testes e quais não estão;
+Para o mercado de trabalho, o assert é insuficiente. Normalmente os programas estão sempre evoluindo e ganhando novas features e, por conta disso, surgiu a necessidade de criar uma suíte de testes mais robusta, legível e de fácil manutenção.
+Um framework de testes apresenta ferramentas para eliminar ou mitigar esses problemas. Existem várias ferramentas semelhantes, como Jest, Mocha e Jasmine. Entre eles, Jest se destaca por alguns motivos:
+É fácil de instalar e requer zero configuração, como você verá em breve;
+É rápido. O time de engenharia do Airbnb conseguiu diminuir o tempo de execução de sua suíte de testes de 12 para 4 minutos ao trocar Mocha por Jest;
+Se integra muito bem com React. De fato, o Jest já vem instalado e configurado com o React. Não se preocupe se você não souber o que é o React, você aprenderá sobre ele em Front-end.
+Chega de teoria. Vamos botar a mão na massa e começar a escrever testes com Jest.
+
+
+
+
+Instalando o Jest
+Para realizar a instalação do Jest, siga as instruções do vídeo ou do texto logo abaixo.
+
+Para começar a instalar o Jest, você precisa ter o npm instalado e funcionando corretamente, abaixo temos um passo a passo, feito para Linux, sabendo disso, então vá ao seu terminal e digite:
+Copiar
+npm -v
+Se ele te mostrar um número de versão (por exemplo, 6.14.4) está tudo certo, você pode pular os comandos deste passo. Caso ele retorne um erro dizendo que não encontrou o comando você deverá executar a instalação do npm, descrita abaixo:
+a. Primeiro vamos atualizar a nossa lista de repositórios:
+Copiar
+sudo apt update
+b. Agora com a lista de repositórios atualizada, vamos instalar o npm. Lembre-se que ao instalar com apt, você pode utilizar o comando de qualquer local, e em todas as próximas vezes você não deverá reinstalar, só execute esse passo caso não tenha o npm instalado ainda.
+Copiar
+sudo apt install npm
+Agora vamos simular a criação de um projeto que utilizará a biblioteca do Jest para os testes. Com o npm devidamente instalado e verificado, crie uma pasta e entre nesta nova pasta que você criou.
+Copiar
+mkdir my_new_project
+cd my_new_project
+Obs: É importante criar esta nova pasta para cada um dos seus projetos, pois além de ficar mais organizado, você vai evitar que as configurações de um projeto interfiram com outro, visto que o processo de instalação irá criar arquivos e pastas.
+a. Após entrar na pasta, precisamos criar um novo package.json para o seu novo projeto.
+O package.json é responsável por armazenar e descrever diversas informações de seu projeto, como a versão do node e do npm utilizadas, url do repositório, versão do projeto, dependências de produção e de desenvolvimento.
+Para criar o package.json no seu projeto execute em seu terminal o comando abaixo:
+Copiar
+npm init -y
+Você terá o seguinte retorno:
+Copiar
+Wrote to /home/cleyton/Documents/meuApp/package.json:
+
+{
+  "name": "meuApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+Vamos analisar algumas das informações desse objeto:
+A primeira chave "name", por padrão, terá o mesmo nome do diretório em que você criou o arquivo package.json. Ele representa o nome do seu projeto;
+A versão atual do projeto é "1.0.0", ou seja a primeira versão;
+Podemos adicionar alguma descrição na chave "description";
+A chave "scripts" define um conjunto de scripts Node que podem ser executados.
+Não se preocupe se essas informações ainda não fizerem sentido pra você. Futuramente vamos retornar e explicar o que cada um desses dados representa. No momento, é importante saber apenas que o package.json é um objeto que armazena uma série de informações sobre o seu projeto.
+b. Agora precisamos editar nosso package.json. Você deve ter observado que na chave "test" em "script" temos a seguinte informação: "test": "echo \"Error: no test specified\" && exit 1". Isso significa que a nossa aplicação ainda não possui um script que defina como lidar com testes. Então vamos trocar essa informação por "test": "jest". Não se esqueça de salvar o arquivo. Após a alteração teremos algo parecido com:
+Copiar
+{
+  "name": "meuApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+ }
+Por fim, vamos instalar o Jest, dentro da pasta que você criou no passo 3, executando o seguinte comando no terminal:
+Copiar
+npm install --save-dev jest
+Após rodar esse comando, vamos ver uma alteração importante que ocorreu no arquivo package.json. Para isso vamos abrir a pasta que você criou no seu VsCode com o comando abaixo:
+Copiar
+code .
+A sua pasta agora contém dois arquivos, o package.json e o package-lock.json e um novo diretório chamado node modules, estes últimos dois foram criados após você executar o comando npm install --save-dev jest. Ao abrirmos o arquivo package.json, veremos algo do tipo:
+Copiar
+{
+  "name": "meuApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
+Perceba que agora nosso arquivo package.json possui uma nova chave, "devDependencies" contendo o jest e a versão que está sendo utilizada neste projeto.
+Agora, o que é "devDependencies"? O "devDependencies" define os pacotes instalados no projeto como dependências de desenvolvimento. Ou seja, são pacotes que serão importantes apenas para o desenvolvimento do projeto. Existe também uma chave chamada "dependencies", que, diferente da primeira, lista os pacotes instalados como dependências de produção.
+E os outros dois?
+O node_modules é a pasta que guarda todos os arquivos baixados das dependências instaladas.
+O package-lock.json é um arquivo que “trava” as versões das dependências. Quando outra pessoa executar npm install ou npm i para baixar as dependências, este arquivo garante que serão instaladas as mesmas versões para todo mundo.
+Aqui vale ressaltar mais um ponto. Lembra do arquivo .gitignore que vimos anteriormente? O .gitignore é utilizado para especificar arquivos ou diretórios que não queremos que sejam rastreados pelo git.
+É considerado uma boa prática no desenvolvimento, inserir a pasta node_modules em um arquivo .gitignore em todo projeto que você criar. Isso porque essa pasta contém centenas de arquivos e o processo de adicionar o seu projeto a um repositório remoto pode acarretar em mais tempo se você incluir essa pasta. Além disso, suponha que alguém vá realizar o clone do seu projeto, o processo também demoraria muito mais, visto que essa pasta contém muitos arquivos, mas pera aí, essa pasta não é importante porque guarda todos os arquivos das dependências instaladas? Sim, você tem razão, e é aí que os arquivos package.json e package-lock.json entram em cena. Ao clonar um projeto que contém dependências a serem instaladas, basta rodar dentro da pasta o comando npm install e todas as dependências e versões listadas nestes dois arquivos .json serão instaladas, criando a pasta node_modules.
+Agora que você já está com tudo pronto, vamos pro conteúdo de testes em Jest que está maravilhoso!
+Para testar sua instalação, vamos criar um arquivo chamado sum.test.js e colar o código abaixo dentro dele:
+Copiar
+const sum = (a, b) => a + b;
+
+test('sums two values', () => {
+  expect(sum(2, 3)).toEqual(5);
+});
+Depois disso, vamos até o terminal digitar npm test, se você receber uma resposta parecida com a resposta abaixo, tudo certo com a instalação!
+
+teste de instalação
+Caso você não veja a tela acima, tente rever os passos, observe se você entrou na nova pasta que criou, verifique se não há a pasta node_modules já instalada na sua home ou pasta raiz, averigue o arquivo exemplo e o nome do arquivo, caso ele não tenha o .test ou .spec no nome, o Jest não tenta ler o arquivo, porque não reconhece como um arquivo de teste, isso será explicado melhor durante o conteúdo de hoje.
+Caso você queira ver na prática como é esse processo, assista ao vídeo abaixo:
+
+
+
+
+
+Instalando o Jest
+Para realizar a instalação do Jest, siga as instruções do vídeo ou do texto logo abaixo.
+
+Para começar a instalar o Jest, você precisa ter o npm instalado e funcionando corretamente, abaixo temos um passo a passo, feito para Linux, sabendo disso, então vá ao seu terminal e digite:
+Copiar
+npm -v
+Se ele te mostrar um número de versão (por exemplo, 6.14.4) está tudo certo, você pode pular os comandos deste passo. Caso ele retorne um erro dizendo que não encontrou o comando você deverá executar a instalação do npm, descrita abaixo:
+a. Primeiro vamos atualizar a nossa lista de repositórios:
+Copiar
+sudo apt update
+b. Agora com a lista de repositórios atualizada, vamos instalar o npm. Lembre-se que ao instalar com apt, você pode utilizar o comando de qualquer local, e em todas as próximas vezes você não deverá reinstalar, só execute esse passo caso não tenha o npm instalado ainda.
+Copiar
+sudo apt install npm
+Agora vamos simular a criação de um projeto que utilizará a biblioteca do Jest para os testes. Com o npm devidamente instalado e verificado, crie uma pasta e entre nesta nova pasta que você criou.
+Copiar
+mkdir my_new_project
+cd my_new_project
+Obs: É importante criar esta nova pasta para cada um dos seus projetos, pois além de ficar mais organizado, você vai evitar que as configurações de um projeto interfiram com outro, visto que o processo de instalação irá criar arquivos e pastas.
+a. Após entrar na pasta, precisamos criar um novo package.json para o seu novo projeto.
+O package.json é responsável por armazenar e descrever diversas informações de seu projeto, como a versão do node e do npm utilizadas, url do repositório, versão do projeto, dependências de produção e de desenvolvimento.
+Para criar o package.json no seu projeto execute em seu terminal o comando abaixo:
+Copiar
+npm init -y
+Você terá o seguinte retorno:
+Copiar
+Wrote to /home/cleyton/Documents/meuApp/package.json:
+
+{
+  "name": "meuApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+Vamos analisar algumas das informações desse objeto:
+A primeira chave "name", por padrão, terá o mesmo nome do diretório em que você criou o arquivo package.json. Ele representa o nome do seu projeto;
+A versão atual do projeto é "1.0.0", ou seja a primeira versão;
+Podemos adicionar alguma descrição na chave "description";
+A chave "scripts" define um conjunto de scripts Node que podem ser executados.
+Não se preocupe se essas informações ainda não fizerem sentido pra você. Futuramente vamos retornar e explicar o que cada um desses dados representa. No momento, é importante saber apenas que o package.json é um objeto que armazena uma série de informações sobre o seu projeto.
+b. Agora precisamos editar nosso package.json. Você deve ter observado que na chave "test" em "script" temos a seguinte informação: "test": "echo \"Error: no test specified\" && exit 1". Isso significa que a nossa aplicação ainda não possui um script que defina como lidar com testes. Então vamos trocar essa informação por "test": "jest". Não se esqueça de salvar o arquivo. Após a alteração teremos algo parecido com:
+Copiar
+{
+  "name": "meuApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+ }
+Por fim, vamos instalar o Jest, dentro da pasta que você criou no passo 3, executando o seguinte comando no terminal:
+Copiar
+npm install --save-dev jest
+Após rodar esse comando, vamos ver uma alteração importante que ocorreu no arquivo package.json. Para isso vamos abrir a pasta que você criou no seu VsCode com o comando abaixo:
+Copiar
+code .
+A sua pasta agora contém dois arquivos, o package.json e o package-lock.json e um novo diretório chamado node modules, estes últimos dois foram criados após você executar o comando npm install --save-dev jest. Ao abrirmos o arquivo package.json, veremos algo do tipo:
+Copiar
+{
+  "name": "meuApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
+Perceba que agora nosso arquivo package.json possui uma nova chave, "devDependencies" contendo o jest e a versão que está sendo utilizada neste projeto.
+Agora, o que é "devDependencies"? O "devDependencies" define os pacotes instalados no projeto como dependências de desenvolvimento. Ou seja, são pacotes que serão importantes apenas para o desenvolvimento do projeto. Existe também uma chave chamada "dependencies", que, diferente da primeira, lista os pacotes instalados como dependências de produção.
+E os outros dois?
+O node_modules é a pasta que guarda todos os arquivos baixados das dependências instaladas.
+O package-lock.json é um arquivo que “trava” as versões das dependências. Quando outra pessoa executar npm install ou npm i para baixar as dependências, este arquivo garante que serão instaladas as mesmas versões para todo mundo.
+Aqui vale ressaltar mais um ponto. Lembra do arquivo .gitignore que vimos anteriormente? O .gitignore é utilizado para especificar arquivos ou diretórios que não queremos que sejam rastreados pelo git.
+É considerado uma boa prática no desenvolvimento, inserir a pasta node_modules em um arquivo .gitignore em todo projeto que você criar. Isso porque essa pasta contém centenas de arquivos e o processo de adicionar o seu projeto a um repositório remoto pode acarretar em mais tempo se você incluir essa pasta. Além disso, suponha que alguém vá realizar o clone do seu projeto, o processo também demoraria muito mais, visto que essa pasta contém muitos arquivos, mas pera aí, essa pasta não é importante porque guarda todos os arquivos das dependências instaladas? Sim, você tem razão, e é aí que os arquivos package.json e package-lock.json entram em cena. Ao clonar um projeto que contém dependências a serem instaladas, basta rodar dentro da pasta o comando npm install e todas as dependências e versões listadas nestes dois arquivos .json serão instaladas, criando a pasta node_modules.
+Agora que você já está com tudo pronto, vamos pro conteúdo de testes em Jest que está maravilhoso!
+Para testar sua instalação, vamos criar um arquivo chamado sum.test.js e colar o código abaixo dentro dele:
+Copiar
+const sum = (a, b) => a + b;
+
+test('sums two values', () => {
+  expect(sum(2, 3)).toEqual(5);
+});
+Depois disso, vamos até o terminal digitar npm test, se você receber uma resposta parecida com a resposta abaixo, tudo certo com a instalação!
+
+teste de instalação
+Caso você não veja a tela acima, tente rever os passos, observe se você entrou na nova pasta que criou, verifique se não há a pasta node_modules já instalada na sua home ou pasta raiz, averigue o arquivo exemplo e o nome do arquivo, caso ele não tenha o .test ou .spec no nome, o Jest não tenta ler o arquivo, porque não reconhece como um arquivo de teste, isso será explicado melhor durante o conteúdo de hoje.
+Caso você queira ver na prática como é esse processo, assista ao vídeo abaixo:
+
+
+
+
+Escrevendo testes
+Escrever testes em Jest é muito simples, como você deve ter percebido enquanto lia o artigo anterior. Tudo que é necessário é utilizar a função test. A função it é um alias para test, ou seja, ambas se referem à mesma função e você pode usar qualquer uma delas. Essas funções, por serem globais, ficam automaticamente disponíveis nos seus arquivos uma vez que o Jest é instalado.
+A função test espera três argumentos. O primeiro argumento é o nome do teste. Esse nome identifica o teste e é também o texto que aparecerá quando os testes forem executados. O segundo argumento é uma função contendo suas expectations. Em outras palavras, é dentro dessa função que você fará os testes propriamente ditos. O terceiro argumento (opcional) é um timeout, indicando quanto tempo o Jest deve esperar que o teste execute antes de abortá-lo.
+Para entender melhor, veja o código abaixo:
+Copiar
+// sum.js
+const sum = (a, b) => a + b;
+
+test('sums two values', () => {
+  expect(sum(2, 3)).toEqual(5);
+});
+Neste exemplo, tanto a implementação quanto os testes da função estão no mesmo arquivo. Na prática, porém, eles ficarão separados. Jest procura por arquivos com as extensões .js, .jsx, .ts e .tsx dentro de uma pasta com o nome __tests__, ou arquivos com o sufixo .test ou .spec. É comum que o arquivo de teste tenha o mesmo nome e fique na mesma pasta do arquivo que está sendo testado, acrescido da sufixo .test.js:
+Copiar
+// sum.js
+const sum = (a, b) => a + b;
+
+module.exports = sum;
+Copiar
+// sum.test.js
+const sum = require('./sum');
+
+test('sums two values', () => {
+  expect(sum(2, 3)).toBe(5);
+});
+A linha module.exports = sum exporta a função sum no primeiro arquivo para que possa ser utilizada em outros módulos. No segundo arquivo, utilizamos require('./sum') para importar a função sum. Veja a seção de recursos adicionais para entender mais sobre como importar e exportar módulos em Node.js.
+Agora que você já viu um teste simples de jest em funcionamento, que tal praticar com mais este próximo exemplo? Não se preocupe em entender como os testes estão estruturados neste exemplo. O objetivo aqui é apenas mostrar o quanto trabalhar com a biblioteca Jest é mais simples.
+Crie um arquivo com o nome 'loginValidation.js' e dentro dele copie e cole o seguinte código:
+Copiar
+// loginValidation.js
+const greetingMessage = (user) => {
+  return `Hello, ${user}! Que bom ter você de volta`;
+};
+
+const loginErrorMessage = (user) => {
+  return `Pessoa usuária '${user}' não encontrada, tente novamente!`;
+};
+
+const user = {
+  userName: "Joana",
+  password: 123456,
+};
+
+const verifyCredentials = ({ userName, password }) => {
+  if (password === 123456 && userName === "Joana") {
+    return greetingMessage(userName);
+  } else {
+    return loginErrorMessage(userName);
+  }
+};
+
+const { userName, password } = user;
+
+module.exports = { greetingMessage, loginErrorMessage, verifyCredentials }
+Vamos primeiro entender as funções que estão implementadas no arquivo loginValidation.js. Neste arquivo encontram-se três funções para simular uma situação de login. A função verifyCredentials faz uma validação simples se a pessoa usuária e a senha recebidas como argumento são estritamente iguais as chaves userName e password contidas no objeto user. Se essa verificação retornar true a função verifyCredentials vai chamar a função greetingMessage, que por sua vez vai retornar uma frase de boas vindas com o nome da pessoa usuária. Já no caso da verificação retornar false, ou seja as credenciais inseridas não corresponderem com as existentes no objeto, a função verifyCredentials vai chamar a função loginErrorMessage, que irá por sua vez retornar um erro.
+Agora, crie outro arquivo no mesmo diretório com o nome 'loginValidation.test.js' e dentro dele copie e cole o código abaixo:
+Copiar
+// loginValidation.test.js
+const {
+  greetingMessage,
+  loginErrorMessage,
+  verifyCredentials,
+} = require("./loginValidation.js");
+
+describe("a função verifyCredentials()", () => {
+
+  it("verifyCredentials() calls the correct function depending on the user and password input", () => {
+
+    const user = {
+      userName: 'Bob',
+      password: 123456,
+    };
+
+    const { userName, password } = user;
+
+    expect(verifyCredentials({ userName, password })).toBe(
+      "Hello, Joana! Que bom ter você de volta"
+    );
+  });
+
+  it("greetingMessage() returns a message in the format: `Hello, ${user}! Que bom ter você de volta`", () => {
+    expect(greetingMessage("Lucas")).toBe(
+      "Hello, Lucas! Que bom ter você de volta"
+    );
+  });
+
+  it("loginErrorMessage() returns a message in the format: `Pessoa usuária '${user}' não encontrada, tente novamente!`", () => {
+    expect(loginErrorMessage("Bob")).toBe(
+      "Pessoa usuária 'Bob' não encontrada, tente novamente!"
+    );
+  });
+});
+Execute no seu terminal o comando npm test e veja o que acontece. Ao rodar o teste você receberá a mensagem que um dos testes falhou, como na imagem abaixo:
+
+Observe que, como dito anteriormente, mesmo existindo um teste com erro, os outros testes foram executados normalmente. Além disso, o log do erro gerado pelo jest te possibilita identificar rapidamente onde foi que ocorreu o erro, uma vez que é exibida a mensagem que está contida no teste em questão. Neste caso o erro ocorreu no teste contendo a descrição "verifyCredentials() calls the correct function depending on the user and password input", como você pode ver aqui:
+
+Outro ponto positivo da utilização do Jest para fazer nossos testes é que ele traz uma mensagem contendo um diff, ou seja, o que era esperado de ocorrer no teste e o que de fato aconteceu. Isso nos ajuda a entender mais rapidamente onde está o erro. Neste exemplo o teste esperava receber como valor um objeto contendo uma pessoa usuária com o nome "Joana", mas ao invés disso recebeu "Bob".
+Sensacional, não é mesmo? Então bora pro conteúdo que na sequência vamos explicar o que são os expect e os matchers e como eles funcionam.
+
+
+
+
+O bloco describe
+A função describe cria um bloco para agrupar vários testes. Isso é útil para melhorar a organização dos seus testes. Você pode utilizar describe, por exemplo, para separar testes de funções diferentes em um mesmo arquivo, ou para agrupar testes relacionados dentro de uma função complexa que requer muitos testes. É possível aninhar blocos describe arbitrariamente. Dentro de cada bloco, qualquer declaração de variáveis ou funções é local a este bloco. Leia os exemplos na documentação do Jest para fixar.
+
+
+
+Um pouco de mão na massa
+Até agora você viu muita teoria e documentação. Assista aos dois vídeos abaixo para ver Jest sendo usado na prática.
+
+
+
+
+
+Cobertura de testes
+Como saber se os testes que você escreveu estão testando (ou "cobrindo") todo o código-fonte que foi escrito? Para isso usaremos a cobertura de testes.
+
+Após escrever uma quantidade de testes, você pode rodar a cobertura de testes através do comando:
+Copiar
+npm test -- --coverage
+Este comando faz um levantamento de quanto do código está sendo coberto pelos testes escritos. Após executar o comando, você deve receber como retorno uma tabela similar à tabela abaixo:
+
+A partir da tabela, você tem informações sobre a quantidade de testes que está coberta por testes e como completar a cobertura desenvolvendo testes para a parte que ainda não está coberta. As colunas da tabela trazem as seguintes informações:
+Files: Lista os arquivos testados pelo jest.
+% Stmts: Exibe a porcentagem de declarações (statements) cobertas pelos testes.
+% Branch: Exibe a porcentagem coberta dos diferentes caminhos por onde o código pode seguir. Por exemplo, no caso de estruturas condicionais, como if, calcula se há teste para o caso verdadeiro e para o caso falso da condição.
+% Funcs: Exibe a porcentagem das funções cobertas pelos testes.
+% Lines: Exibe a porcentagem de linhas cobertas pelos testes.
+Uncovered Line #s: Exibe os números das linhas ainda não cobertas pelos testes.
+A partir da informação de quais linhas não estão cobertas pelos testes é possível escrever os testes que faltam para cobrir todo o código.
+Caso queira uma visualização mais amigável, após executar o comando para calcular a cobertura de testes, uma pasta "coverage" é criada com as informações de cobertura de testes. Dentro dessa pasta, há uma pasta "lcov_report", que contém um arquivo index.html com uma visualização dos dados da tabela e ainda exibe o código testado, marcando as linhas ainda não cobertas pelos testes.
+
+Importante: Uma cobertura de testes sobre 100% do código-fonte não quer dizer, necessariamente, que os seus testes são suficientes para atestar o correto funcionamento do código. Significa, apenas, que existem testes escritos para todas as linhas. Para fazer testes de forma completa, você precisa assegurar que seus testes cobrem as diferentes situações que podem ocorrer com seu código.
+
+
+
+Agora a prática
+🚀 Se liga nesse foguete!
+Os exercícios destacados com 🚀 são os fundamentais pra você ir bem no projeto! Todos os exercícios vão contribuir com sua formação mas fique de olho nesses! 👀
+Praticando a implementação de testes
+Você vai implementar vários testes em contextos diferentes a fim de consolidar a mecânica e também a forma de pensar em testes.
+Copie as funções já implementadas e desenvolva os testes. Separe as funções e os testes em arquivos diferentes para evitar qualquer tipo de problema.
+Crie os arquivos com o respectivo nome da função. Ex: sum.js e sum.test.js
+Exporte a função criada neste arquivo e importe no arquivo de teste. Ex:
+module.exports = sum; no arquivo sum.js;
+const sum = require('./sum.js'); no arquivo sum.test.js.
+👀 Se o arquivo de teste não estiver na mesma pasta da função, é importante especificar o caminho.
+🚀 1 - A função sum(a, b) retorna a soma do parâmetro a com o b
+Teste se o retorno de sum(4, 5) é 9
+Teste se o retorno de sum(0, 0) é 0
+Teste se a função sum lança um erro quando os parâmetros são 4 e "5"(string 5)
+Teste se a mensagem de erro é "parameters must be numbers" quando realizar a chamada sum(4, "5")
+Copiar
+function sum(a, b) {
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new Error('parameters must be numbers');
+  }
+
+  return a + b;
+}
+🚀 2 - A função myRemove(arr, item) recebe um array arr e retorna uma cópia desse array sem o elemento item caso ele exista no array
+Verifique se a chamada myRemove([1, 2, 3, 4], 3) retorna o array esperado
+Verifique se a chamada myRemove([1, 2, 3, 4], 3) não retorna o array [1, 2, 3, 4]
+Verifique se a chamada myRemove([1, 2, 3, 4], 5) retorna o array esperado
+Copiar
+function myRemove(arr, item) {
+  let newArr = [];
+  for (let index = 0; index < arr.length; index += 1) {
+    if (item !== arr[index]) {
+      newArr.push(arr[index]);
+    }
+  }
+  return newArr;
+}
+
+// implemente seus testes aqui
+🚀 3 - A função myFizzBuzz(num) recebe um número num e retorna "fizzbuzz" se o número for divisível por 3 e 5, retorna "fizz" se for divisível apenas por 3, retorna "buzz" se divisível apenas por 5, retorna o próprio número caso não seja divisível por 3 ou 5 e retorna false caso num não seja um número
+Faça uma chamada com um número divisível por 3 e 5 e verifique se o retorno é o esperado
+Faça uma chamada com um número divisível por 3 e verifique se o retorno é o esperado
+Faça uma chamada com um número divisível por 5 e verifique se o retorno é o esperado
+Faça uma chamada com um número que não é divisível por 3 ou 5 e verifique se o retorno é o esperado
+Faça uma chamada com um parâmetro que não é um número e verifique se o retorno é o esperado
+Copiar
+function myFizzBuzz(num) {
+  if (typeof num !== 'number') return false;
+  if (num % 3 === 0 && num % 5 === 0) return 'fizzbuzz';
+  if (num % 3 === 0) return 'fizz';
+  if (num % 5 === 0) return 'buzz';
+  return num;
+}
+
+// implemente seus testes aqui
+No Bloco 4 você desenvolveu um projeto para testar os seus conhecimentos em Javascript e lógica de programação: o Playground functions. Nos exercícios a seguir, você irá trabalhar com os testes para algumas funções que você criou! Aproveite para refatorá-las e usar todos os recursos que já aprendemos até aqui, como as Higher Order Functions e as features do Javascript ES6.
+🚀 4 - Para as funções encode e decode crie os seguintes testes em Jest:
+Teste se encode e decode são funções;
+Para a função encode teste se as vogais a, e, i, o, u são convertidas em 1, 2, 3, 4 e 5, respectivamente;
+Para a função decode teste se os números 1, 2, 3, 4 e 5 são convertidos nas vogais a, e, i, o, u, respectivamente;
+Teste se as demais letras/números não são convertidos para cada caso;
+Teste se a string que é retornada pelas funções têm o mesmo número de caracteres que a string passada como parâmetro.
+🚀 5 - A função techList recebe como parâmetros um array contendo uma lista de tecnologias e uma string com um nome. Para cada tecnologia no array a função cria, em ordem alfabética, um objeto com a seguinte estrutura:
+Copiar
+{
+  tech: 'nomeTecnologia',
+  name: name,
+}
+Implemente a função techList a partir dos testes abaixo. Experimente refatorar a função que você criou para esse projeto! É importante nunca alterar os testes ou as variáveis já escritas no código.
+Copiar
+const techList = require('./techList.js');
+
+describe('Testa a função techList', () => {
+  it('Testa se a função techList é definida', () => {
+    expect(techList).toBeDefined();
+  });
+  it('Testa se techList é uma função', () => {
+    expect(typeof techList).toBe('function');
+  });
+  it('Lista com 5 tecnologias deve retornar uma lista de objetos ordenados', () => {
+    expect(techList(['React', 'Jest', 'HTML', 'CSS', 'JavaScript'], 'Lucas')).toEqual([
+      {
+        tech: 'CSS',
+        name: 'Lucas'
+      },
+      {
+        tech: 'HTML',
+        name: 'Lucas'
+      },
+      {
+        tech: 'JavaScript',
+        name: 'Lucas'
+      },
+      {
+        tech: 'Jest',
+        name: 'Lucas'
+      },
+      {
+        tech: 'React',
+        name: 'Lucas'
+      }
+    ]);
+  });
+  it('Lista com 0 tecnologias deve retornar uma mensagem de erro "Vazio!"', () => {
+    expect(techList([], 'Lucas')).toBe('Vazio!');
+  });
+});
+
+module.exports = techList;
+🚀 6 - A função hydrate recebe uma string no formato "numero bebida", e retorna a sugestão de quantos copos de água você deve beber para se hidratar. Para cada bebida, deve-se tomar um copo de água para não ter ressaca. Exemplo:
+Copiar
+// string recebida
+'1 cerveja'
+// retorno da função
+'1 copo de água'
+
+// string recebida
+'1 cerveja, 2 shots e 1 catuaba'
+// retorno da função
+'4 copos de água'
+
+// string recebida
+'2 caipirinhas'
+// retorno da função
+'2 copos de água'
+Implemente a função hydrate a partir dos testes abaixo. Experimente refatorar a função que você criou para o projeto Playground Function! É importante nunca alterar os testes ou as variáveis já escritas no código.
+Copiar
+const hydrate = require('./hydrate.js');
+
+describe('Testa a função hydrate', () => {
+  it('Testa se a função hydrate é definida', () => {
+    expect(hydrate).toBeDefined();
+  });
+  it('Testa se hydrate é uma função', () => {
+    expect(typeof hydrate).toBe('function');
+  });
+  it('Ao receber uma string retorne a sugestão de quantos copos de água deve-se beber', () => {
+    expect(hydrate('1 cerveja')).toBe('1 copo de água');
+    expect(hydrate('1 cachaça, 5 cervejas e 1 copo de vinho')).toBe('7 copos de água');
+    expect(hydrate('2 shots de tequila, 2 cervejas e 1 corote')).toBe('5 copos de água');
+    expect(hydrate('1 copo de catuaba, 1 cervejas e 1 copo de vinho')).toBe('3 copos de água');
+    expect(hydrate('4 caipirinhas e 2 cervejas')).toBe('6 copos de água');
+  });
+});
+Bônus
+🚀 1 - Você está pronto para um desafio?! Neste exercício, você irá praticar o desenvolvimento orientado a testes implementando:
+A função;
+Os testes para essa função;
+Considere os dados abaixo. Você deve criar uma função que receba dois parâmetros: o id do funcionário e a informação disponível sobre ele (firstName, lastName, specialities). Você também deverá criar os testes para essa função. Sua função deverá então retornar os resultados da busca pelo id para aquele funcionário e a informação consultada. Caso o id não conste no quadro de funcionários, sua função deve retornar o erro "ID não identificada". Se a informação que se quer acessar não existir, a função deve retornar o erro "Informação indisponível".
+Copiar
+// Dados
+const professionalBoard = [
+  {
+    id: '8579-6',
+    firstName: 'Ana',
+    lastName: 'Gates',
+    specialities: ['UX', 'Design'],
+  },
+  {
+    id: '5569-4',
+    firstName: 'George',
+    lastName: 'Jobs',
+    specialities: ['Frontend', 'Redux', 'React', 'CSS'],
+  },
+  {
+    id: '4456-4',
+    firstName: 'Leila',
+    lastName: 'Zuckerberg',
+    specialities: ['Context API', 'RTL', 'Bootstrap'],
+  },
+  {
+    id: '1256-4',
+    firstName: 'Linda',
+    lastName: 'Bezos',
+    specialities: ['Hooks', 'Context API', 'Tailwind CSS'],
+  },
+  {
+    id: '9852-2-2',
+    firstName: 'Jeff',
+    lastName: 'Cook',
+    specialities: ['Ruby', 'SQL'],
+  },
+  {
+    id: '4678-2',
+    firstName: 'Paul',
+    lastName: 'Dodds',
+    specialities: ['Backend'],
+  },
+];
+
+// Pesquisa
+const searchEmployee = (id, detail) => {
+  // Implemente seu código aqui
+};
+Como ponto de partida, comece implementando um teste para checar se a função existe. Execute o teste que você escreveu e implemente, na função, a funcionalidade que passará nesse teste. Repita esse processo até que todos os retornos esperados sejam testados.
+
+
+
+
