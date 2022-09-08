@@ -1,9 +1,9 @@
 const API_URL = 'https://icanhazdadjoke.com/';
-const h2 = document.querySelector('h2');
+const p = document.querySelector('p');
+const button = document.querySelector('#btn');
 
 const fetchJoke = async () => {
   try {
-
     const myObject = {
       method: 'GET',
       headers: { 'Accept': 'application/json' }
@@ -11,10 +11,20 @@ const fetchJoke = async () => {
 
     const result = await fetch(API_URL, myObject)
     const data = await result.json();
-    return data.joke;
+    const resultJoke = await data.joke;
+    return resultJoke;
   } catch (error) {
     return 'Always check your internet connection and your URLs';
   }
 };
 
-window.onload = () => fetchJoke().then((data) => (h2.innerHTML = data));
+const imprimePiada = () => {
+  p.innerHTML = 'Aguarde enquanto sua piada sem graça carrega...';
+  setTimeout(() => {
+    fetchJoke()
+      .then((data) => (p.innerHTML = data));
+  }, 5000);
+};
+
+button.addEventListener('click', imprimePiada);
+window.onload = () => fetchJoke();
