@@ -1,0 +1,47 @@
+Para instalar apks, usar o => pkg install 
+Para criar arquivos, usar o => touch 
+Para criar arquivos e ja entrar para editar. usar => cat > nome-do-arquivo.extenção
+Para entrar no vim => vim nome-no-arquivo.extenção
+Para editar o arquivo, digite => i
+Para salvar o arquivo editado, use => ctrl : w
+Para sair do vim => ctrl : q
+Para criar diretório => mkdir nome-do-diretório 
+Para excluir um arquivo => rm nome-do-arquivo.extenção
+Para excluir um diretório => rm -rf
+Detalhes importantes, rm -rf exclui todos os diretórios que estão dentro do diretório excluido => rm -rf /diretório
+Para enviar um arquivo para um diretório => mv nome-do-arquivo nome-do-diterório/
+Para criar um link simbólico => ln -s nome-do-diretório/arquivo-que-esta-dentro-do-diretório nome-que-queremos-da-ao-link-simbólico
+Para lista com mais detalhes os arquivos => ls -l 
+Para listar até os arquivos ocultos => ls -a
+Para apenas listar => ls
+Observação: Dentro do vim, da pra salvar e já sair ao mesmo tempo usando => ctrl : wq
+Para observar o que tem dentro do arquivo => cat nome-do-link-simbólico
+Para listar diretórios com muitos arquivos, podemos também usar => ls | more 
+Para listar os processos do sistema => ps aux
+Para salvar os processos do sistema em um arquivo para olhar ou editar quando quiser => ps aux > nome-do-arquivo
+Observação: Se o arquivo não existir, ele cria automaticamente dentro do diretório em que o usuário esta
+Para ver a quantidade de memoria do sistema => free -h 
+Para colocar as informações dentro do arquivo => free -h > nome-do-arquivo
+Observação: Com esse comando ele sobscreve o que tinha antes
+Da para criar arquivo usando também => >nome-do-arquivo
+Para não sobrescrever os dados existentes no arquivo e acrescentar mais infromações a baixo => ps aux >> nome-do-arquivo
+Arquivos .sh são arquivos shell
+
+CRIANDO UM SCRIPT PELO TERMUX
+1 - Abra uma nova sessão do termux caso jé esteja usando ele e não queira sair do diretório e voltar novamente 
+2 - A Vá até o diretório /bin e copie o diretório e feche a nova sessão
+3 - Crie um arquivo .sh, entre no arquivo usando o vim
+4 - Cole o diretório do /bin que você copiou dentro do arquivo o qual esta
+5 - Ficara dessa forma = #!data/data/com.termux/files/usr/din
+6 - na linhas de baixo você acrescenta o seguinte comando abaixo 
+ #!data/data/com.termux/files/usr/din
+ ps aux > logs/log.txt
+ free -h >> logs/log.txt
+ 7 - Salve o arquivo e saia
+ 8 - Agora dê permissão de execução para esse arquivo usando o chmod => chmod +x process.sh
+ 9 - Agora para executar o processo use => ./process.sh
+ 10 - Quando eu executei o script ele criou um arquivo .txt dentro do diretório logs/ com as informações do script 
+ 
+ 
+ 
+ 

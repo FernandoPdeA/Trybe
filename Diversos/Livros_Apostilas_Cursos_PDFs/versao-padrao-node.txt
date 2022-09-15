@@ -1,0 +1,13 @@
+Adicionando o NVM no path do sistema
+Para adicioná-lo no path do nosso sistema, precisamos editar um desses três arquivos ( ~/.zshrc, ~/.profile, or ~/.bashrc). Escolha um de sua preferência e adicione ao final do arquivo o seguinte trecho de código:
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+Nesse passo acima, foi adicionado o nvm no zsh, para que possamos usar o nvm e trocar de versões através do zsh.
+
+
+
+Definindo uma versão como padrão
+Se você quiser que um determinada versão seja usada por padrão, o comando para isso é o seguinte: nvm alias default v17.7.0. A partir de agora, toda vez que eu for usar o Node.js, a versão que será utilizada é a 17.
