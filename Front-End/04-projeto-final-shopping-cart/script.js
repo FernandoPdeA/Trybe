@@ -6,6 +6,14 @@ const createProductImageElement = (imageSource) => {
   return img;
 };
 
+// Cria a imagem do produto no carrinho.
+const createImageCart = (imageSource) => {
+  const img = document.createElement('img');
+  img.className = 'cart__item__image';
+  img.src = imageSource;
+  return img;
+};
+
 // Cria qualquer elemento.
 const createCustomElement = (element, className, innerText) => {
   const e = document.createElement(element);
@@ -15,13 +23,14 @@ const createCustomElement = (element, className, innerText) => {
 };
 
 // Cria o elemento do produto.
-const createProductItemElement = ({ id, title, thumbnail }) => {
+const createProductItemElement = ({ id, title, price, thumbnail }) => {
   const section = document.createElement('section');
   section.className = 'item';
 
+  section.appendChild(createProductImageElement(thumbnail));
   section.appendChild(createCustomElement('span', 'item_id', id));
   section.appendChild(createCustomElement('span', 'item__title', title));
-  section.appendChild(createProductImageElement(thumbnail));
+  section.appendChild(createCustomElement('span', 'item__price', `Valor: ${price} $`));
   section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
   return section;
 };
@@ -30,6 +39,27 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
 const cartItems = document.querySelector('.cart__items');
 const ol = document.querySelector('.cart__items');
 const documentQueryCart = document.querySelectorAll('.cart__item');
+const menuNoneButton = document.querySelector('.cart-block-none');
+const idBusca = document.querySelector('#busca');
+const buttonSearch = document.querySelector('.search-busca');
+
+// Menu amburguer, abre e fecha o carrinho de compras.
+menuNoneButton.addEventListener('click', () => {
+  const bottonEmpty = document.querySelector('.empty-cart');
+  const menuNone = document.querySelector('.cart');
+  const totalH4 = document.querySelector('.total-h4');
+  const itemsProducts = document.querySelectorAll('.items');
+  if (menuNone.style.display === 'none') {
+    menuNone.style.display = 'block';
+    bottonEmpty.style.marginLeft = '33%';
+    totalH4.style.marginTop = '-10px';
+  } else {
+    itemsProducts.forEach((item) => {
+      item.style.flexBasis = '100%';
+    });
+    menuNone.style.display = 'none';
+  }
+});
 
 // Salva os itens do carrinho no localStorage.
 function saveCartItemsLocalStorage() {
@@ -85,7 +115,9 @@ setInterval(() => {
 const createCartItemElement = ({ id, title, price }) => {
   const li = document.createElement('li');
   li.className = 'cart__item';
-  li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
+  li.innerText = `ID: ${id}
+ Sobre: ${title}
+ Preço: $${price}`;
   li.addEventListener('click', cartItemClickListener);
   return li;
 };
@@ -110,7 +142,7 @@ function totalPrice() {
   let total = 0;
   cartItemPrice.forEach((item) => {
     const price = item.innerText;
-    total += parseFloat(price);
+    total += parseFloat(price.split('$')[1]);
   });
   const span = document.querySelector('.total-price');
   span.innerText = total;
@@ -121,7 +153,8 @@ const addProductToCart = async (event) => {
   const item = event.target;
   const itemID = getIdFromProductItem(item.parentElement);
   await fetchItem(itemID).then((data) => {
-    const { id, title, price } = data;
+    const { id, title, price, thumbnail } = data;
+    ol.appendChild(createImageCart(thumbnail));
     ol.appendChild(createCartItemElement({ id, title, price }));
     saveCartItemsLocalStorage();
     totalPrice();
@@ -147,24 +180,60 @@ function loading() {
   document.body.appendChild(loadingMessage);
 }
 
-// Apaga a mensagem `carregando...`.
+// Apaga a mensagem `carregando...`
 function stopLoading() {
   const loadingMessageRemove = document.querySelector('.loading');
   loadingMessageRemove.remove();
 }
 
-// Elementos carregados ao iniciar a página.
-window.onload = async () => {
-  getLodingCartItensLocalStorage();
-  loading();
-  await fetchProducts('computador').then((data) => {
+// fetchProducts vazia
+const searchValueEmpty = async () => {
+  await fetchProducts().then((data) => {
     const products = data.results;
     const section = document.querySelector('.items');
     products.forEach((product) => {
-      const { id, title, thumbnail } = product;
-      section.appendChild(createProductItemElement({ id, title, thumbnail }));
+      const { id, title, thumbnail, price } = product;
+      section.appendChild(createProductItemElement({ id, title, thumbnail, price }));
     });
     addEventToProduct();
   });
+};
+
+// fetchProducts com valor
+const searchValue = async () => {
+  await fetchProducts(idBusca.value).then((data) => {
+    const products = data.results;
+    const section = document.querySelector('.items');
+    section.innerHTML = '';
+    products.forEach((product) => {
+      const { id, title, thumbnail, price } = product;
+      section.appendChild(createProductItemElement({ id, title, thumbnail, price }));
+    });
+    addEventToProduct();
+  });
+};
+
+// Verifica se o input está vazio ou não.
+const resultValueFatchProducts = () => {
+  if (idBusca.value === '') {
+    searchValueEmpty();
+    saveCartItemsLocalStorage();
+  } else {
+    searchValue();
+    saveCartItemsLocalStorage();
+  }
+};
+
+// Evento de clique no botão de busca.  
+buttonSearch.addEventListener('click', (e) => {
+  e.preventDefault();
+  resultValueFatchProducts();
+});
+
+// Elementos carregados ao iniciar a página.
+window.onload = async () => {
+  loading();
+  await searchValueEmpty();
+  getLodingCartItensLocalStorage();
   stopLoading();
 };
