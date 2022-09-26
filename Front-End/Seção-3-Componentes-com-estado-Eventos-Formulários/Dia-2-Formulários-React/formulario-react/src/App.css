@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  background-color: rgb(245, 241, 236);
+}
+
+h1 {
+  font-size: 1.5em;
+  color: gray;
+  margin-top: 100px;
+}
+
+h4 {
+  font-size: .8em;
+  color: gray;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid gray;
+  padding: 10px;
+  margin: 50px auto;
+}
+
+label {
+  margin: 5px 0;
+  font-size: 0.8rem;
+}
+
+form input {
+  margin: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid gray;
+  border-radius: 3px;
+}
+
+form button {
+  margin: 0.5em;
+  padding: 0.5em;
+  font-size: 1em;
+  border: 1px solid gray;
+  border-radius: 3px;
+  background-color: rgb(245, 241, 236);
+}
+
+.messageErrorInput {
+  color: red;
+  font-size: 0.8rem;
+}

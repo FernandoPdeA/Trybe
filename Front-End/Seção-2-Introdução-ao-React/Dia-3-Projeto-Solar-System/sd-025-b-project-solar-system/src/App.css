@@ -1,0 +1,107 @@
+html,
+body {
+  background-image: url('./images/background.png');
+  box-sizing: border-box;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+header {
+  height: 80px;
+  width: 100%;
+}
+
+header h1 {
+  color: white;
+  font-size: 5rem;
+  padding: 30px;
+  text-shadow: 20px 20px 30px white;
+}
+
+.planetasH2 {
+  color: wheat;
+  font-size: 40px;
+  font-weight: 100;
+  margin-top: 60px;
+  padding-bottom: 20px;
+}
+
+.cardPlanets {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.divNamePlanets p {
+  color: white;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 100px;
+  text-shadow: 0 10px 20px white;
+}
+
+.divNamePlanets img {
+  cursor: pointer;
+  height: 140px;
+  transition: all 0.3s ease-in-out;
+  width: 180px;
+}
+
+.divNamePlanets img:hover {
+  transform: scale(1.2);
+}
+
+.divMissions {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.502);
+  border-radius: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 100px 50px;
+  padding-bottom: 50px;
+}
+
+.divMissions h2 {
+  display: block;
+  width: 100%;
+}
+
+.divMissionCard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 5px white;
+  cursor: pointer;
+  height: 180px;
+  margin: 20px;
+  opacity: 0.5;
+  transition: all 0.3s ease-in-out;
+  width: 300px;
+}
+
+.divMissionCard:hover {
+  opacity: 1;
+  scale: 1.2;
+}
+
+.divMissionCard p {
+  border-bottom: 1px solid rgb(201, 196, 196);
+  color: black;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  text-align: left;
+}
+
+@media screen and (max-width : 768px) {
+
+  header h1 {
+    font-size: 3rem;
+  }
+}

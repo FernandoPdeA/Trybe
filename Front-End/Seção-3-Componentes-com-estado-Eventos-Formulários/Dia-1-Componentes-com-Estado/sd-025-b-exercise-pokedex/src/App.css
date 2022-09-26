@@ -1,0 +1,73 @@
+.App {
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  background-color: rgb(225, 255, 0);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+  color: gray;
+  font-size: 3em;
+  font-weight: 100;
+  margin: 50px auto;
+  padding: 20px;
+  width: 80%;
+}
+
+ul {
+  border: 1px solid rgba(128, 128, 128, 0.305);
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  list-style: none;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  padding: 20px;
+  width: 80%;
+}
+
+li {
+  border: 1px solid rgba(128, 128, 128, 0.305);
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  margin: 10px 0;
+  padding: 10px;
+}
+
+p {
+  border: 1px solid rgba(128, 128, 128, 0.305);
+  border-radius: 20px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  color: gray;
+  cursor: pointer;
+  margin: 10px auto;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+  width: 200px;
+}
+
+p:hover {
+  background-color: rgb(225, 255, 0);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.9);
+  scale: 1.1;
+}
+
+img {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 100px;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+  width: 100px;
+}
+
+img:hover {
+  scale: 1.8;
+}

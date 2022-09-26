@@ -1,0 +1,12 @@
+.otherInfo {
+  font-weight: 700;
+  color: red;
+  line-height: 20px;
+  width: 100%;
+}
+
+.separator {
+  border-bottom: 5px solid black;
+  margin-bottom: 50px;
+  line-height: 30px;
+}
