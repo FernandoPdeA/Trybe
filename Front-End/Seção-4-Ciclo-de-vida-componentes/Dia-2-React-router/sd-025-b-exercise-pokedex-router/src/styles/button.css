@@ -1,0 +1,16 @@
+.button-text {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: 598;
+  margin-top: 30px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.button-text:hover {
+  background-color: #4caf50;
+  color: white;
+  scale: 1.1;
+}

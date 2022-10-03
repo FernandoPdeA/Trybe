@@ -1,0 +1,92 @@
+.oneOnly {
+  align-items: center;
+  background-color: rgb(25, 25, 129);
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 30px;
+  width: 60%;
+}
+
+.location {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.oneOnly .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.about a {
+  color: green;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.about a:hover {
+  color: red;
+  font-weight: 900;
+}
+
+.oneOnly .links a {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.oneOnly .links a:hover {
+  color: #d0d0d0;
+}
+
+.oneOnly h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 300;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.oneOnly h2 {
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.oneOnly p {
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.linkDetails {
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.linkDetails:hover {
+  color: green;
+  font-size: 20px;
+  font-weight: 900;
+}
+

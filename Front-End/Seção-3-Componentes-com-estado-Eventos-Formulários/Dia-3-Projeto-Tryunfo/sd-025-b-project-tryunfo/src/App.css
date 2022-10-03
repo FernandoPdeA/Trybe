@@ -1,0 +1,340 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: wrap;
+}
+
+form {
+  align-items: center;
+  border: 10px solid rgba(0, 128, 0, 0.363);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+form h1 {
+  color: green;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+form label {
+  color: gray;
+  font-size: 0.8rem;
+  margin-bottom: 0.1rem;
+  margin-top: 0.5rem;
+}
+
+textarea {
+  border: 1px solid gray;
+  border-radius: 5px;
+  height: 60px;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 5px;
+  resize: none;
+  width: 226px;
+}
+
+form input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 15px;
+  height: 1.6rem;
+  margin-bottom: 1rem;
+  outline: none;
+  padding: 0.8rem;
+  width: 100%;
+}
+
+form input:hover {
+  background-color: rgba(149, 255, 0, 0.048);
+}
+
+select {
+  border-radius: 5px;
+  font-size: 15px;
+  height: 1.5rem;
+  margin-bottom: 0.1rem;
+  outline: none;
+  width: 100%;
+}
+
+.selectRareCardDiv h3 {
+  color: green;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.checkCard h3 {
+  color: green;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.checkCard p {
+  color: red;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  text-shadow: 1px 1px 1px gray;
+}
+
+form button {
+  background-color: rgb(18, 128, 8);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  height: 2rem;
+  margin-bottom: 30px;
+  transition: all 0.3s ease-in-out;
+  width: 40%;
+}
+
+form button:hover {
+  background-color: rgb(28, 209, 11);
+  color: black;
+}
+
+.deleteButton {
+  background-color: rgb(128, 8, 8);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 20px;
+  height: 2rem;
+  margin: 10px auto;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
+  width: 50%;
+}
+
+.deleteButton:hover {
+  background-color: rgb(209, 11, 11);
+}
+
+.componentCard {
+  align-items: center;
+  border: 10px solid rgb(185, 200, 185);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.componentCard .limiteCard {
+  background-color: rgb(18, 98, 9);
+  border-radius: 20px;
+  height: 83%;
+  width: 90%;
+}
+
+.componentCard h1 {
+  background-color: rgba(167, 255, 255, 0.596);
+  border: none;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: gray;
+  font-size: 1.5rem;
+  height: 50px;
+  margin: 10px auto;
+  padding-top: 9px;
+  text-align: center;
+  width: 90%;
+}
+
+.imageCard img {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  justify-content: center;
+  margin: 10px auto;
+  width: 90%;
+}
+
+.descriptionCard {
+  align-items: center;
+  background-color: rgba(167, 255, 255, 0.596);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  justify-content: center;
+  margin: 10px auto;
+  width: 90%;
+}
+
+.atributesCard {
+  align-items: center;
+  background-color: rgba(167, 255, 255, 0.596);
+  border: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: center;
+  margin: 10px auto;
+  width: 90%;
+}
+
+.atribute {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 90%;
+}
+
+.atribute p {
+  font-size: 15px;
+  margin: 5px;
+}
+
+.atributeNumber {
+  background-color: brown;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  height: 20px;
+  text-align: center;
+  width: 35px;
+}
+
+.rareCard {
+  align-items: center;
+  background-color: brown;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 25px;
+  justify-content: center;
+  margin: 20px auto;
+  width: 90px;
+}
+
+.trunfoCard {
+  align-items: center;
+  background-color: brown;
+  border: none;
+  border-radius: 45px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: center;
+  margin: 5px auto;
+  width: 150px;
+}
+
+.cards {
+  align-items: center;
+  background-color: rgba(255, 255, 0, 0);
+  border: 5px solid green;
+  display: flex;
+  flex-flow: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px auto;
+  width: 100%;
+}
+
+.cardContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 20px auto;
+  width: 50%;
+}
+
+.componentCardMini .limiteCardMini {
+  background-color: rgb(18, 98, 9);
+  border: 1px solid green;
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+.componentCard h2 {
+  border: none;
+  color: green;
+  font-size: 1.8rem;
+  height: 50px;
+  margin: 10px auto;
+  padding-top: 9px;
+  text-align: center;
+  width: 90%;
+}
+
+.cardMiniName {
+  background-color: rgba(167, 255, 255, 0.596);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 20px;
+  height: 40px;
+  margin: 20px auto;
+  padding-top: 6px;
+  text-align: center;
+  width: 90%;
+}
+
+.descriptionMiniCard {
+  background-color: rgba(167, 255, 255, 0.596);
+  border: none;
+  color: black;
+  font-size: 15px;
+  height: 40px;
+  margin: 10px auto;
+  padding-top: 10px;
+  text-align: center;
+  width: 90%;
+}
+
+.imageCardMini img {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: center;
+  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-top: -10px;
+  width: 90%;
+}
+
+.cardMiniAttr {
+  align-items: center;
+  background-color: rgba(167, 255, 255, 0.596);
+  border: none;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: center;
+  margin: 10px auto;
+  width: 90%;
+}
+
+.cardMiniAttr p {
+  font-size: 15px;
+  margin: 5px;
+}

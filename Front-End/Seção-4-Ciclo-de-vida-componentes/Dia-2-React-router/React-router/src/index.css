@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f9f9f9;
+  font-family: Roboto , Arial , Helvetica Neue , Helvetica , sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+h4 {
+  font-weight: 700;
+}
+
+
+.toggle-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
+ul {
+  list-style-type: none;
+}
+
+footer {
+  background-color: aquamarine;
+  bottom: 0;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+}
+
+
+.selected {
+  background-color: aqua;
+  color: red;
+  font-size: 36px;
+}
