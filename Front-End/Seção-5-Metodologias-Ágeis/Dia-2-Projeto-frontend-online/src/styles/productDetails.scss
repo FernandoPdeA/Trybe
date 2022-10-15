@@ -1,0 +1,226 @@
+.productDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  width: 80%;
+  max-width: 1200px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #ccc;
+  background-color: #fff;
+
+  .linkHomeCart {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+
+    a {
+      color: white;
+      background-color: green;
+      text-decoration: none;
+      font-size: 1rem;
+      width: 50px;
+      height: 20px;
+      margin-right: 40px;
+      padding: 2px 6px;
+      transition: all 0.3s ease-in-out;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: rgb(14, 190, 14);
+        color: rgb(84, 77, 77);
+        scale: 1.1;
+      }
+    }
+  }
+
+  .divImagePrice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 800px;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+
+    .imagePrice {
+      width: 300px;
+      height: 200px;
+      border: 1px solid gray;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 10px auto;
+      border-bottom: 5px solid gray;
+      width: 90px;
+    }
+
+    .price {
+      font-size: 0.8rem;
+      font-weight: 300;
+      width: 100%;
+      margin-top: 80px;
+      border: none;
+    }
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-align: center;
+    margin: 3px 20px;
+    border-bottom: 5px solid gray;
+  }
+
+  .buttonQuantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 600px;
+  }
+
+  .quantity {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+
+    button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 5px;
+      background-color: green;
+      color: white;
+      font-size: 1rem;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgb(14, 190, 14);
+        color: rgb(84, 77, 77);
+        scale: 1.1;
+      }
+
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 50%;
+      padding: 10px 20px;
+      background-color: rgb(154, 171, 120);
+      color: white;
+      margin-top: -10px;
+    }
+  }
+
+  .productDetails__button {
+    padding: 0 10px;
+    font-size: 0.8rem;
+    background-color: green;
+    color: #fff;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px;
+    width: 300px;
+
+    &:hover {
+      background-color: rgb(14, 190, 14);
+      color: rgb(84, 77, 77);
+      scale: 1.1;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 50px;
+
+    .emailCheckBox {
+      align-items: center;
+      width: 100%;
+      text-align: center;
+
+      .email input {
+        width: 300px;
+        height: 30px;
+        margin: 0 10px;
+        padding: 10px;
+        font-size: 0.8rem;
+        outline: none;
+      }
+
+      .check {
+        width: 150px;
+
+        input {
+          width: 18px;
+          height: 18px;
+          outline: none;
+          margin-right: 5px;
+        }
+      }
+    }
+
+    .labelTextArea {
+      width: 100%;
+
+      textArea {
+        width: 450px;
+        height: 100px;
+        margin: 10px 0;
+        padding: 10px;
+        font-size: 0.8rem;
+        outline: none;
+      }
+    }
+
+    button {
+      width: 150px;
+      height: 30px;
+      margin: 10px 0;
+      font-size: 0.8rem;
+      outline: none;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        background-color: rgb(14, 190, 14);
+        color: rgb(84, 77, 77);
+        scale: 1.1;
+      }
+    }
+  }
+}
