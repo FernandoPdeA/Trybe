@@ -1,0 +1,36 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 40px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.icons svg {
+  font-size: 3em;
+  margin-left: 8px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.moon {
+  font-size: 0.5em;
+  color: rgb(211, 211, 5);
+}
+
+.sun {
+  font-size: 0.6em;
+  color: rgb(211, 211, 5);
+}

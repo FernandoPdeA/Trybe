@@ -1,0 +1,93 @@
+table {
+  background-color: rgb(255, 157, 0);
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.5);
+  margin: 10px auto;
+  padding: 10px;
+  width: 100%;
+}
+
+thead {
+  background-color: rgb(118, 77, 11);
+  color: white;
+  font-size: 1rem;
+  font-weight: 900;
+  height: 50px;
+  text-shadow: 2px 2px 2px black;
+}
+
+th {
+  border: 1px solid black;
+}
+
+tbody {
+  background-color: rgb(255, 157, 0);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 30px;
+  text-shadow: 2px 2px 2px black;
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+[ id = 'edit-expense' ] {
+  background-color: blue;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 900;
+  height: 25px;
+  margin: 0 5px;
+  outline: none;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-shadow: 2px 2px 2px black;
+  transition: all 0.2s ease-in-out;
+  width: 60px;
+}
+
+[ id = 'edit-expense' ]:hover {
+  background-color: rgb(44, 44, 240);
+  scale: 1.1;
+}
+
+[ id = 'edit-expense' ]:active {
+  box-shadow: 8px 8px 8px 0.2rem rgb(17, 17, 17);
+  scale: 0.9;
+}
+
+[ id = 'delete-expense' ] {
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  box-shadow: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 900;
+  height: 25px;
+  margin: 0 5px;
+  outline: none;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-shadow: 2px 2px 2px black;
+  transition: all 0.2s ease-in-out;
+  width: 60px;
+}
+
+[ id = 'delete-expense' ]:hover {
+  background-color: rgb(240, 44, 44);
+  scale: 1.1;
+}
+
+[ id = 'delete-expense' ]:active {
+  box-shadow: 8px 8px 8px 0.2rem rgb(17, 17, 17);
+  scale: 0.9;
+}

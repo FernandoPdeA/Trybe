@@ -1,0 +1,29 @@
+aside h3 {
+  background-color: rgb(231, 190, 231);
+  color: rgb(83, 11, 99);
+  margin: 0.5em 0;
+  padding: 4px;
+}
+
+aside li {
+  align-items: center;
+  border-bottom: 1px dashed plum;
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 0.5em;
+}
+
+fieldset {
+  border: none;
+
+}
+
+small {
+  display: block;
+  font-size: 0.5em;
+  margin-top: -16px;
+}
+
+.movie_title {
+  display: inline-block;
+}
