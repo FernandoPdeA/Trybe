@@ -1,0 +1,98 @@
+header {
+  height: 100px;
+  background-color: #ffd900e3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  height: 30px;
+  width: 100px;
+  margin: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 8px;
+  transition: all 0.3s ease-in-out;
+  background-color: green;
+}
+
+nav a:hover {
+  scale: 1.1;
+  background-color: rgb(18, 192, 12);
+}
+
+.filmes {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  margin-top: 150px;
+}
+
+.filme {
+  width: 20%;
+  margin: 10px;
+  background-color: #ffd900e3;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.filme h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.filme img {
+  width: 250px;
+  height: 250px;
+  margin: 10px auto;
+}
+
+.filme p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 10px;
+}
+
+.filme button {
+  width: 80%;
+  height: 30px;
+  margin: 20px auto;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.filme button:hover {
+  scale: 1.1;
+  background-color: rgb(18, 192, 12);
+}
+
+.filme button:active {
+  scale: 0.9;
+  box-shadow: 5px 5px 10px 5px black;
+}

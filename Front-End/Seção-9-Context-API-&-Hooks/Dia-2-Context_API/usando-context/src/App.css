@@ -1,0 +1,214 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+header {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+header h4 {
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+header h6 {
+  padding: 10px;
+  cursor: pointer;
+  width: 150px;
+  border-radius: 5px;
+  background-color: #a18508;
+  text-align: center;
+  margin-top: 18px;
+  margin-right: 20px;
+  color: white;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+header h6:hover {
+  background-color: #b9a012;
+  scale: 1.1;
+}
+
+header h6:active {
+  background-color: #ffd000;
+  color: #f5f5f5;
+  box-shadow: 5px 5px 5px rgb(189, 74, 74);
+  scale: 0.9;
+}
+
+.pageFormTotalDark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+}
+
+.pageFormTotalLight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(3, 3, 3);
+}
+
+.resultsData {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 30px;
+  width: 100%;
+  margin-top: 40px;
+  border: 1px solid #ece6e6;
+}
+
+.resultsData p {
+  border-bottom: 1px solid #ece6e6;
+  padding-left: 10px;
+  width: 100%;
+  text-align: left;
+}
+
+.darkMain input {
+  margin: 5px;
+  outline: none;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.darkMain input:hover {
+  background-color: #f2f2f2;
+}
+
+.lightMain input {
+  margin: 5px;
+  outline: none;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.lightMain input:hover {
+  background-color: #f2f2f2;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  height: 10vmin;
+  pointer-events: none;
+  margin-bottom: -100px;
+  margin-top: 20px;
+}
+
+footer {
+  height: 25px;
+  width: 100%;
+}
+
+button {
+  background-color: #217c15;
+  border: none;
+  color: rgb(191, 212, 218);
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: -20px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  background-color: #17b617;
+  scale: 1.1;
+}
+
+button:active {
+  background-color: #076907;
+  box-shadow: 5px 5px 5px black;
+  /* transform: translateX(4px); */
+  scale: 0.9;
+}
+
+.dark {
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+}
+
+.light {
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  width: 100%;
+  height: 100px;
+}
+
+.darkMain {
+  background-color: rgb(223, 219, 179);
+  color: rgb(60, 65, 52);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  width: 500px;
+  margin: 130px;
+  border: 1px solid #c4bdbd;
+}
+
+.lightMain {
+  background-color: rgb(206, 213, 236);
+  color: rgb(114, 83, 83);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  width: 500px;
+  margin: 130px;
+  border: 1px solid #c4bdbd;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  img {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
