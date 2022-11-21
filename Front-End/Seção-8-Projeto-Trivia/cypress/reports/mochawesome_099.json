@@ -1,0 +1,337 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 10,
+    "passes": 10,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-16T17:27:21.695Z",
+    "end": "2022-11-16T17:27:51.220Z",
+    "duration": 29525,
+    "testsRegistered": 10,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "23368fd3-eb88-4290-8cfe-ad881a3653dd",
+      "title": "",
+      "fullFile": "cypress/e2e/01-04-tela-de-login.cy.js",
+      "file": "cypress/e2e/01-04-tela-de-login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9b0c3cd8-ba85-4c15-a594-b5adc9624922",
+          "title": "1 - [TELA DE LOGIN] Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se é possível escrever o nome da pessoa jogadora",
+              "fullTitle": "1 - [TELA DE LOGIN] Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo Será validado se é possível escrever o nome da pessoa jogadora",
+              "timedOut": null,
+              "duration": 6006,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(INPUT_PLAYER_NAME_SELECTOR).type(PLAYER_NAME);",
+              "err": {},
+              "uuid": "9d31aeaa-c3f6-41f2-9622-50040824da74",
+              "parentUUID": "9b0c3cd8-ba85-4c15-a594-b5adc9624922",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se é possível escrever o email da pessoa jogadora",
+              "fullTitle": "1 - [TELA DE LOGIN] Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo Será validado se é possível escrever o email da pessoa jogadora",
+              "timedOut": null,
+              "duration": 790,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(INPUT_PLAYER_EMAIL_SELECTOR).type(PLAYER_EMAIL);",
+              "err": {},
+              "uuid": "9a1245d7-85e5-4d92-a264-ae37832bc758",
+              "parentUUID": "9b0c3cd8-ba85-4c15-a594-b5adc9624922",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o botão \"Play\" está desabilitado quando a pessoa jogadora não preencher nenhum campo",
+              "fullTitle": "1 - [TELA DE LOGIN] Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo Será validado se o botão \"Play\" está desabilitado quando a pessoa jogadora não preencher nenhum campo",
+              "timedOut": null,
+              "duration": 265,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(BUTTON_PLAY_SELECTOR).should('be.disabled');",
+              "err": {},
+              "uuid": "34e8e941-91ec-48b3-a46b-1dd94af94b5b",
+              "parentUUID": "9b0c3cd8-ba85-4c15-a594-b5adc9624922",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o botão \"Play\" está desabilitado quando a pessoa jogadora escrever apenas o nome",
+              "fullTitle": "1 - [TELA DE LOGIN] Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo Será validado se o botão \"Play\" está desabilitado quando a pessoa jogadora escrever apenas o nome",
+              "timedOut": null,
+              "duration": 683,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(INPUT_PLAYER_NAME_SELECTOR).type(PLAYER_NAME);\ncy.get(BUTTON_PLAY_SELECTOR).should('be.disabled');",
+              "err": {},
+              "uuid": "8c3f5635-e0b4-49a3-b28a-3f4f0332d1c8",
+              "parentUUID": "9b0c3cd8-ba85-4c15-a594-b5adc9624922",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o botão \"Play\" está desabilitado quando a pessoa jogadora escrever apenas o email",
+              "fullTitle": "1 - [TELA DE LOGIN] Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo Será validado se o botão \"Play\" está desabilitado quando a pessoa jogadora escrever apenas o email",
+              "timedOut": null,
+              "duration": 708,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(INPUT_PLAYER_EMAIL_SELECTOR).type(PLAYER_EMAIL);\ncy.get(BUTTON_PLAY_SELECTOR).should('be.disabled');",
+              "err": {},
+              "uuid": "917cba80-abde-495a-a7b7-3de85a7771e4",
+              "parentUUID": "9b0c3cd8-ba85-4c15-a594-b5adc9624922",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o botão \"Play\" está habilitado quando a pessoa jogadora preencher os campos de nome e email",
+              "fullTitle": "1 - [TELA DE LOGIN] Crie a tela de login, onde a pessoa que joga deve preencher as informações para iniciar um jogo Será validado se o botão \"Play\" está habilitado quando a pessoa jogadora preencher os campos de nome e email",
+              "timedOut": null,
+              "duration": 1056,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(INPUT_PLAYER_NAME_SELECTOR).type(PLAYER_NAME);\ncy.get(INPUT_PLAYER_EMAIL_SELECTOR).type(PLAYER_EMAIL);\ncy.get(BUTTON_PLAY_SELECTOR).should('not.be.disabled');",
+              "err": {},
+              "uuid": "9668f0ea-a233-48af-b9e4-0e5b4722b40d",
+              "parentUUID": "9b0c3cd8-ba85-4c15-a594-b5adc9624922",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9d31aeaa-c3f6-41f2-9622-50040824da74",
+            "9a1245d7-85e5-4d92-a264-ae37832bc758",
+            "34e8e941-91ec-48b3-a46b-1dd94af94b5b",
+            "8c3f5635-e0b4-49a3-b28a-3f4f0332d1c8",
+            "917cba80-abde-495a-a7b7-3de85a7771e4",
+            "9668f0ea-a233-48af-b9e4-0e5b4722b40d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9508,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "613e8480-bca4-415e-9d30-632d870414f7",
+          "title": "2 - [TELA DE LOGIN] Crie o botão de iniciar o jogo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se ao clicar no botão \"Play\" o jogo é iniciado salvando um token de jogador e redirecionando para a tela de jogo",
+              "fullTitle": "2 - [TELA DE LOGIN] Crie o botão de iniciar o jogo Será validado se ao clicar no botão \"Play\" o jogo é iniciado salvando um token de jogador e redirecionando para a tela de jogo",
+              "timedOut": null,
+              "duration": 1323,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(INPUT_PLAYER_NAME_SELECTOR).type(PLAYER_NAME);\ncy.get(INPUT_PLAYER_EMAIL_SELECTOR).type(PLAYER_EMAIL);\ncy.get(BUTTON_PLAY_SELECTOR).click();\ncy.window().its('fetch').should('be.calledWith', FETCH_TOKEN_URL);\ncy.window().its('localStorage.token').should(token => {\n  expect(token).to.equal(tokenResponseMock.token);\n});\ncy.location().should(location => {\n  expect(location.pathname).not.to.eq('/');\n});",
+              "err": {},
+              "uuid": "73e2685c-1def-4f3f-b012-7ba4e3c53c17",
+              "parentUUID": "613e8480-bca4-415e-9d30-632d870414f7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "73e2685c-1def-4f3f-b012-7ba4e3c53c17"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1323,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "9f54476b-ef55-457f-94e3-4a2ab1815cc8",
+          "title": "3 - [TELA DE LOGIN] Crie um botão na tela inicial que leve para a tela de configurações",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se o botão existe na página",
+              "fullTitle": "3 - [TELA DE LOGIN] Crie um botão na tela inicial que leve para a tela de configurações Será validado se o botão existe na página",
+              "timedOut": null,
+              "duration": 250,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(BUTTON_SETTINGS_SELECTOR).should('exist');",
+              "err": {},
+              "uuid": "53595bbc-6b18-448b-976c-71f96e7e5df7",
+              "parentUUID": "9f54476b-ef55-457f-94e3-4a2ab1815cc8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se a tela de configurações possui um título",
+              "fullTitle": "3 - [TELA DE LOGIN] Crie um botão na tela inicial que leve para a tela de configurações Será validado se a tela de configurações possui um título",
+              "timedOut": null,
+              "duration": 410,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(BUTTON_SETTINGS_SELECTOR).click();\ncy.get(SETTINGS_TITLE_SELECTOR).should('exist');",
+              "err": {},
+              "uuid": "8e851345-1752-48ca-b7b8-d1471439f0b5",
+              "parentUUID": "9f54476b-ef55-457f-94e3-4a2ab1815cc8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "53595bbc-6b18-448b-976c-71f96e7e5df7",
+            "8e851345-1752-48ca-b7b8-d1471439f0b5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 660,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4a3535af-f622-409f-9d46-f4747dda7045",
+          "title": "4 - [TELA DE LOGIN] Desenvolva testes para atingir 90% de cobertura da tela de Login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verifica a cobertura de testes unitários",
+              "fullTitle": "4 - [TELA DE LOGIN] Desenvolva testes para atingir 90% de cobertura da tela de Login Verifica a cobertura de testes unitários",
+              "timedOut": null,
+              "duration": 14820,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getCoverage().its('Login.functions.pct', {\n  timeout: 0\n}).should('be.gte', 90.00);\ncy.getCoverage().its('Login.lines.pct', {\n  timeout: 0\n}).should('be.gte', 90.00);",
+              "err": {},
+              "uuid": "238d28ed-785e-471c-bf9d-67da1cb6f5ce",
+              "parentUUID": "4a3535af-f622-409f-9d46-f4747dda7045",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "238d28ed-785e-471c-bf9d-67da1cb6f5ce"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14820,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

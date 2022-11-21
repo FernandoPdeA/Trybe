@@ -1,0 +1,415 @@
+{
+  "stats": {
+    "suites": 6,
+    "tests": 12,
+    "passes": 12,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-11-19T22:35:33.314Z",
+    "end": "2022-11-19T22:36:06.005Z",
+    "duration": 32691,
+    "testsRegistered": 12,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ba1ede82-6de4-4e11-8f00-8d564513263a",
+      "title": "",
+      "fullFile": "cypress/e2e/12-17-tela-de-feedback.cy.js",
+      "file": "cypress/e2e/12-17-tela-de-feedback.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ae34b217-3f50-4c23-8b6c-cc51914f37af",
+          "title": "12 - [TELA DE FEEDBACK] Desenvolva o header de _feedback_ que deve conter as informações da pessoa jogadora",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se a imagem do Gravatar está presente no header",
+              "fullTitle": "12 - [TELA DE FEEDBACK] Desenvolva o header de _feedback_ que deve conter as informações da pessoa jogadora Será validado se a imagem do Gravatar está presente no header",
+              "timedOut": null,
+              "duration": 3751,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(HEADER_IMAGE_SELECTOR).should('exist');",
+              "err": {},
+              "uuid": "af02deff-eeba-4a1c-969c-911b359c3a39",
+              "parentUUID": "ae34b217-3f50-4c23-8b6c-cc51914f37af",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o nome da pessoa está presente no header",
+              "fullTitle": "12 - [TELA DE FEEDBACK] Desenvolva o header de _feedback_ que deve conter as informações da pessoa jogadora Será validado se o nome da pessoa está presente no header",
+              "timedOut": null,
+              "duration": 4924,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(HEADER_NAME_SELECTOR).contains(name);",
+              "err": {},
+              "uuid": "e77cec60-a1a9-4ed2-a324-966f5550049e",
+              "parentUUID": "ae34b217-3f50-4c23-8b6c-cc51914f37af",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o placar com o valor atual está presente no header",
+              "fullTitle": "12 - [TELA DE FEEDBACK] Desenvolva o header de _feedback_ que deve conter as informações da pessoa jogadora Será validado se o placar com o valor atual está presente no header",
+              "timedOut": null,
+              "duration": 2226,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let lastScore;\ncy.window().its('store').invoke('getState').then(state => {\n  lastScore = state.player.score;\n});\ncy.get(HEADER_SCORE_SELECTOR).should($el => {\n  expect(parseInt($el.text())).to.be.eq(lastScore);\n});",
+              "err": {},
+              "uuid": "d683d18f-6125-41b3-b4a5-fa5ba9d543fc",
+              "parentUUID": "ae34b217-3f50-4c23-8b6c-cc51914f37af",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "af02deff-eeba-4a1c-969c-911b359c3a39",
+            "e77cec60-a1a9-4ed2-a324-966f5550049e",
+            "d683d18f-6125-41b3-b4a5-fa5ba9d543fc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10901,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f62ebc83-27ae-4169-9f8a-3cd15fa01472",
+          "title": "13 - [TELA DE FEEDBACK] Crie a mensagem de _feedback_ para ser exibida a pessoa usuária",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se ao acertar menos de 3 perguntas a mensagem de _feedback_ é \"Could be better...\"",
+              "fullTitle": "13 - [TELA DE FEEDBACK] Crie a mensagem de _feedback_ para ser exibida a pessoa usuária Será validado se ao acertar menos de 3 perguntas a mensagem de _feedback_ é \"Could be better...\"",
+              "timedOut": null,
+              "duration": 2454,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(FEEDBACK_TEXT_SELECTOR).contains('Could be better...');",
+              "err": {},
+              "uuid": "709639ef-2cb0-435d-a876-e1064a0cdd28",
+              "parentUUID": "f62ebc83-27ae-4169-9f8a-3cd15fa01472",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se ao acertar 3 perguntas a mensagem de _feedback_ é \"Well Done!\"",
+              "fullTitle": "13 - [TELA DE FEEDBACK] Crie a mensagem de _feedback_ para ser exibida a pessoa usuária Será validado se ao acertar 3 perguntas a mensagem de _feedback_ é \"Well Done!\"",
+              "timedOut": null,
+              "duration": 2233,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(FEEDBACK_TEXT_SELECTOR).contains('Well Done!');",
+              "err": {},
+              "uuid": "28205e6a-2825-4373-90ef-775456c37c21",
+              "parentUUID": "f62ebc83-27ae-4169-9f8a-3cd15fa01472",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se ao acertar mais de 3 perguntas a mensagem de _feedback_ é \"Well Done!\"",
+              "fullTitle": "13 - [TELA DE FEEDBACK] Crie a mensagem de _feedback_ para ser exibida a pessoa usuária Será validado se ao acertar mais de 3 perguntas a mensagem de _feedback_ é \"Well Done!\"",
+              "timedOut": null,
+              "duration": 2207,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(FEEDBACK_TEXT_SELECTOR).contains('Well Done!');",
+              "err": {},
+              "uuid": "f1ef423d-bdf9-4ca4-b72c-c3ed808b6de1",
+              "parentUUID": "f62ebc83-27ae-4169-9f8a-3cd15fa01472",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "709639ef-2cb0-435d-a876-e1064a0cdd28",
+            "28205e6a-2825-4373-90ef-775456c37c21",
+            "f1ef423d-bdf9-4ca4-b72c-c3ed808b6de1"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6894,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "8f1a7b92-38fb-44ae-a82a-2834a0b0e39d",
+          "title": "14 - [TELA DE FEEDBACK] Exiba as informações relacionadas aos resultados obtidos para a pessoa usuária",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se o número exibido é correto quando a pessoa usuária não acerta nenhuma pergunta",
+              "fullTitle": "14 - [TELA DE FEEDBACK] Exiba as informações relacionadas aos resultados obtidos para a pessoa usuária Será validado se o número exibido é correto quando a pessoa usuária não acerta nenhuma pergunta",
+              "timedOut": null,
+              "duration": 2231,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\nverifyFeedbackInfo();",
+              "err": {},
+              "uuid": "aab266c5-126d-4759-a840-d33b9e7fb926",
+              "parentUUID": "8f1a7b92-38fb-44ae-a82a-2834a0b0e39d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o número exibido é correto quando a pessoa usuária acerta 2 perguntas",
+              "fullTitle": "14 - [TELA DE FEEDBACK] Exiba as informações relacionadas aos resultados obtidos para a pessoa usuária Será validado se o número exibido é correto quando a pessoa usuária acerta 2 perguntas",
+              "timedOut": null,
+              "duration": 2270,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\nverifyFeedbackInfo();",
+              "err": {},
+              "uuid": "5990412e-0d47-4c22-807d-30ed20bf5fa4",
+              "parentUUID": "8f1a7b92-38fb-44ae-a82a-2834a0b0e39d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o número exibido é correto quando a pessoa usuária acerta 4 perguntas",
+              "fullTitle": "14 - [TELA DE FEEDBACK] Exiba as informações relacionadas aos resultados obtidos para a pessoa usuária Será validado se o número exibido é correto quando a pessoa usuária acerta 4 perguntas",
+              "timedOut": null,
+              "duration": 2228,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\nverifyFeedbackInfo();",
+              "err": {},
+              "uuid": "c31a4daf-77bd-4d76-a33d-9146c7640203",
+              "parentUUID": "8f1a7b92-38fb-44ae-a82a-2834a0b0e39d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aab266c5-126d-4759-a840-d33b9e7fb926",
+            "5990412e-0d47-4c22-807d-30ed20bf5fa4",
+            "c31a4daf-77bd-4d76-a33d-9146c7640203"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6729,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "c35901ef-3caa-4bb2-9de2-924d1900cced",
+          "title": "15 - [TELA DE FEEDBACK] Crie a opção para a pessoa jogadora poder jogar novamente",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se a pessoa é redirecionada para tela inicial ao clicar no botão \"Play Again\"",
+              "fullTitle": "15 - [TELA DE FEEDBACK] Crie a opção para a pessoa jogadora poder jogar novamente Será validado se a pessoa é redirecionada para tela inicial ao clicar no botão \"Play Again\"",
+              "timedOut": null,
+              "duration": 2282,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(BUTTON_PLAY_AGAIN_SELECTOR).click();\ncy.get(INPUT_PLAYER_EMAIL_SELECTOR).should('exist');",
+              "err": {},
+              "uuid": "e7cdb0c9-b44e-4b61-890c-2e5dbb8ea78b",
+              "parentUUID": "c35901ef-3caa-4bb2-9de2-924d1900cced",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e7cdb0c9-b44e-4b61-890c-2e5dbb8ea78b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2282,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "f6d16e9d-91f9-47fc-876e-274849cebcdd",
+          "title": "16 - [TELA DE FEEDBACK] Crie a opção para a pessoa jogadora poder visualizar a tela de _ranking_",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se ao clicar no botão \"Ranking\" a pessoa é redirecionada para tela de ranking",
+              "fullTitle": "16 - [TELA DE FEEDBACK] Crie a opção para a pessoa jogadora poder visualizar a tela de _ranking_ Será validado se ao clicar no botão \"Ranking\" a pessoa é redirecionada para tela de ranking",
+              "timedOut": null,
+              "duration": 2302,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(BUTTON_RANKING_SELECTOR).click();\ncy.get(RANKING_TITLE_SELECTOR).should('exist');",
+              "err": {},
+              "uuid": "8837a73a-2254-48bf-9bed-68b5163f7b89",
+              "parentUUID": "f6d16e9d-91f9-47fc-876e-274849cebcdd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8837a73a-2254-48bf-9bed-68b5163f7b89"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2302,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "de682643-4395-4f62-9f04-2cfd69b4f2ce",
+          "title": "17 - [TELA DE FEEDBACK] Desenvolva testes para atingir 90% de cobertura da tela de Feedbacks",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verifica a cobertura de testes unitários",
+              "fullTitle": "17 - [TELA DE FEEDBACK] Desenvolva testes para atingir 90% de cobertura da tela de Feedbacks Verifica a cobertura de testes unitários",
+              "timedOut": null,
+              "duration": 69,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.getCoverage().its('Feedback.functions.pct', {\n  timeout: 0\n}).should('be.gte', 90.00);\ncy.getCoverage().its('Feedback.lines.pct', {\n  timeout: 0\n}).should('be.gte', 90.00);",
+              "err": {},
+              "uuid": "3bb8e0a4-a830-4706-884a-7119eacad12f",
+              "parentUUID": "de682643-4395-4f62-9f04-2cfd69b4f2ce",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3bb8e0a4-a830-4706-884a-7119eacad12f"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 69,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

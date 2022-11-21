@@ -1,0 +1,679 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 7,
+    "passes": 0,
+    "pending": 0,
+    "failures": 7,
+    "start": "2022-11-11T14:21:08.243Z",
+    "end": "2022-11-11T14:21:20.523Z",
+    "duration": 12280,
+    "testsRegistered": 23,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 16,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "662d8637-df6f-4bd6-8c18-117bb2f205fd",
+      "title": "",
+      "fullFile": "cypress/e2e/05-11-tela-de-jogo.cy.js",
+      "file": "cypress/e2e/05-11-tela-de-jogo.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4ba69463-8471-4d8d-9f39-0fd58148f59b",
+          "title": "5 - [TELA DE JOGO] Crie um _header_ que deve conter as informações da pessoa jogadora",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se a imagem do Gravatar está presente no header",
+              "fullTitle": "5 - [TELA DE JOGO] Crie um _header_ que deve conter as informações da pessoa jogadora Será validado se a imagem do Gravatar está presente no header",
+              "timedOut": null,
+              "duration": 2051,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(HEADER_IMAGE_SELECTOR).should('exist');\ncy.get(HEADER_IMAGE_SELECTOR).should('have.attr', 'src', `https://www.gravatar.com/avatar/${MD5(PLAYER_EMAIL)}`);",
+              "err": {
+                "message": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `5 - [TELA DE JOGO] Crie um ...`",
+                "estack": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `5 - [TELA DE JOGO] Crie um ...`\n    at Object.json (http://localhost:3000/__cypress/tests?p=cypress/e2e/05-11-tela-de-jogo.cy.js:481:96)\n    at async Login.handleBtn (http://localhost:3000/static/js/bundle.js:579:28)",
+                "diff": null
+              },
+              "uuid": "46d886fe-6fbc-476d-8422-be5426c08a70",
+              "parentUUID": "4ba69463-8471-4d8d-9f39-0fd58148f59b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o nome da pessoa está presente no header",
+              "fullTitle": "5 - [TELA DE JOGO] Crie um _header_ que deve conter as informações da pessoa jogadora Será validado se o nome da pessoa está presente no header",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(HEADER_NAME_SELECTOR).contains(PLAYER_NAME);",
+              "err": {},
+              "uuid": "e48612d5-eb43-4167-9568-4d4606e1d02e",
+              "parentUUID": "4ba69463-8471-4d8d-9f39-0fd58148f59b",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se o placar zerado está presente no header",
+              "fullTitle": "5 - [TELA DE JOGO] Crie um _header_ que deve conter as informações da pessoa jogadora Será validado se o placar zerado está presente no header",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(HEADER_SCORE_SELECTOR).contains('0');",
+              "err": {},
+              "uuid": "2a715678-4c9c-468c-b123-15b0ff899662",
+              "parentUUID": "4ba69463-8471-4d8d-9f39-0fd58148f59b",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "46d886fe-6fbc-476d-8422-be5426c08a70"
+          ],
+          "pending": [],
+          "skipped": [
+            "e48612d5-eb43-4167-9568-4d4606e1d02e",
+            "2a715678-4c9c-468c-b123-15b0ff899662"
+          ],
+          "duration": 2051,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "d9c28dba-dbce-451b-a1a9-770eb994cf15",
+          "title": "6 - [TELA DE JOGO] Crie a página de jogo que deve conter as informações relacionadas à pergunta",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se a API de perguntas é chamada corretamente",
+              "fullTitle": "6 - [TELA DE JOGO] Crie a página de jogo que deve conter as informações relacionadas à pergunta Será validado se a API de perguntas é chamada corretamente",
+              "timedOut": null,
+              "duration": 1207,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.window().its('fetch').should('be.calledWith', FETCH_TRIVIA_URL);",
+              "err": {
+                "message": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `6 - [TELA DE JOGO] Crie a p...`",
+                "estack": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `6 - [TELA DE JOGO] Crie a p...`\n    at Object.json (http://localhost:3000/__cypress/tests?p=cypress/e2e/05-11-tela-de-jogo.cy.js:481:96)\n    at async Login.handleBtn (http://localhost:3000/static/js/bundle.js:579:28)",
+                "diff": null
+              },
+              "uuid": "58f497a5-309d-486e-afa0-acc7f18c472f",
+              "parentUUID": "d9c28dba-dbce-451b-a1a9-770eb994cf15",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se é feito o logout ao acessar o game com um token inválido",
+              "fullTitle": "6 - [TELA DE JOGO] Crie a página de jogo que deve conter as informações relacionadas à pergunta Será validado se é feito o logout ao acessar o game com um token inválido",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(\"@spyFetch\").should('be.calledWith', INVALID_FETCH_TRIVIA_URL);\ncy.window().its('location.pathname').should('eq', '/');",
+              "err": {},
+              "uuid": "516a20b8-aa3f-46f1-8e21-e42e960c806e",
+              "parentUUID": "d9c28dba-dbce-451b-a1a9-770eb994cf15",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se a categoria da pergunta está presente",
+              "fullTitle": "6 - [TELA DE JOGO] Crie a página de jogo que deve conter as informações relacionadas à pergunta Será validado se a categoria da pergunta está presente",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(QUESTION_CATEGORY_SELECTOR).should('exist');\ncy.get(QUESTION_CATEGORY_SELECTOR).contains(questionsResponse.results[0].category);",
+              "err": {},
+              "uuid": "9ce2a886-1b49-411f-b240-c4e9b3066196",
+              "parentUUID": "d9c28dba-dbce-451b-a1a9-770eb994cf15",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se o texto da pergunta está presente",
+              "fullTitle": "6 - [TELA DE JOGO] Crie a página de jogo que deve conter as informações relacionadas à pergunta Será validado se o texto da pergunta está presente",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(QUESTION_TEXT_SELECTOR).should('exist');\ncy.get(QUESTION_TEXT_SELECTOR).contains(questionsResponse.results[0].question);",
+              "err": {},
+              "uuid": "c8581c37-220a-4353-b97e-f8944424cd12",
+              "parentUUID": "d9c28dba-dbce-451b-a1a9-770eb994cf15",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se as alternativas estão presentes",
+              "fullTitle": "6 - [TELA DE JOGO] Crie a página de jogo que deve conter as informações relacionadas à pergunta Será validado se as alternativas estão presentes",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).should('exist');\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('have.length', 1);\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).contains(questionsResponse.results[0].correct_answer);\ncy.get(WRONG_ALTERNATIVES_SELECTOR).should('exist');\ncy.get(WRONG_ALTERNATIVES_SELECTOR).each(element => {\n  expect(element.text()).to.includes.oneOf(questionsResponse.results[0].incorrect_answers);\n});",
+              "err": {},
+              "uuid": "ebad17e3-6766-48e4-8a4e-e4e445b3c819",
+              "parentUUID": "d9c28dba-dbce-451b-a1a9-770eb994cf15",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se as alternativas estão posicionadas em ordem aleatória",
+              "fullTitle": "6 - [TELA DE JOGO] Crie a página de jogo que deve conter as informações relacionadas à pergunta Será validado se as alternativas estão posicionadas em ordem aleatória",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const answersList = [];\ncy.get(ALL_ALTERNATIVES_SELECTOR).then(() => {\n  for (let i = 0; i < 5; i += 1) {\n    loadQuestionsPage();\n    cy.get(ALL_ALTERNATIVES_SELECTOR).then(newAnswersSection => {\n      const newAnswers = Array.from(newAnswersSection.children()).map(answer => answer.dataset.testid);\n      const currentIndex = newAnswers.indexOf('correct-answer');\n      answersList.push(currentIndex);\n    });\n  }\n  ;\n}).then(() => {\n  const removeRepeatedList = [...new Set(answersList)];\n  expect(removeRepeatedList.length).to.be.greaterThan(1);\n});",
+              "err": {},
+              "uuid": "c9953c67-2546-4076-a797-0b360c1efb16",
+              "parentUUID": "d9c28dba-dbce-451b-a1a9-770eb994cf15",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "58f497a5-309d-486e-afa0-acc7f18c472f"
+          ],
+          "pending": [],
+          "skipped": [
+            "516a20b8-aa3f-46f1-8e21-e42e960c806e",
+            "9ce2a886-1b49-411f-b240-c4e9b3066196",
+            "c8581c37-220a-4353-b97e-f8944424cd12",
+            "ebad17e3-6766-48e4-8a4e-e4e445b3c819",
+            "c9953c67-2546-4076-a797-0b360c1efb16"
+          ],
+          "duration": 1207,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "4ceefb6e-f492-4af8-b35d-1bd1b06a2188",
+          "title": "7 - [TELA DE JOGO] Desenvolva o estilo que, ao clicar em uma resposta, a correta deve ficar verde e as incorretas, vermelhas",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se a cor da alternativa correta é \"rgb(6, 240, 15)\" ao acertar a questão",
+              "fullTitle": "7 - [TELA DE JOGO] Desenvolva o estilo que, ao clicar em uma resposta, a correta deve ficar verde e as incorretas, vermelhas Será validado se a cor da alternativa correta é \"rgb(6, 240, 15)\" ao acertar a questão",
+              "timedOut": null,
+              "duration": 1024,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('have.css', 'border-color', 'rgb(6, 240, 15)');\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('have.css', 'border-style', 'solid');\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('have.css', 'border-width', '3px');",
+              "err": {
+                "message": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `7 - [TELA DE JOGO] Desenvol...`",
+                "estack": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `7 - [TELA DE JOGO] Desenvol...`\n    at Object.json (http://localhost:3000/__cypress/tests?p=cypress/e2e/05-11-tela-de-jogo.cy.js:481:96)\n    at async Login.handleBtn (http://localhost:3000/static/js/bundle.js:579:28)",
+                "diff": null
+              },
+              "uuid": "f167ddad-e847-4d0b-8821-16dafd1c5f7d",
+              "parentUUID": "4ceefb6e-f492-4af8-b35d-1bd1b06a2188",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se a cor das alternativas incorretas é \"rgb(255, 0, 0)\" ao acertar a questão",
+              "fullTitle": "7 - [TELA DE JOGO] Desenvolva o estilo que, ao clicar em uma resposta, a correta deve ficar verde e as incorretas, vermelhas Será validado se a cor das alternativas incorretas é \"rgb(255, 0, 0)\" ao acertar a questão",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).should('have.css', 'border-color', 'rgb(255, 0, 0)');\ncy.get(WRONG_ALTERNATIVES_SELECTOR).should('have.css', 'border-style', 'solid');\ncy.get(WRONG_ALTERNATIVES_SELECTOR).should('have.css', 'border-width', '3px');",
+              "err": {},
+              "uuid": "62787b45-8eca-443d-8daa-c86a15a586f0",
+              "parentUUID": "4ceefb6e-f492-4af8-b35d-1bd1b06a2188",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se a cor da alternativa correta é \"rgb(6, 240, 15)\" ao errar a questão",
+              "fullTitle": "7 - [TELA DE JOGO] Desenvolva o estilo que, ao clicar em uma resposta, a correta deve ficar verde e as incorretas, vermelhas Será validado se a cor da alternativa correta é \"rgb(6, 240, 15)\" ao errar a questão",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('have.css', 'border-color', 'rgb(6, 240, 15)');\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('have.css', 'border-style', 'solid');\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('have.css', 'border-width', '3px');",
+              "err": {},
+              "uuid": "c07484ea-5d7a-4924-8490-6212095d99ae",
+              "parentUUID": "4ceefb6e-f492-4af8-b35d-1bd1b06a2188",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se a cor das alternativas incorretas é \"rgb(255, 0, 0)\" ao errar a questão",
+              "fullTitle": "7 - [TELA DE JOGO] Desenvolva o estilo que, ao clicar em uma resposta, a correta deve ficar verde e as incorretas, vermelhas Será validado se a cor das alternativas incorretas é \"rgb(255, 0, 0)\" ao errar a questão",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(WRONG_ALTERNATIVES_SELECTOR).should('have.css', 'border-color', 'rgb(255, 0, 0)');\ncy.get(WRONG_ALTERNATIVES_SELECTOR).should('have.css', 'border-style', 'solid');\ncy.get(WRONG_ALTERNATIVES_SELECTOR).should('have.css', 'border-width', '3px');",
+              "err": {},
+              "uuid": "57991b47-6d70-419c-9b27-0a61774ed556",
+              "parentUUID": "4ceefb6e-f492-4af8-b35d-1bd1b06a2188",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f167ddad-e847-4d0b-8821-16dafd1c5f7d"
+          ],
+          "pending": [],
+          "skipped": [
+            "62787b45-8eca-443d-8daa-c86a15a586f0",
+            "c07484ea-5d7a-4924-8490-6212095d99ae",
+            "57991b47-6d70-419c-9b27-0a61774ed556"
+          ],
+          "duration": 1024,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "47c289d7-de49-4342-9153-6976557c3b03",
+          "title": "8 - [TELA DE JOGO] Desenvolva um timer onde a pessoa que joga tem 30 segundos para responder",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se é possível aguardar 5 segundos e responder a alternativa correta",
+              "fullTitle": "8 - [TELA DE JOGO] Desenvolva um timer onde a pessoa que joga tem 30 segundos para responder Será validado se é possível aguardar 5 segundos e responder a alternativa correta",
+              "timedOut": null,
+              "duration": 1143,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(5000);\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('not.be.disabled').click();",
+              "err": {
+                "message": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `8 - [TELA DE JOGO] Desenvol...`",
+                "estack": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `8 - [TELA DE JOGO] Desenvol...`\n    at Object.json (http://localhost:3000/__cypress/tests?p=cypress/e2e/05-11-tela-de-jogo.cy.js:481:96)\n    at async Login.handleBtn (http://localhost:3000/static/js/bundle.js:579:28)",
+                "diff": null
+              },
+              "uuid": "5922712b-75a9-4a36-8486-38ee5b6783e3",
+              "parentUUID": "47c289d7-de49-4342-9153-6976557c3b03",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se ao aguardar mais de 30 segundos para responder, todos botões estão desabilitados",
+              "fullTitle": "8 - [TELA DE JOGO] Desenvolva um timer onde a pessoa que joga tem 30 segundos para responder Será validado se ao aguardar mais de 30 segundos para responder, todos botões estão desabilitados",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(32000);\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).should('be.disabled');",
+              "err": {},
+              "uuid": "4283f824-4768-4d16-8291-eac42f3c69a5",
+              "parentUUID": "47c289d7-de49-4342-9153-6976557c3b03",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5922712b-75a9-4a36-8486-38ee5b6783e3"
+          ],
+          "pending": [],
+          "skipped": [
+            "4283f824-4768-4d16-8291-eac42f3c69a5"
+          ],
+          "duration": 1143,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "a95843b6-a8b3-4f47-9a71-ecceb8422dc3",
+          "title": "9 - [TELA DE JOGO] Crie o placar com as seguintes características:",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se os pontos são somados ao acertar uma questão",
+              "fullTitle": "9 - [TELA DE JOGO] Crie o placar com as seguintes características: Será validado se os pontos são somados ao acertar uma questão",
+              "timedOut": null,
+              "duration": 1186,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "let lastScore;\ncy.window().its('store').invoke('getState').then(state => {\n  lastScore = state.player.score;\n});\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click().then(() => {\n  cy.window().its('store').invoke('getState').then(state => {\n    expect(lastScore).to.be.lt(state.player.score);\n  });\n});",
+              "err": {
+                "message": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `9 - [TELA DE JOGO] Crie o p...`",
+                "estack": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `9 - [TELA DE JOGO] Crie o p...`\n    at Object.json (http://localhost:3000/__cypress/tests?p=cypress/e2e/05-11-tela-de-jogo.cy.js:481:96)\n    at async Login.handleBtn (http://localhost:3000/static/js/bundle.js:579:28)",
+                "diff": null
+              },
+              "uuid": "f3e72585-1876-4be7-86fd-e7c62ea4d927",
+              "parentUUID": "a95843b6-a8b3-4f47-9a71-ecceb8422dc3",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se os pontos não são somados ao errar uma questão",
+              "fullTitle": "9 - [TELA DE JOGO] Crie o placar com as seguintes características: Será validado se os pontos não são somados ao errar uma questão",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let lastScore;\ncy.window().its('store').invoke('getState').then(state => {\n  lastScore = state.player.score;\n});\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click().then(() => {\n  cy.window().its('store').invoke('getState').then(state => {\n    expect(lastScore).to.be.eq(state.player.score);\n  });\n});",
+              "err": {},
+              "uuid": "beb4852f-9a98-4259-8bfa-1399f94d3d0f",
+              "parentUUID": "a95843b6-a8b3-4f47-9a71-ecceb8422dc3",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f3e72585-1876-4be7-86fd-e7c62ea4d927"
+          ],
+          "pending": [],
+          "skipped": [
+            "beb4852f-9a98-4259-8bfa-1399f94d3d0f"
+          ],
+          "duration": 1186,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "731b4f95-6f25-4952-bed4-16c0b9f032d1",
+          "title": "10 - [TELA DE JOGO] Crie um botão de `Next` que apareça após a resposta ser dada",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se o botão \"Next\" não é visível no início do jogo",
+              "fullTitle": "10 - [TELA DE JOGO] Crie um botão de `Next` que apareça após a resposta ser dada Será validado se o botão \"Next\" não é visível no início do jogo",
+              "timedOut": null,
+              "duration": 1041,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(BUTTON_NEXT_QUESTION_SELECTOR).should('not.exist');",
+              "err": {
+                "message": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `10 - [TELA DE JOGO] Crie um...`",
+                "estack": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `10 - [TELA DE JOGO] Crie um...`\n    at Object.json (http://localhost:3000/__cypress/tests?p=cypress/e2e/05-11-tela-de-jogo.cy.js:481:96)\n    at async Login.handleBtn (http://localhost:3000/static/js/bundle.js:579:28)",
+                "diff": null
+              },
+              "uuid": "87653c53-b986-495b-a3a3-b6c6cc528a62",
+              "parentUUID": "731b4f95-6f25-4952-bed4-16c0b9f032d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se o botão \"Next\" é visível quando a pergunta é respondida corretamente",
+              "fullTitle": "10 - [TELA DE JOGO] Crie um botão de `Next` que apareça após a resposta ser dada Será validado se o botão \"Next\" é visível quando a pergunta é respondida corretamente",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).should('exist');",
+              "err": {},
+              "uuid": "b74f5796-0a42-41b1-a9e3-d29f4a518fc9",
+              "parentUUID": "731b4f95-6f25-4952-bed4-16c0b9f032d1",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se o botão \"Next\" é visível quando a pergunta é respondida incorretamente",
+              "fullTitle": "10 - [TELA DE JOGO] Crie um botão de `Next` que apareça após a resposta ser dada Será validado se o botão \"Next\" é visível quando a pergunta é respondida incorretamente",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(WRONG_ALTERNATIVES_SELECTOR).first().click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).should('be.visible');",
+              "err": {},
+              "uuid": "97390cd9-2544-44de-b353-c43ea0257fad",
+              "parentUUID": "731b4f95-6f25-4952-bed4-16c0b9f032d1",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "87653c53-b986-495b-a3a3-b6c6cc528a62"
+          ],
+          "pending": [],
+          "skipped": [
+            "b74f5796-0a42-41b1-a9e3-d29f4a518fc9",
+            "97390cd9-2544-44de-b353-c43ea0257fad"
+          ],
+          "duration": 1041,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "66af10a5-a8cc-4f92-8a2c-ff50756c1df7",
+          "title": "11 - [TELA DE JOGO] Desenvolva o jogo de forma que a pessoa que joga deve responder 5 perguntas no total",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Será validado se os pontos são somados de forma correta ao acertar todas as respostas",
+              "fullTitle": "11 - [TELA DE JOGO] Desenvolva o jogo de forma que a pessoa que joga deve responder 5 perguntas no total Será validado se os pontos são somados de forma correta ao acertar todas as respostas",
+              "timedOut": null,
+              "duration": 1086,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "let lastScore;\ncy.window().its('store').invoke('getState').then(state => {\n  lastScore = state.player.score;\n});\ncy.get(QUESTION_TEXT_SELECTOR).should('have.text', questionsResponse.results[0].question);\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click().then(() => {\n  cy.window().its('store').invoke('getState').then(state => {\n    expect(lastScore).to.be.lt(state.player.score);\n    lastScore = state.player.score;\n  });\n});\nfor (let i = 1; i <= 4; i += 1) {\n  cy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\n  cy.get(QUESTION_TEXT_SELECTOR).should('have.text', questionsResponse.results[i].question);\n  cy.get(CORRECT_ALTERNATIVE_SELECTOR).click().then(() => {\n    cy.window().its('store').invoke('getState').then(state => {\n      expect(lastScore).to.be.lt(state.player.score);\n      lastScore = state.player.score;\n    });\n  });\n}",
+              "err": {
+                "message": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `11 - [TELA DE JOGO] Desenvo...`",
+                "estack": "Error: The following error originated from your application code, not from Cypress. It was caused by an unhandled promise rejection.\n\n  > Not Found\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `11 - [TELA DE JOGO] Desenvo...`\n    at Object.json (http://localhost:3000/__cypress/tests?p=cypress/e2e/05-11-tela-de-jogo.cy.js:481:96)\n    at async Login.handleBtn (http://localhost:3000/static/js/bundle.js:579:28)",
+                "diff": null
+              },
+              "uuid": "abf1b3ee-d342-45aa-8778-6f349eb785fc",
+              "parentUUID": "66af10a5-a8cc-4f92-8a2c-ff50756c1df7",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Será validado se os pontos são somados de forma correta ao errar todas as respostas",
+              "fullTitle": "11 - [TELA DE JOGO] Desenvolva o jogo de forma que a pessoa que joga deve responder 5 perguntas no total Será validado se os pontos são somados de forma correta ao errar todas as respostas",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let lastScore;\ncy.window().its('store').invoke('getState').then(state => {\n  lastScore = state.player.score;\n});\ncy.get(QUESTION_TEXT_SELECTOR).should('have.text', questionsResponse.results[0].question);\ncy.get(WRONG_ALTERNATIVES_SELECTOR).first().click().then(() => {\n  cy.window().its('store').invoke('getState').then(state => {\n    expect(lastScore).to.be.eq(state.player.score);\n  });\n});\nfor (let i = 1; i <= 4; i += 1) {\n  cy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\n  cy.get(QUESTION_TEXT_SELECTOR).should('have.text', questionsResponse.results[i].question);\n  cy.get(WRONG_ALTERNATIVES_SELECTOR).first().click().then(() => {\n    cy.window().its('store').invoke('getState').then(state => {\n      expect(lastScore).to.be.eq(state.player.score);\n    });\n  });\n}",
+              "err": {},
+              "uuid": "87a9c2c7-cc30-4df9-8c4e-244c8f0b40fe",
+              "parentUUID": "66af10a5-a8cc-4f92-8a2c-ff50756c1df7",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Será validado se a pessoa usuária é redirecionada para a tela de _feedback_ após a quinta pergunta",
+              "fullTitle": "11 - [TELA DE JOGO] Desenvolva o jogo de forma que a pessoa que joga deve responder 5 perguntas no total Será validado se a pessoa usuária é redirecionada para a tela de _feedback_ após a quinta pergunta",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(CORRECT_ALTERNATIVE_SELECTOR).click();\ncy.get(BUTTON_NEXT_QUESTION_SELECTOR).click();\ncy.get(FEEDBACK_TEXT_SELECTOR).should('exist');",
+              "err": {},
+              "uuid": "64431501-eb42-4eb5-a116-498850c0816c",
+              "parentUUID": "66af10a5-a8cc-4f92-8a2c-ff50756c1df7",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "abf1b3ee-d342-45aa-8778-6f349eb785fc"
+          ],
+          "pending": [],
+          "skipped": [
+            "87a9c2c7-cc30-4df9-8c4e-244c8f0b40fe",
+            "64431501-eb42-4eb5-a116-498850c0816c"
+          ],
+          "duration": 1086,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
